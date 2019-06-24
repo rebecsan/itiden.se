@@ -5,9 +5,9 @@
   "author": "Daniel Brodin",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "prebuild": "yarn getcontent",
     "prestart": "yarn getcontent",
     "getcontent": "babel-node helpers/getContent.js",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^13.1.0",
+    "@contentful/rich-text-react-renderer": "^13.2.0",
     "@contentful/rich-text-types": "^13.1.0",
     "@zeit/next-typescript": "^1.1.1",
     "contentful": "^7.7.0",
@@ -26,6 +27,7 @@
     "react-dom": "^16.8.6",
     "react-spring": "^8.0.25",
     "react-use-gesture": "^5.1.2",
+    "sitemap": "^2.2.0",
     "styled-components": "^4.3.1",
     "styled-reboot": "^3.0.2"
   },
@@ -61,6 +63,11 @@
     "tailwindcss": "^1.0.4",
     "typescript": "^3.5.2"
   },
+  "browserslist": [
+    "last 2 versions",
+    "ie > 10",
+    "not dead"
+  ],
   "resolutions": {
     "styled-jsx": "3.2.1"
   },
