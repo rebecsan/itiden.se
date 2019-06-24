@@ -65,15 +65,19 @@ const Value = styled.dd`
 `;
 
 export const ProfileCard: React.FC<Employee> = props => {
-  const [flipped, set] = React.useState(false);
+  const [flipped, setFlipped] = React.useState(false);
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 },
   });
 
+  function handleClick() {
+    setFlipped(state => !state)
+  }
+
   return (
-    <Wrapper onClick={() => set(state => !state)}>
+    <Wrapper onClick={handleClick}>
       <CardFront
         {...props}
         style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
