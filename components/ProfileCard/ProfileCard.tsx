@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   height: 220px;
 `;
 const Card = styled(animated.div)`
-  ${tw`absolute cursor-pointer bg-gray-900 shadow-lg p-4 flex items-center justify-center rounded`}
+  ${tw`absolute cursor-pointer bg-gray-900 shadow-md p-4 flex items-center justify-center rounded`}
   width: 360px;
   height: 220px;
   will-change: transform, opacity;

@@ -6,5 +6,5 @@ export const Title = styled.h1`
 `;
 
 export const Body = styled.div`
-  ${tw`font-mono text-gray-700`}
+  ${tw`font-mono text-gray-700 text-lg`}
 `;
