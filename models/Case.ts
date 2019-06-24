@@ -3,6 +3,7 @@ import { Media } from './Media';
 import { Partner } from './Partner';
 
 export interface Case {
+  id: string;
   title: string;
   slug: string;
   description: Document;

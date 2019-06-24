@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 import { Case } from '../../models/Case';
-import Link from 'next/link';
+import { Link } from '../../routes';
 import { Tag } from '../Tag';
 
 type CasePreviewProps = Case;
@@ -93,7 +93,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
   }
 
   return (
-    <Link href={`/case/${slug}`}>
+    <Link route={`/case/${slug}`}>
       <Box {...bindGestures()}>
         <ImageContainer>
           <Image src={img.file.url} />
@@ -105,7 +105,9 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
         </TitleBox>
         <Tags>
           {technologies.map(tech => (
-            <Tag key={tech} inverted>{tech}</Tag>
+            <Tag key={tech} css={`${tw`ml-1 mt-1`}`} inverted>
+              {tech}
+            </Tag>
           ))}
         </Tags>
       </Box>

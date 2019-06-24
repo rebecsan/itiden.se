@@ -6,25 +6,12 @@ import tw from 'tailwind.macro';
 import { GlobalStyles } from '../Styles';
 
 const Wrapper = styled.div`
-  ${tw`mx-auto`}
-  /* margin-left: 300px; */
-  /* max-width: 900px; */
-  /* margin: 20px auto; */
-  /* font-family: 'Source Sans Pro', sans-serif; */
-  /* font-size: 16px; */
-  /* line-height: 1.4; */
-
-  /* @media (max-width: 900px) {
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-sizing: border-box;
-  } */
+  ${tw`mx-auto pb-32`}
 `;
 
 const Content = styled.div``;
 
-export default (props: any) => (
+export const Page: React.FC<{}> = props => (
   <>
     <GlobalStyles />
     <Header />

@@ -9,6 +9,8 @@ interface File {
 }
 
 export interface Media {
+  id: string;
   title: string;
+  description?: string;
   file: File;
 }

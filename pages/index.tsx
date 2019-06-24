@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Page from '../components/Layout/Page';
+import { Page, Header } from '../components/Layout';
 import { getCases } from '../data/data';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
@@ -8,10 +8,6 @@ import tw from 'tailwind.macro';
 import { withAmp } from 'next/amp';
 
 const cases = getCases();
-
-const Content = styled.div`
-  ${tw`pb-32 pt-20 bg-header`}
-`; 
 
 const CaseWrapper = styled.div`
   transform: translateY(-4rem);
@@ -21,9 +17,9 @@ const IndexPage: React.FC<{}> = () => {
   return (
     <Page>
       <IndexHeader />
-      <Content>
+      <Header>
         <Intro />
-      </Content>
+      </Header>
       <CaseWrapper>
         <CaseGrid cases={cases} />
       </CaseWrapper>

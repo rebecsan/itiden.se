@@ -1,27 +1,90 @@
+/// <reference types="styled-components/cssprop" />
+
 import React from 'react';
 import Head from 'next/head';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Case } from '../models/Case';
 import { getCases } from '../data/data';
+import { withRouter, WithRouterProps } from 'next/router';
+import { Page, Header } from '../components/Layout';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
+import { Title, Body } from '../components/Typography';
+import { Tag } from '../components/Tag';
+import { Media } from '../components/Media/Media';
 
 const cases = getCases();
-const slug = 'chemsec';
 
-const Case: React.FC<{}> = () => {
+interface CasePageRouterProps {
+  slug: string;
+}
+
+const Content = styled.div`
+  ${tw`m-auto`}
+  max-width: 800px;
+`;
+
+const Url = styled.a`
+  ${tw`font-bold`}
+`;
+
+const MediaContainer = styled.div`
+  ${tw`mt-8`}
+`;
+
+const CasePage: React.FC<WithRouterProps<CasePageRouterProps>> = props => {
+  const { slug = '' } = (props.router && props.router.query) || {};
   const data = cases.find(c => c.slug === slug);
 
   if (!data) {
     return null;
   }
 
+  const { title, technologies, description, url, media } = data;
+
   return (
-    <>
+    <Page>
       <CaseHeader {...data} />
-    </>
+      <Header>
+        <Content>
+          <Title>{title}</Title>
+          <Url href={url}>{url}</Url>
+          <Body
+            css={`
+              ${tw`mt-4`}
+            `}
+          >
+            {documentToReactComponents(description)}
+          </Body>
+          <div
+            css={`
+              ${tw`mt-8`}
+            `}
+          >
+            {technologies.map(tech => (
+              <Tag
+                key={tech}
+                css={`
+                  ${tw`mr-1 mb-1`}
+                `}
+              >
+                {tech}
+              </Tag>
+            ))}
+          </div>
+        </Content>
+      </Header>
+      <MediaContainer>
+        {media.map(m => (
+          <Media key={m.id} media={m} />
+        ))}
+      </MediaContainer>
+    </Page>
   );
 };
 
-export default Case;
+export default withRouter(CasePage);
 
 const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
   const imageUrl = media[0].file.url;

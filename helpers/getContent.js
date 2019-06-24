@@ -14,7 +14,10 @@ const client = createClient({
 
 function getFields(entry) {
   if (entry.sys) {
-    return entry.fields;
+    return {
+      id: entry.sys.id,
+      ...entry.fields,
+    };
   }
 
   return entry;
@@ -26,10 +29,11 @@ async function getCases() {
     content_type: 'case',
   });
 
-  const contents = entries.items.map(({ fields }) => {
+  const contents = entries.items.map(({ sys, fields }) => {
     const { media = [], partners = [], technologies = [], ...rest } = fields;
     return {
       ...rest,
+      id: sys.id,
       media: media.map(getFields),
       partners: partners.map(getFields),
       technologies: technologies.map(getFields).map(entry => entry.name),
