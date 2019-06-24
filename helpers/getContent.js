@@ -23,6 +23,25 @@ function getFields(entry) {
   return entry;
 }
 
+async function getEntries(type) {
+  const entries = await client.getEntries({
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    content_type: type,
+  });
+
+  const contents = entries.items.map(({ sys, fields }) => {
+    return {
+      id: sys.id,
+      ...fields,
+    };
+  });
+
+  fs.writeFileSync(
+    path.join(__dirname, '..', 'data', `${type}.json`),
+    JSON.stringify(contents)
+  );
+}
+
 async function getCases() {
   const entries = await client.getEntries({
     // eslint-disable-next-line @typescript-eslint/camelcase
@@ -48,6 +67,8 @@ async function getCases() {
 
 const getcontent = async () => {
   await getCases();
+  await getEntries('page');
+  await getEntries('employee');
   return true;
 };
 

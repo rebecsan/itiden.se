@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { data } from '../../data/data';
+import { getCases } from '../../data/data';
 import { CasePreview } from './CasePreview';
 import { CaseGrid } from './CaseGrid';
 
-const { cases } = data;
+const cases = getCases();
 
 storiesOf('CasePreview', module)
   .add('Default', () => <CasePreview {...cases[0]} />)

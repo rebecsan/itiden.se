@@ -1,13 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
 import { Page, Header } from '../components/Layout';
-import { getCases } from '../data/data';
+import { getCases, getPage } from '../data/data';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { withAmp } from 'next/amp';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const cases = getCases();
+const page = getPage('/');
 
 const CaseWrapper = styled.div`
   transform: translateY(-4rem);
@@ -39,28 +41,7 @@ const IntroText = styled.div`
 `;
 
 const Intro: React.FC<{}> = () => {
-  return (
-    <IntroText>
-      <p>
-        <b>itiden</b> är en <b>digital produktionsbyrå</b> i Göteborg som
-        utvecklar <b>webbplatser</b>,<b>tjänster</b>, <b>webbapplikationer</b>{' '}
-        och <b>mobilappar</b> tillsammans med kommunikationsbyråer och
-        teknikföretag inom många olika branscher. Dessutom är vi{' '}
-        <b>techpartner</b> i några spännande startups.
-      </p>
-      <p>
-        Sugen på att jobba med oss eller har en fråga? Skicka ett mail till{' '}
-        <a href="mailto: andi@itiden.se" aria-label="maila andi@itiden.se">
-          andi@itiden.se
-        </a>{' '}
-        eller ring{' '}
-        <a href="tel:0709597005" aria-label="ring 0709597005">
-          0709-597005
-        </a>
-        .
-      </p>
-    </IntroText>
-  );
+  return <IntroText>{documentToReactComponents(page.body)}</IntroText>;
 };
 
 const IndexHeader: React.FC<{}> = () => (

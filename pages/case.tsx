@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Case } from '../models/Case';
 import { getCases } from '../data/data';
 import { withRouter, WithRouterProps } from 'next/router';
-import { Page, Header } from '../components/Layout';
+import { Page, Header, HeaderContent } from '../components/Layout';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Title, Body } from '../components/Typography';
@@ -19,11 +19,6 @@ const cases = getCases();
 interface CasePageRouterProps {
   slug: string;
 }
-
-const Content = styled.div`
-  ${tw`m-auto`}
-  max-width: 800px;
-`;
 
 const Url = styled.a`
   ${tw`font-bold`}
@@ -47,7 +42,7 @@ const CasePage: React.FC<WithRouterProps<CasePageRouterProps>> = props => {
     <Page>
       <CaseHeader {...data} />
       <Header>
-        <Content>
+        <HeaderContent>
           <Title>{title}</Title>
           <Url href={url}>{url}</Url>
           <Body
@@ -73,7 +68,7 @@ const CasePage: React.FC<WithRouterProps<CasePageRouterProps>> = props => {
               </Tag>
             ))}
           </div>
-        </Content>
+        </HeaderContent>
       </Header>
       <MediaContainer>
         {media.map(m => (

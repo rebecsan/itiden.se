@@ -13,7 +13,7 @@ interface NavLinkProps {
 }
 
 const Wrapper = styled.a<{ active: boolean }>`
-  ${tw`p-4 inline-block font-light text-gray-700 text-2xl hover:text-primary-light`};
+  ${tw`p-4 inline-block font-light text-gray-700 text-xl hover:text-primary-light`};
   ${({ active }) => active && tw`font-bold`};
 `;
 

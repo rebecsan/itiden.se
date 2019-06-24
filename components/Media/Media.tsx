@@ -44,7 +44,7 @@ export const Media: React.FC<MediaProps> = ({ media }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper style={{ maxWidth: '800px' }}>
       <video controls muted width="100%" src={file.url} />
     </Wrapper>
   );

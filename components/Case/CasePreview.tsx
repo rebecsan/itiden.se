@@ -96,7 +96,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
     <Link route={`/case/${slug}`}>
       <Box {...bindGestures()}>
         <ImageContainer>
-          <Image src={img.file.url} />
+          <Image alt={img.title} src={img.file.url} />
         </ImageContainer>
         <TitleBox>
           <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
@@ -105,7 +105,13 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
         </TitleBox>
         <Tags>
           {technologies.map(tech => (
-            <Tag key={tech} css={`${tw`ml-1 mt-1`}`} inverted>
+            <Tag
+              key={tech}
+              css={`
+                ${tw`ml-1 mt-1`}
+              `}
+              inverted
+            >
               {tech}
             </Tag>
           ))}
