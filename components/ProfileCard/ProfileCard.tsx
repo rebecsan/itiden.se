@@ -6,7 +6,8 @@ import logo from '../../static/logo.svg';
 import { useSpring, animated } from 'react-spring';
 
 interface CardProps {
-  style: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  style?: any;
 }
 
 const Wrapper = styled.div`

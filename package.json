@@ -12,7 +12,11 @@
     "prestart": "yarn getcontent",
     "getcontent": "babel-node helpers/getContent.js",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test:ts": "tsc --noEmit --skipLibCheck",
+    "test:eslint": "eslint --ext .ts,.tsx --ignore-pattern node_modules/",
+    "lint": "tslint --project tsconfig.json",
+    "fix:lint": "yarn run lint --fix"
   },
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^13.1.0",

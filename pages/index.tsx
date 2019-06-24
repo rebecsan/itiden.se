@@ -41,6 +41,10 @@ const IntroText = styled.div`
 `;
 
 const Intro: React.FC<{}> = () => {
+  if (!page) {
+    return null;
+  }
+
   return <IntroText>{documentToReactComponents(page.body)}</IntroText>;
 };
 
