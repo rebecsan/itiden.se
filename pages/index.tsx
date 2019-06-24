@@ -16,11 +16,15 @@ const CaseWrapper = styled.div`
 `;
 
 const IndexPage: React.FC<{}> = () => {
+  if (!page) {
+    return null;
+  }
+
   return (
     <Page>
       <IndexHeader />
       <Header>
-        <Intro />
+        <IntroText>{documentToReactComponents(page.header)}</IntroText>
       </Header>
       <CaseWrapper>
         <CaseGrid cases={cases} />
@@ -39,14 +43,6 @@ const IntroText = styled.div`
     ${tw`text-primary font-bold`}
   }
 `;
-
-const Intro: React.FC<{}> = () => {
-  if (!page) {
-    return null;
-  }
-
-  return <IntroText>{documentToReactComponents(page.body)}</IntroText>;
-};
 
 const IndexHeader: React.FC<{}> = () => (
   <Head>

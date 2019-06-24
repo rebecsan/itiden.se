@@ -7,7 +7,7 @@ import { withAmp } from 'next/amp';
 import Head from 'next/head';
 import React from 'react';
 import tw from 'tailwind.macro';
-import { Header, HeaderContent, Page } from '../components/Layout';
+import { Header, HeaderContent, Page, Content } from '../components/Layout';
 import { Body, Title } from '../components/Typography';
 import { getPage } from '../data/data';
 import {
@@ -37,7 +37,7 @@ const KontaktPage: React.FC<{}> = () => {
     return null;
   }
 
-  const { title, body } = page;
+  const { title, header, body } = page;
 
   return (
     <Page>
@@ -50,10 +50,19 @@ const KontaktPage: React.FC<{}> = () => {
               ${tw`mt-4`}
             `}
           >
-            {documentToReactComponents(body, documentOptions)}
+            {documentToReactComponents(header, documentOptions)}
           </Body>
         </HeaderContent>
       </Header>
+      <Content>
+        <Body
+          css={`
+            ${tw`mt-4`}
+          `}
+        >
+          {documentToReactComponents(body, documentOptions)}
+        </Body>
+      </Content>
     </Page>
   );
 };
