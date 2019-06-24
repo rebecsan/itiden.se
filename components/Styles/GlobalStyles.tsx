@@ -5,7 +5,6 @@ import tw from 'tailwind.macro';
 export const GlobalStyles = createGlobalStyle`
   ${reboot()}
   body {
-    /* background: #f7f7f7; */
     ${tw`font-body bg-white`}
   }
   h2 {
