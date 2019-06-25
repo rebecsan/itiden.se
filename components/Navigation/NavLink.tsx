@@ -12,8 +12,9 @@ interface NavLinkProps {
 }
 
 const Wrapper = styled.a<{ active: boolean }>`
-  ${tw`p-4 inline-block font-light text-gray-700 text-xl hover:text-primary-light`};
+  ${tw`p-4 inline-block font-light text-secondary text-xl hover:text-brand-light`};
   ${({ active }) => active && tw`font-bold`};
+  transition: color .2s;
 `;
 
 export const NavLink = withRouter<NavLinkProps, {}>(

@@ -11,12 +11,21 @@ const Wrapper = styled.div`
 
 const Content = styled.div``;
 
-export const Page: React.FC<{}> = props => (
-  <>
-    <GlobalStyles />
-    <Header />
-    <Wrapper>
-      <Content>{props.children}</Content>
-    </Wrapper>
-  </>
-);
+export const Page: React.FC<{}> = props => {
+  React.useEffect(() => {
+    const html = document.querySelector('html');
+    if (html) {
+      html.classList.add('dark-mode');
+    }
+  }, []);
+
+  return (
+    <>
+      <GlobalStyles />
+      <Header />
+      <Wrapper>
+        <Content>{props.children}</Content>
+      </Wrapper>
+    </>
+  );
+};

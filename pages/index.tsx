@@ -36,11 +36,11 @@ const IndexPage: React.FC<{}> = () => {
 export default withAmp(IndexPage, { hybrid: true });
 
 const IntroText = styled.div`
-  ${tw`text-2xl text-gray-800 font-bold tracking-wide m-auto`}
+  ${tw`text-2xl text-primary font-bold tracking-wide m-auto`}
   max-width: 800px;
 
   & b {
-    ${tw`text-primary font-bold`}
+    ${tw`text-brand font-bold`}
   }
 `;
 

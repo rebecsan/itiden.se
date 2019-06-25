@@ -9,8 +9,19 @@ module.exports = {
     extend: {
       colors: {
         primary: { default: '#C75000', light: '#e4570e' },
-        header: '#fcfcfc',
+        brand: { default: '#C75000', light: '#e4570e' },
+        //header: '#fcfcfc',
+        header: 'var(--header-color)',
+        bg: { default: 'var(--bg-color)', light: '#fff', dark: '#1A1A1A'},
       },
+      fill: {
+        logo: 'var(--logo-color)',
+      },
+      textColor: {
+        primary: 'var(--text-color)',
+        secondary: 'var(--text-color-secondary)',
+        tertiary: 'var(--text-color-tertiary)',
+      }
     },
   },
   variants: {},
