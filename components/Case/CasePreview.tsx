@@ -93,7 +93,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
   }
 
   return (
-    <Link route={`/case/${slug}`}>
+    <Link route={`/case/${slug}`} prefetch>
       <Box {...bindGestures()}>
         <ImageContainer>
           <Image alt={img.title} src={img.file.url} />

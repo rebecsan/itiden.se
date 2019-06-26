@@ -1,7 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import { Page, Header } from '../components/Layout';
-import { getCases, getPage } from '../data/data';
+import { getCases } from '../data/case';
+import { getPage } from '../data/page';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';

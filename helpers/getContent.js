@@ -12,6 +12,12 @@ const client = createClient({
   accessToken: TOKEN,
 });
 
+const dataDir = path.join(__dirname, '..', 'data', 'data');
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir);
+}
+
 function getFields(entry) {
   if (entry.sys) {
     return {
@@ -37,7 +43,7 @@ async function getEntries(type) {
   });
 
   fs.writeFileSync(
-    path.join(__dirname, '..', 'data', `${type}.json`),
+    path.join(dataDir, `${type}.json`),
     JSON.stringify(contents)
   );
 }
@@ -59,10 +65,7 @@ async function getCases() {
     };
   });
 
-  fs.writeFileSync(
-    path.join(__dirname, '..', 'data', 'case.json'),
-    JSON.stringify(contents)
-  );
+  fs.writeFileSync(path.join(dataDir, 'case.json'), JSON.stringify(contents));
 }
 
 const getcontent = async () => {

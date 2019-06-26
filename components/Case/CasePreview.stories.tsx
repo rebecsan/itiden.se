@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { getCases } from '../../data/data';
+import { getCases } from '../../data/case';
 import { CasePreview } from './CasePreview';
 import { CaseGrid } from './CaseGrid';
 

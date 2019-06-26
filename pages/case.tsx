@@ -5,7 +5,7 @@ import Head from 'next/head';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Case } from '../models/Case';
-import { getCases } from '../data/data';
+import { getCases } from '../data/case';
 import { withRouter, WithRouterProps } from 'next/router';
 import { Page, Header, HeaderContent } from '../components/Layout';
 import styled from 'styled-components';

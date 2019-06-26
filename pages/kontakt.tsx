@@ -9,7 +9,7 @@ import React from 'react';
 import tw from 'tailwind.macro';
 import { Header, HeaderContent, Page, Content } from '../components/Layout';
 import { Body, Title } from '../components/Typography';
-import { getPage } from '../data/data';
+import { getPage } from '../data/page';
 import {
   getEmbeddedContentType,
   getEmbeddedFields,

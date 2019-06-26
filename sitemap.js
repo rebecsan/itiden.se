@@ -1,5 +1,5 @@
 const sm = require('sitemap');
-const cases = require('./data/case.json');
+const cases = require('./data/data/case.json');
 
 const urls = [{ url: '/' }, { url: '/kontakt' }];
 
