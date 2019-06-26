@@ -12,7 +12,7 @@ const invertedStyle = css`
 `;
 
 const Box = styled.div<TagProps>`
-  ${tw`px-3 py-1 rounded-full border-solid border text-gray-700 text-xs inline-block font-mono font-bold hover:text-gray-900`};
+  ${tw`px-3 py-1 rounded-full border-solid border text-tertiary text-xs inline-block font-mono font-bold hover:text-primary`};
 
   ${p => (p.inverted ? invertedStyle : '')}
 `;
