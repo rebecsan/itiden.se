@@ -20,11 +20,11 @@ const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
     return <div>404</div>;
   }
 
-  const { title, header, body } = page;
+  const { title, header, body, description } = page;
 
   return (
     <Page>
-      <PageHeader title={title} />
+      <PageHeader title={title} description={description} />
       <Header>
         <HeaderContent>
           <Title>{title}</Title>
@@ -52,12 +52,12 @@ const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
 
 export default withAmp(withRouter(PagePage), { hybrid: true });
 
-const PageHeader: React.FC<{ title: string }> = ({ title }) => (
+const PageHeader: React.FC<{ title: string; description: string }> = ({
+  title,
+  description,
+}) => (
   <Head>
     <title>itiden - {title}</title>
-    <meta
-      name="Description"
-      content="Sugen på att jobba med oss eller har en fråga? Skicka ett mail till andi@itiden.se eller ring 0709-597005"
-    />
+    <meta name="Description" content={description} />
   </Head>
 );
