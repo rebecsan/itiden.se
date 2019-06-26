@@ -6,7 +6,6 @@ import { getPage } from '../data/page';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { withAmp } from 'next/amp';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const cases = getCases();
@@ -34,7 +33,7 @@ const IndexPage: React.FC<{}> = () => {
   );
 };
 
-export default withAmp(IndexPage, { hybrid: true });
+export default IndexPage;
 
 const IntroText = styled.div`
   ${tw`text-2xl text-primary font-bold tracking-wide m-auto`}

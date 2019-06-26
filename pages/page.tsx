@@ -1,4 +1,3 @@
-import { withAmp } from 'next/amp';
 import Head from 'next/head';
 import { withRouter, WithRouterProps } from 'next/router';
 import React from 'react';
@@ -50,7 +49,7 @@ const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
   );
 };
 
-export default withAmp(withRouter(PagePage), { hybrid: true });
+export default withRouter(PagePage);
 
 const PageHeader: React.FC<{ title: string; description: string }> = ({
   title,

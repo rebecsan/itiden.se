@@ -5,7 +5,8 @@ const withOptimizedImages = require('next-optimized-images');
 module.exports = withCSS(
   withOptimizedImages(
     withTypescript({
-      amp: true,
+      // amp: true,
+      exportPathMap: 'out'
     })
   )
 );
