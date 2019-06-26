@@ -16,8 +16,11 @@ import {
 } from '../helpers/contentHelpers';
 import { Employee } from '../models/Employee';
 import { ProfileCard } from '../components/ProfileCard';
+import { withRouter, WithRouterProps } from 'next/router';
 
-const page = getPage('kontakt');
+interface PageRouterProps {
+  slug: string;
+}
 
 const documentOptions: Options = {
   renderNode: {
@@ -32,16 +35,18 @@ const documentOptions: Options = {
   },
 };
 
-const KontaktPage: React.FC<{}> = () => {
+const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
+  const { slug = '' } = (props.router && props.router.query) || {};
+  const page = getPage(slug);
   if (!page) {
-    return null;
+    return '404';
   }
 
   const { title, header, body } = page;
 
   return (
     <Page>
-      <KontaktHeader />
+      <PageHeader title={title} />
       <Header>
         <HeaderContent>
           <Title>{title}</Title>
@@ -67,11 +72,11 @@ const KontaktPage: React.FC<{}> = () => {
   );
 };
 
-export default withAmp(KontaktPage, { hybrid: true });
+export default withAmp(withRouter(PagePage), { hybrid: true });
 
-const KontaktHeader: React.FC<{}> = () => (
+const PageHeader: React.FC<{ title: string }> = ({ title }) => (
   <Head>
-    <title>itiden - kontakta oss</title>
+    <title>itiden - {title}</title>
     <meta
       name="Description"
       content="Sugen på att jobba med oss eller har en fråga? Skicka ett mail till andi@itiden.se eller ring 0709-597005"

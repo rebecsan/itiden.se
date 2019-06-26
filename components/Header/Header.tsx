@@ -5,12 +5,12 @@ import { NavLink } from '../Navigation/NavLink';
 import tw from 'tailwind.macro';
 import { Logo } from '../Logo';
 import { animated, useSpring } from 'react-spring';
+import { menu } from '../../data/menu';
 
 const { Link } = routes;
 
 const Wrapper = styled.div`
   ${tw`bg-header`};
-  transition: background 0.2s;
 `;
 
 const Content = styled.div`
@@ -29,15 +29,15 @@ const DarkMode = styled.button`
 const ModeOverlay = styled(({ darkMode, ...rest }) => (
   <animated.div {...rest} />
 ))`
-  //${tw`fixed bg-bg-dark`}
   position: fixed;
   top: 0;
-  width: 100vw;
-  //opacity: 0;
   z-index: 1000;
-  .dark-mode & {
-    //${tw`bg-bg-light`}
-  }
+  overflow: hidden;
+`;
+
+const ModeBg = styled.div`
+  height: 100%;
+  padding-bottom: 100%;
 `;
 
 function setDarkMode(darkMode: boolean) {
@@ -52,38 +52,37 @@ function setDarkMode(darkMode: boolean) {
 }
 
 export const Header: React.FC<{}> = () => {
-  //const [darkMode, setDarkMode] = React.useState(false);
-  const [animProps, setAnimProps] = useSpring(() => ({
-    opacity: 0,
-    height: 0,
-  }));
+  // const [animProps, setAnimProps] = useSpring(() => ({
+  //   opacity: 0,
+  //   height: 0,
+  //   width: 0,
+  //   borderRadius: 200,
+  // }));
+  // const modeRef = React.useRef<HTMLDivElement | null>(null);
 
-  /*React.useEffect(() => {
-    const html = document.querySelector('html');
-    if (html) {
-      if (darkMode) {
-        html.classList.remove('dark-mode');
-      } else {
-        html.classList.add('dark-mode');
-      }
-    }
-  }, [darkMode]);*/
-
-  const toggleDarkMode = async () => {
-    const isDarkMode = document.documentElement.classList.contains('dark-mode');
-    setAnimProps({
-      to: async next => {
-        await next({ opacity: 1, height: window.innerHeight });
-        setDarkMode(isDarkMode);
-        await next({ opacity: 0, height: 0 })
-      }
-    });
-    //setDarkMode(current => !current)
-  };
+  // const toggleDarkMode = async () => {
+  //   const isDarkMode = document.documentElement.classList.contains('dark-mode');
+  //   const size = Math.max(window.innerWidth, window.innerHeight);
+  //   if (modeRef.current) {
+  //     modeRef.current.style.background = isDarkMode ? '#fff' : '#1A1A1A';
+  //   }
+  //   setAnimProps({
+  //     to: async next => {
+  //       await next({ opacity: 1, height: size, width: size, borderRadius: 0 });
+  //       setDarkMode(isDarkMode);
+  //       await next({ opacity: 0 });
+  //       await next({
+  //         height: 0,
+  //         width: 0,
+  //         borderRadius: 200,
+  //         config: { immediate: true },
+  //       });
+  //     },
+  //   });
+  // };
 
   return (
     <>
-      <ModeOverlay style={animProps} />
       <Wrapper>
         <Content>
           <Link href="/" prefetch>
@@ -95,13 +94,11 @@ export const Header: React.FC<{}> = () => {
             <NavLink href="/" prefetch passHref>
               Case
             </NavLink>
-            <NavLink href="/labs" prefetch passHref>
-              Labs
-            </NavLink>
-            <NavLink href="/kontakt" prefetch passHref>
-              Kontakt
-            </NavLink>
-            <DarkMode onClick={toggleDarkMode} />
+            {menu.map(item => (
+              <NavLink key={item.id} href={`/${item.slug}`} prefetch passHref>
+                {item.label}
+              </NavLink>
+            ))}
           </Menu>
         </Content>
       </Wrapper>

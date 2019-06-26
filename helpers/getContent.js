@@ -68,8 +68,25 @@ async function getCases() {
   fs.writeFileSync(path.join(dataDir, 'case.json'), JSON.stringify(contents));
 }
 
+async function getMenu() {
+  const entries = await client.getEntries({
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    content_type: 'menu',
+  });
+
+  const contents = entries.items.map(({ sys, fields }) => {
+    return {
+      id: sys.id,
+      label: fields.label,
+      slug: getFields(fields.page).slug,
+    };
+  });
+  fs.writeFileSync(path.join(dataDir, 'menu.json'), JSON.stringify(contents));
+}
+
 const getcontent = async () => {
   await getCases();
+  await getMenu();
   await getEntries('page');
   await getEntries('employee');
   return true;

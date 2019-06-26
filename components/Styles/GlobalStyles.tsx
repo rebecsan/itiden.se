@@ -30,17 +30,16 @@ export const GlobalStyles = createGlobalStyle`
   body {
     ${tw`font-body`}
     background: var(--bg-color);
-    transition: background .2s;
   }
   h2 {
     margin-bottom: 0.2rem;
   }
   a {
-    ${tw`text-primary`}
+    ${tw`text-brand`}
     text-decoration: none;
 
     &:hover {
-      ${tw`text-primary-light`}
+      ${tw`text-brand-light`}
       text-decoration: none;
     }
   }
