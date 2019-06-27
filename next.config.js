@@ -13,7 +13,7 @@ module.exports = withCSS(
           '/': { page: '/' },
         }
 
-        pages.forEach(page => {
+        pages.filter(page => page.slug !== '/').forEach(page => {
           paths[`/${page.slug}`] = { page: '/page', query: { slug: page.slug } };
         });
         cases.forEach(c => {
