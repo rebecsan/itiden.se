@@ -14,10 +14,10 @@ module.exports = withCSS(
         }
 
         pages.forEach(page => {
-          paths[`/${page.slug}`] = { page: '/page' };
+          paths[`/${page.slug}`] = { page: '/page', query: { slug: page.slug } };
         });
         cases.forEach(c => {
-          paths[`/case/${c.slug}`] = { page: '/case' };
+          paths[`/case/${c.slug}`] = { page: '/case', query: { slug: c.slug } };
         });
 
         return paths;
