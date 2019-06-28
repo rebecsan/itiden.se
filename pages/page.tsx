@@ -1,25 +1,23 @@
+import { NextFunctionComponent } from 'next';
 import Head from 'next/head';
-import { withRouter, WithRouterProps } from 'next/router';
+import { withRouter } from 'next/router';
 import React from 'react';
 import tw from 'tailwind.macro';
 import { Document } from '../components/Contentful';
 import { Content, Header, HeaderContent, Page } from '../components/Layout';
 import { Body, Title } from '../components/Typography';
-import { getPage } from '../data/page';
+import { Page as PageModel } from '../models';
 
-interface PageRouterProps {
-  slug: string;
+interface PageProps {
+  data: PageModel | undefined;
 }
 
-const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
-  const { slug = '' } = (props.router && props.router.query) || {};
-  const page = getPage(slug);
-
-  if (!page) {
+const PagePage: NextFunctionComponent<PageProps> = ({ data }) => {
+  if (!data) {
     return <div>404</div>;
   }
 
-  const { title, header, body, description } = page;
+  const { title, header, body, description } = data;
 
   return (
     <Page>
@@ -47,6 +45,22 @@ const PagePage: React.FC<WithRouterProps<PageRouterProps>> = props => {
       </Content>
     </Page>
   );
+};
+
+async function fetchPage({ slug = '' }) {
+  const json = await import('../data/data/page.json');
+  let arr: object | PageModel[] = json;
+  // Why is json an object?
+  if (typeof json === 'object') {
+    arr = Object.entries(json).map(([, value]) => value);
+  }
+  const data = (arr as PageModel[]).find(c => c.slug === slug);
+  return { arr, data, type: typeof json };
+}
+
+PagePage.getInitialProps = async ({ query }) => {
+  const data = await fetchPage(query);
+  return data;
 };
 
 export default withRouter(PagePage);

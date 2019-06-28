@@ -1,23 +1,21 @@
 /// <reference types="styled-components/cssprop" />
 
-import React from 'react';
-import Head from 'next/head';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Case } from '../models/Case';
-import { getCases } from '../data/case';
-import { withRouter, WithRouterProps } from 'next/router';
-import { Page, Header, HeaderContent } from '../components/Layout';
+import { NextFunctionComponent } from 'next';
+import Head from 'next/head';
+import { withRouter } from 'next/router';
+import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { Title, Body } from '../components/Typography';
-import { Tag } from '../components/Tag';
+import { Header, HeaderContent, Page } from '../components/Layout';
 import { Media } from '../components/Media/Media';
+import { Tag } from '../components/Tag';
+import { Body, Title } from '../components/Typography';
+import { Case } from '../models/Case';
 
-const cases = getCases();
-
-interface CasePageRouterProps {
-  slug: string;
+interface CasePageProps {
+  data: Case | undefined;
 }
 
 const Url = styled.a`
@@ -28,10 +26,7 @@ const MediaContainer = styled.div`
   ${tw`mt-8`}
 `;
 
-const CasePage: React.FC<WithRouterProps<CasePageRouterProps>> = props => {
-  const { slug = '' } = (props.router && props.router.query) || {};
-  const data = cases.find(c => c.slug === slug);
-
+const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {
   if (!data) {
     return null;
   }
@@ -77,6 +72,22 @@ const CasePage: React.FC<WithRouterProps<CasePageRouterProps>> = props => {
       </MediaContainer>
     </Page>
   );
+};
+
+async function fetchCase({ slug = '' }) {
+  const json = await import('../data/data/case.json');
+  let arr: object | Case[] = json;
+  // Why is json an object?
+  if (typeof json === 'object') {
+    arr = Object.entries(json).map(([, value]) => value);
+  }
+  const data = (arr as Case[]).find(c => c.slug === slug);
+  return { arr, data, type: typeof json };
+}
+
+CasePage.getInitialProps = async ({ query }) => {
+  const data = await fetchCase(query);
+  return data;
 };
 
 export default withRouter(CasePage);
