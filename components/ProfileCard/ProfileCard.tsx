@@ -42,7 +42,7 @@ const Content = styled.dl`
 `;
 
 const Label = styled.dt`
-  ${tw`text-brand-light inline-block`}
+  ${tw`text-brand inline-block`}
 
   &:before {
     content: '"';
@@ -127,7 +127,7 @@ export const CardBack: React.FC<CardProps> = props => {
     <Card
       {...props}
       css={`
-        ${tw`bg-brand-light`}
+        ${tw`bg-brand`}
       `}
     >
       <Logo src={logo} alt="itiden logga" />

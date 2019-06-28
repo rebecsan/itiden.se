@@ -23,7 +23,7 @@ const Url = styled.a`
 `;
 
 const MediaContainer = styled.div`
-  ${tw`mt-8`}
+  transform: translateY(-4rem);
 `;
 
 const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {

@@ -17,14 +17,27 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .dark-mode {
-    --bg-color: #171717;
-    --header-color: #1A1A1A;
-    --logo-color: #e4570e;
-    --primary-color: #e4570e;
+    --bg-color: #181819;
+    --header-color: #161617;
+    --logo-color: #ea6912;
+    --primary-color: #ea6912;
     --primary-color-light: #e4570e;
     --text-color: #E0E0E0;
     --text-color-secondary: #F2F2F2;
     --text-color-tertiary: #4a5568;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #181819;
+      --header-color: #161617;
+      --logo-color: #ea6912;
+      --primary-color: #ea6912;
+      --primary-color-light: #e4570e;
+      --text-color: #E0E0E0;
+      --text-color-secondary: #F2F2F2;
+      --text-color-tertiary: #4a5568;
+    }
   }
 
   body {
