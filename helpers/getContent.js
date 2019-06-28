@@ -2,10 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { createClient } = require('contentful');
 
-// const env = require('dotenv').config();
+require('dotenv').config();
 
-// const SPACE = env.parsed.CONTENTFUL_SPACE;
-// const TOKEN = env.parsed.CONTENTFUL_TOKEN;
 const SPACE = process.env.CONTENTFUL_SPACE;
 const TOKEN = process.env.CONTENTFUL_TOKEN;
 

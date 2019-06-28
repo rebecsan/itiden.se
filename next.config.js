@@ -8,6 +8,7 @@ const cases = require('./data/data/case.json');
 module.exports = withCSS(
   withOptimizedImages(
     withTypescript({
+      optimizeImages: false,
       exportPathMap: async function() {
         const paths = {
           '/': { page: '/' },
