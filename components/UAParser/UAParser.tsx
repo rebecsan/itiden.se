@@ -71,6 +71,10 @@ export function UANextWrapper<T>(PageComponent: NextComponentType<T>) {
     public static async getInitialProps(ctx: any) {
       let pageProps = {};
 
+      if (PageComponent.getInitialProps) {
+        pageProps = await PageComponent.getInitialProps(ctx);
+      }
+
       const ua = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
 
       return { pageProps, userAgent: ua };

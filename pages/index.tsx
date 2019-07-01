@@ -36,7 +36,6 @@ const IndexPage: React.FC<{}> = () => {
   );
 };
 
-// export default IndexPage;
 export default UANextWrapper(IndexPage);
 
 const IntroText = styled(HeaderContent)`

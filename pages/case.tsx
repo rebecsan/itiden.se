@@ -10,9 +10,10 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Header, HeaderContent, Page } from '../components/Layout';
 import { Media } from '../components/Media/Media';
-import { Tag, Tags } from '../components/Tag';
+import { Tags } from '../components/Tag';
 import { Body, Title } from '../components/Typography';
 import { Case } from '../models/Case';
+import { UANextWrapper } from '../components/UAParser';
 
 interface CasePageProps {
   data: Case | undefined;
@@ -90,7 +91,7 @@ CasePage.getInitialProps = async ({ query }) => {
   return data;
 };
 
-export default withRouter(CasePage);
+export default UANextWrapper(withRouter(CasePage));
 
 const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
   const imageUrl = media[0].file.url;
