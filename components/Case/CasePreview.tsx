@@ -7,7 +7,7 @@ import { Case } from '../../models/Case';
 import { Link } from '../../routes';
 import { Tag } from '../Tag';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
-import { useUA } from '../UAParser';
+import { useUA, UADisplay } from '../UAParser';
 
 type CasePreviewProps = Case;
 
@@ -70,13 +70,16 @@ const trans1 = (x: number, y: number, z: number) =>
   `translate3d(${x / 22}px, ${y / 22}px, 0) scale(${z})`;
 
 export const CasePreview: React.FC<CasePreviewProps> = props => {
-  const isDesktop = useUA('desktop');
-
-  if (isDesktop) {
-    return <CasePreviewDesktop {...props} />;
-  }
-
-  return <CasePreviewDefault {...props} />;
+  return (
+    <>
+      <UADisplay type="mobile">
+        <CasePreviewDefault {...props} />
+      </UADisplay>
+      <UADisplay type="desktop">
+        <CasePreviewDesktop {...props} />
+      </UADisplay>
+    </>
+  );
 };
 
 const CasePreviewDefault: React.FC<CasePreviewProps> = ({
@@ -92,7 +95,11 @@ const CasePreviewDefault: React.FC<CasePreviewProps> = ({
 
   return (
     <Link route={`/case/${slug}`} prefetch>
-      <div css={`${tw`mb-4`}`}>
+      <div
+        css={`
+          ${tw`mb-4`}
+        `}
+      >
         <Image alt={img.title} src={img.file.url} />
         <div>{title}</div>
       </div>
