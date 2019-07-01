@@ -6,8 +6,6 @@ import { useGesture } from 'react-use-gesture';
 import { Case } from '../../models/Case';
 import { Link } from '../../routes';
 import { Tag } from '../Tag';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
-import { useUA, UADisplay } from '../UAParser';
 
 type CasePreviewProps = Case;
 
@@ -16,9 +14,11 @@ const ImageContainer = styled(animated.div)`
   transform: scale(1);
   transition: all 0.2s;
 
-  &:hover {
-    z-index: 1;
-    transform: scale(1.1);
+  @media (min-width: 768px) {
+    &:hover {
+      z-index: 1;
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -29,20 +29,22 @@ const Image = styled(animated.img)`
 `;
 
 const TitleBox = styled.div`
-  ${tw`absolute rounded-sm bg-black flex items-center inset-0 pointer-events-none`};
-  mix-blend-mode: multiply;
-  opacity: 0;
-  transform: translate3d(-100px, 0, 0);
-  transition: all 0.3s;
-  z-index: 2;
+  @media (min-width: 768px) {
+    ${tw`absolute rounded-sm bg-black flex items-center inset-0 pointer-events-none`};
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+    transition: all 0.3s;
+    z-index: 2;
+  }
 `;
 
 const Title = styled(animated.div)`
-  ${tw`font-mono font-bold text-2xl lg:text-2xl xl:text-4xl font-semiBold text-white relative pl-20 pr-20 w-full`}
+  ${tw`font-mono font-bold text-lg md:text-2xl lg:text-2xl xl:text-4xl font-semiBold text-primary md:text-white relative md:px-20 w-full`}
 `;
 
 const Tags = styled.div`
-  ${tw`absolute bottom-0 right-0 p-4 flex flex-wrap flex-row-reverse items-end`}
+  ${tw`absolute bottom-0 right-0 p-4 hidden md:flex flex-wrap flex-row-reverse items-end`}
   opacity: 0;
   z-index: 10;
   width: 50%;
@@ -53,34 +55,23 @@ const Box = styled.div`
   box-sizing: border-box;
   cursor: pointer;
 
-  &:hover {
-    z-index: 1;
-    ${TitleBox}, ${Tags} {
-      opacity: 1;
-      transform: translate3d(0px, 0, 0);
-    }
+  @media (min-width: 768px) {
+    &:hover {
+      z-index: 1;
+      ${TitleBox}, ${Tags} {
+        opacity: 1;
+        transform: translate3d(0px, 0, 0);
+      }
 
-    ${Image} {
-      opacity: 0.5;
+      ${Image} {
+        opacity: 0.5;
+      }
     }
   }
 `;
 
 const trans1 = (x: number, y: number, z: number) =>
   `translate3d(${x / 22}px, ${y / 22}px, 0) scale(${z})`;
-
-export const CasePreview: React.FC<CasePreviewProps> = props => {
-  return (
-    <>
-      <UADisplay type="mobile">
-        <CasePreviewDefault {...props} />
-      </UADisplay>
-      <UADisplay type="desktop">
-        <CasePreviewDesktop {...props} />
-      </UADisplay>
-    </>
-  );
-};
 
 const CasePreviewDefault: React.FC<CasePreviewProps> = ({
   title,
@@ -94,7 +85,7 @@ const CasePreviewDefault: React.FC<CasePreviewProps> = ({
   }
 
   return (
-    <Link route={`/case/${slug}`} prefetch>
+    <Link route={`/case/${slug}`}>
       <div
         css={`
           ${tw`mb-4`}
@@ -107,7 +98,7 @@ const CasePreviewDefault: React.FC<CasePreviewProps> = ({
   );
 };
 
-const CasePreviewDesktop: React.FC<CasePreviewProps> = ({
+export const CasePreview: React.FC<CasePreviewProps> = ({
   title,
   media,
   slug,
@@ -136,9 +127,11 @@ const CasePreviewDesktop: React.FC<CasePreviewProps> = ({
     return null;
   }
 
+  const bindings = typeof window !== 'undefined' && window.innerWidth >= 768 ? bindGestures() : {};
+
   return (
-    <Link route={`/case/${slug}`} prefetch>
-      <Box {...bindGestures()}>
+    <Link route={`/case/${slug}`}>
+      <Box {...bindings}>
         <ImageContainer>
           <Image alt={img.title} src={img.file.url} />
         </ImageContainer>
