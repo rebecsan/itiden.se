@@ -82,7 +82,7 @@ export function UANextWrapper<T>(PageComponent: NextComponentType<T>) {
       }
       if (ctx.req && ctx.req.headers) {
         ua = ctx.req.headers['user-agent'];
-      } else if (navigator) {
+      } else if (typeof navigator !== 'undefined') {
         ua = navigator.userAgent;
       }
 
