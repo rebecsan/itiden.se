@@ -6,6 +6,8 @@ import { useGesture } from 'react-use-gesture';
 import { Case } from '../../models/Case';
 import { Link } from '../../routes';
 import { Tag } from '../Tag';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { useUA } from '../UAParser';
 
 type CasePreviewProps = Case;
 
@@ -27,7 +29,7 @@ const Image = styled(animated.img)`
 `;
 
 const TitleBox = styled.div`
-  ${tw`absolute bg-black flex items-center inset-0 pointer-events-none`};
+  ${tw`absolute rounded-sm bg-black flex items-center inset-0 pointer-events-none`};
   mix-blend-mode: multiply;
   opacity: 0;
   transform: translate3d(-100px, 0, 0);
@@ -36,7 +38,7 @@ const TitleBox = styled.div`
 `;
 
 const Title = styled(animated.div)`
-  ${tw`font-mono font-bold text-4xl font-semiBold text-white relative pl-20 pr-20 w-full`}
+  ${tw`font-mono font-bold text-2xl lg:text-2xl xl:text-4xl font-semiBold text-white relative pl-20 pr-20 w-full`}
 `;
 
 const Tags = styled.div`
@@ -57,13 +59,48 @@ const Box = styled.div`
       opacity: 1;
       transform: translate3d(0px, 0, 0);
     }
+
+    ${Image} {
+      opacity: 0.5;
+    }
   }
 `;
 
 const trans1 = (x: number, y: number, z: number) =>
   `translate3d(${x / 22}px, ${y / 22}px, 0) scale(${z})`;
 
-export const CasePreview: React.FC<CasePreviewProps> = ({
+export const CasePreview: React.FC<CasePreviewProps> = props => {
+  const isDesktop = useUA('desktop');
+
+  if (isDesktop) {
+    return <CasePreviewDesktop {...props} />;
+  }
+
+  return <CasePreviewDefault {...props} />;
+};
+
+const CasePreviewDefault: React.FC<CasePreviewProps> = ({
+  title,
+  media,
+  slug,
+}) => {
+  const img = media[0] || null;
+
+  if (!img) {
+    return null;
+  }
+
+  return (
+    <Link route={`/case/${slug}`} prefetch>
+      <div css={`${tw`mb-4`}`}>
+        <Image alt={img.title} src={img.file.url} />
+        <div>{title}</div>
+      </div>
+    </Link>
+  );
+};
+
+const CasePreviewDesktop: React.FC<CasePreviewProps> = ({
   title,
   media,
   slug,

@@ -1,18 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
-import { Page, Header } from '../components/Layout';
+import { Page, Header, HeaderContent } from '../components/Layout';
 import { getCases } from '../data/case';
 import { getPage } from '../data/page';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { UANextWrapper } from '../components/UAParser';
 
 const cases = getCases();
 const page = getPage('/');
 
 const CaseWrapper = styled.div`
-  transform: translateY(-4rem);
+  @media (min-width: 768px) {
+    transform: translateY(-4rem);
+  }
 `;
 
 const IndexPage: React.FC<{}> = () => {
@@ -33,11 +36,11 @@ const IndexPage: React.FC<{}> = () => {
   );
 };
 
-export default IndexPage;
+// export default IndexPage;
+export default UANextWrapper(IndexPage);
 
-const IntroText = styled.div`
-  ${tw`text-2xl text-primary font-bold tracking-wide m-auto`}
-  max-width: 800px;
+const IntroText = styled(HeaderContent)`
+  ${tw`text-lg md:text-2xl text-primary font-bold tracking-wide`}
 
   & b {
     ${tw`text-brand font-bold`}

@@ -9,10 +9,12 @@ interface MediaProps {
 
 const Wrapper = styled.div`
   ${tw`mb-8 mx-auto`}
+  max-width: 100%;
 `;
 
 const Image = styled.img`
   ${tw`block mx-auto`}
+  max-width: 100%; 
 `;
 
 const Caption = styled.figcaption`
@@ -34,8 +36,8 @@ export const Media: React.FC<MediaProps> = ({ media }) => {
           <Image
             alt={title}
             src={media.file.url}
-            width={width}
-            height={height}
+            // width={width}
+            // height={height}
           />
           {description && <Caption>{description}</Caption>}
         </figure>

@@ -1,13 +1,20 @@
 import React from 'react';
 import tw from 'tailwind.macro';
 
-export const Logo: React.FC<{}> = () => {
+interface LogoProps {
+  className?: string;
+}
+
+export const Logo: React.FC<LogoProps> = props => {
   return (
     <svg
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 258.6 77.3"
-      css={`${tw`fill-logo`}; height: 48px;`}
+      css={`
+        ${tw`fill-logo`};
+      `}
+      {...props}
     >
       <path
         className="st0"

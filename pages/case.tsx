@@ -23,7 +23,9 @@ const Url = styled.a`
 `;
 
 const MediaContainer = styled.div`
-  transform: translateY(-4rem);
+  @media (min-width: 768px) {
+    transform: translateY(-4rem);
+  }
 `;
 
 const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {

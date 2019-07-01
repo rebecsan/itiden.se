@@ -64,6 +64,10 @@ const Value = styled.dd`
   }
 `;
 
+const Link = styled.a`
+  ${tw`text-white inline-block`}
+`;
+
 export const ProfileCard: React.FC<Employee> = props => {
   const [flipped, setFlipped] = React.useState(false);
   const { transform, opacity } = useSpring({
@@ -73,20 +77,20 @@ export const ProfileCard: React.FC<Employee> = props => {
   });
 
   function handleClick() {
-    setFlipped(state => !state)
+    setFlipped(state => !state);
   }
 
   return (
     <Wrapper onClick={handleClick}>
-      <CardFront
-        {...props}
-        style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
-      />
       <CardBack
         style={{
           opacity,
           transform: transform.interpolate(t => `${t} rotateX(180deg)`),
         }}
+      />
+      <CardFront
+        {...props}
+        style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
       />
     </Wrapper>
   );
@@ -106,9 +110,19 @@ export const CardFront: React.FC<Employee & CardProps> = ({
         <br />
         <Label>title</Label> <Value>{title}</Value>
         <br />
-        <Label>email</Label> <Value>{email}</Value>
+        <Label>email</Label>{' '}
+        <Value>
+          <Link href={`mailto:${email}`} onClick={e => e.stopPropagation()}>
+            {email}
+          </Link>
+        </Value>
         <br />
-        <Label>phone</Label> <Value>{phone}</Value>
+        <Label>phone</Label>{' '}
+        <Value>
+          <Link href={`tel:${phone}`} onClick={e => e.stopPropagation()}>
+            {phone}
+          </Link>
+        </Value>
       </Content>
     </Card>
   );
