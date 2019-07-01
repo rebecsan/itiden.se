@@ -24,14 +24,6 @@ interface Result {
   desktop: boolean;
 }
 
-const defaultResult = {
-  ios: false,
-  android: false,
-  mobile: false,
-  tablet: false,
-  desktop: false,
-};
-
 let results: Result = {
   ios: false,
   android: false,
@@ -66,16 +58,33 @@ interface UANextComponentProps {
   [key: string]: any;
 }
 
+export const UADisplay: React.FC<{
+  type: Type;
+  children: React.ReactElement;
+}> = ({ type, children }) => {
+  const display = useUA(type);
+
+  if (display) {
+    return children;
+  }
+
+  return null;
+};
+
 export function UANextWrapper<T>(PageComponent: NextComponentType<T>) {
   return class UAWrapper extends React.Component<UANextComponentProps> {
     public static async getInitialProps(ctx: any) {
       let pageProps = {};
+      let ua = '';
 
       if (PageComponent.getInitialProps) {
         pageProps = await PageComponent.getInitialProps(ctx);
       }
-
-      const ua = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
+      if (ctx.req && ctx.req.headers) {
+        ua = ctx.req.headers['user-agent'];
+      } else if (navigator) {
+        ua = navigator.userAgent;
+      }
 
       return { pageProps, userAgent: ua };
     }
