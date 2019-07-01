@@ -25,6 +25,9 @@ const documentOptions: Options = {
 
       return null;
     },
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      return <img src={node.data.target.fields.file.url} />;
+    },
   },
   renderText: text => {
     return text.split('\n').reduce(
