@@ -11,4 +11,5 @@ export interface Case {
   media: Media[];
   partners: Partner[];
   technologies: string[];
+  categories: string[];
 }

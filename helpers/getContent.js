@@ -55,13 +55,14 @@ async function getCases() {
   });
 
   const contents = entries.items.map(({ sys, fields }) => {
-    const { media = [], partners = [], technologies = [], ...rest } = fields;
+    const { media = [], partners = [], technologies = [], categories = [], ...rest } = fields;
     return {
       ...rest,
       id: sys.id,
       media: media.map(getFields),
       partners: partners.map(getFields),
       technologies: technologies.map(getFields).map(entry => entry.name),
+      categories: categories.map(getFields).map(entry => entry.name),
     };
   });
 

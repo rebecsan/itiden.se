@@ -7,8 +7,8 @@ import tw from 'tailwind.macro';
 interface NavLinkProps {
   href: string;
   children: string;
-  prefetch: boolean;
-  passHref: boolean;
+  prefetch?: boolean;
+  passHref?: boolean;
 }
 
 const Wrapper = styled.a<{ active: boolean }>`

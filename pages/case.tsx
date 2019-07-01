@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Header, HeaderContent, Page } from '../components/Layout';
 import { Media } from '../components/Media/Media';
-import { Tag } from '../components/Tag';
+import { Tag, Tags } from '../components/Tag';
 import { Body, Title } from '../components/Typography';
 import { Case } from '../models/Case';
 
@@ -33,7 +33,7 @@ const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {
     return null;
   }
 
-  const { title, technologies, description, url, media } = data;
+  const { title, technologies, categories, description, url, media } = data;
 
   return (
     <Page>
@@ -54,16 +54,14 @@ const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {
               ${tw`mt-8`}
             `}
           >
-            {technologies.map(tech => (
-              <Tag
-                key={tech}
-                css={`
-                  ${tw`mr-1 mb-1`}
-                `}
-              >
-                {tech}
-              </Tag>
-            ))}
+            <Tags tags={technologies} />
+          </div>
+          <div
+            css={`
+              ${tw`mt-2`}
+            `}
+          >
+            <Tags tags={categories} />
           </div>
         </HeaderContent>
       </Header>

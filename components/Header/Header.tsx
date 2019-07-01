@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 `;
 
 const Content = styled.div`
-  ${tw`flex items-center justify-center md:justify-between flex-wrap pt-6 px-4 md:px-16 mx-auto`};
+  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 md:px-16 mx-auto`};
   max-width: 1400px;
 `;
 

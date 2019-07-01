@@ -7,6 +7,11 @@ interface TagProps {
   inverted?: boolean;
 }
 
+interface TagsProps {
+  tags: string[];
+  inverted?: boolean;
+}
+
 const invertedStyle = css`
   ${tw`text-gray-100 hover:text-white`};
 `;
@@ -19,4 +24,22 @@ const Box = styled.div<TagProps>`
 
 export const Tag: React.FC<TagProps> = ({ children, ...rest }) => {
   return <Box {...rest}>{children}</Box>;
+};
+
+export const Tags: React.FC<TagsProps> = ({ tags, inverted }) => {
+  return (
+    <>
+      {tags.map(tag => (
+        <Tag
+          key={tag}
+          css={`
+            ${tw`mr-1 mb-1`}
+          `}
+          inverted={inverted}
+        >
+          {tag}
+        </Tag>
+      ))}
+    </>
+  );
 };
