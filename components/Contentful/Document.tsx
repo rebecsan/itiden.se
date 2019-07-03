@@ -26,7 +26,12 @@ const documentOptions: Options = {
       return null;
     },
     [BLOCKS.EMBEDDED_ASSET]: node => {
-      return <img src={node.data.target.fields.file.url} />;
+      return (
+        <img
+          src={node.data.target.fields.file.url}
+          style={{ maxWidth: '100%' }}
+        />
+      );
     },
   },
   renderText: text => {
