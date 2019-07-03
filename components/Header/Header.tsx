@@ -17,7 +17,7 @@ const Content = styled.div`
   max-width: 1400px;
 `;
 
-const Menu = styled.div``;
+const Menu = styled.nav``;
 
 const HeaderLogo = styled(Logo)`
   ${tw`fill-logo sm:mx-auto`};

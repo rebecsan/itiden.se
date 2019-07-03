@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 import { Case } from '../../models/Case';
-import { Link } from '../../routes';
 import { Tag } from '../Tag';
+import 'lazysizes';
+import { Media } from '../../models';
 
-type CasePreviewProps = Case;
+type CasePreviewProps = Case & { index: number };
 
 const ImageContainer = styled(animated.div)`
   ${tw`rounded-sm overflow-hidden relative bg-white hover:shadow-xl`}
@@ -50,10 +51,14 @@ const Tags = styled.div`
   width: 50%;
 `;
 
-const Box = styled.div`
-  ${tw`relative overflow-hidden w-full md:w-1/2 p-2`}
+const Box = styled.a`
+  ${tw`relative overflow-hidden w-full md:w-1/2 p-2 outline-none`}
   box-sizing: border-box;
   cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+  }
 
   @media (min-width: 768px) {
     &:hover {
@@ -73,36 +78,12 @@ const Box = styled.div`
 const trans1 = (x: number, y: number, z: number) =>
   `translate3d(${x / 22}px, ${y / 22}px, 0) scale(${z})`;
 
-const CasePreviewDefault: React.FC<CasePreviewProps> = ({
-  title,
-  media,
-  slug,
-}) => {
-  const img = media[0] || null;
-
-  if (!img) {
-    return null;
-  }
-
-  return (
-    <Link route={`/case/${slug}`}>
-      <div
-        css={`
-          ${tw`mb-4`}
-        `}
-      >
-        <Image alt={img.title} src={img.file.url} />
-        <div>{title}</div>
-      </div>
-    </Link>
-  );
-};
-
 export const CasePreview: React.FC<CasePreviewProps> = ({
   title,
   media,
   slug,
   technologies,
+  index,
 }) => {
   const [anim, setAnim] = useSpring(() => ({
     xyz: [0, 0, 1],
@@ -127,33 +108,50 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
     return null;
   }
 
-  const bindings = typeof window !== 'undefined' && window.innerWidth >= 768 ? bindGestures() : {};
+  const bindings =
+    typeof window !== 'undefined' && window.innerWidth >= 768
+      ? bindGestures()
+      : {};
 
   return (
-    <Link route={`/case/${slug}`}>
-      <Box {...bindings}>
-        <ImageContainer>
-          <Image alt={img.title} src={img.file.url} />
-        </ImageContainer>
-        <TitleBox>
-          <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
-            {title}
-          </Title>
-        </TitleBox>
-        <Tags>
-          {technologies.map(tech => (
-            <Tag
-              key={tech}
-              css={`
-                ${tw`ml-1 mt-1`}
-              `}
-              inverted
-            >
-              {tech}
-            </Tag>
-          ))}
-        </Tags>
-      </Box>
-    </Link>
+    <Box href={`/case/${slug}`} tabIndex={0} {...bindings}>
+      <ImageContainer>
+        <MaybeLazyImage lazy={index > 6} media={img} />
+      </ImageContainer>
+      <TitleBox>
+        <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
+          {title}
+        </Title>
+      </TitleBox>
+      <Tags>
+        {technologies.map(tech => (
+          <Tag
+            key={tech}
+            css={`
+              ${tw`ml-1 mt-1`}
+            `}
+            inverted
+          >
+            {tech}
+          </Tag>
+        ))}
+      </Tags>
+    </Box>
   );
+};
+
+const MaybeLazyImage: React.FC<{
+  lazy: boolean;
+  media: Media;
+}> = ({ lazy, media }) => {
+  if (lazy) {
+    return (
+      <Image
+        className="lazyload"
+        alt={media.title}
+        data-src={`${media.file.url}?w=600`}
+      />
+    );
+  }
+  return <Image alt={media.title} src={`${media.file.url}?w=600`} />;
 };

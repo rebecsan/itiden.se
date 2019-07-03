@@ -16,8 +16,8 @@ const Box = styled.div`
 export const CaseGrid: React.FC<CaseGridProps> = ({ cases }) => {
   return (
     <Box>
-      {cases.map(data => (
-        <CasePreview key={data.slug} {...data} />
+      {cases.map((data, i) => (
+        <CasePreview key={data.slug} index={i} {...data} />
       ))}
     </Box>
   );

@@ -11,10 +11,14 @@ interface CardProps {
 }
 
 const Wrapper = styled.div`
-  ${tw`relative inline-block m-2`}
+  ${tw`relative inline-block m-2 outline-none`}
   width: calc(50% - 1rem);
   height: 220px;
   box-sizing: border-box;
+
+  &:focus {
+    outline: 2px solid var(--primary-color);
+  }
 
   @media (max-width: 640px) {
     width: 100%;
@@ -71,7 +75,7 @@ const Value = styled.dd`
 `;
 
 const Link = styled.a`
-  ${tw`text-white inline-block`}
+  ${tw`text-white inline-block outline-none focus:text-brand`}
 `;
 
 export const ProfileCard: React.FC<Employee> = props => {
@@ -87,7 +91,7 @@ export const ProfileCard: React.FC<Employee> = props => {
   }
 
   return (
-    <Wrapper onClick={handleClick}>
+    <Wrapper tabIndex={0} onClick={handleClick}>
       <CardBack
         style={{
           opacity,

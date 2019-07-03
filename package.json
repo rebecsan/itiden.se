@@ -25,6 +25,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "contentful": "^7.8.1",
     "dotenv": "^8.0.0",
+    "lazysizes": "^5.1.0",
     "next": "^8.1.0",
     "next-routes": "^1.4.2",
     "react": "^16.8.6",

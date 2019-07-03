@@ -29,7 +29,7 @@ const IndexPage: React.FC<{}> = () => {
       <Header>
         <IntroText>{documentToReactComponents(page.header)}</IntroText>
       </Header>
-      <CaseWrapper>
+      <CaseWrapper role="main">
         <CaseGrid cases={cases} />
       </CaseWrapper>
     </Page>

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   ${tw`block mx-auto`}
-  max-width: 100%; 
+  max-width: 100%;
 `;
 
 const Caption = styled.figcaption`
@@ -29,15 +29,13 @@ export const Media: React.FC<MediaProps> = ({ media }) => {
   const { title, description, file } = media;
 
   if (isImage(media.file.contentType)) {
-    const { width, height } = file.details.image;
+    const { width } = file.details.image;
     return (
       <Wrapper style={{ width }}>
         <figure>
           <Image
             alt={title}
             src={media.file.url}
-            // width={width}
-            // height={height}
           />
           {description && <Caption>{description}</Caption>}
         </figure>

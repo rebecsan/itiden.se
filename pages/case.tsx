@@ -40,7 +40,7 @@ const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {
     <Page>
       <CaseHeader {...data} />
       <Header>
-        <HeaderContent>
+        <HeaderContent role="main">
           <Title>{title}</Title>
           <Url href={url}>{url}</Url>
           <Body
