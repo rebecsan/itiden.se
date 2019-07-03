@@ -9,6 +9,7 @@
     "build": "next build && next export",
     "start": "NODE_ENV=production next start",
     "prebuild": "yarn getcontent",
+    "postbuild": "node sitemap.js",
     "prestart": "yarn getcontent",
     "getcontent": "babel-node helpers/getContent.js",
     "storybook": "start-storybook -p 6006",

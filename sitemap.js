@@ -1,23 +1,20 @@
+const fs = require('fs');
 const sm = require('sitemap');
-const cases = require('./data/data/case.json');
-const menu = require('./data/data/menu.json');
+const { exportPathMap } = require('./next.config');
 
-const urls = [{ url: '/' }];
+async function generateSitemap() {
+  const pages = await exportPathMap();
+  const urls = Object.entries(pages).map(([url]) => ({
+    url,
+  }));
 
-menu.forEach(m => {
-  urls.push({ url: `/${m.slug}` });
-});
-
-cases.forEach(caseData => {
-  urls.push({
-    url: `/case/${caseData.slug}`,
+  const sitemap = sm.createSitemap({
+    hostname: 'https://itiden.se',
+    cacheTime: 60000,
+    urls: urls,
   });
-});
 
-const sitemap = sm.createSitemap({
-  hostname: 'https://itiden.se',
-  cacheTime: 60000,
-  urls: urls,
-});
+  fs.writeFileSync('./out/sitemap.xml', sitemap.toString());
+}
 
-module.exports = sitemap.toString();
+generateSitemap();
