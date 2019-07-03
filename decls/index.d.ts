@@ -1,21 +1,36 @@
-import { Case, Menu } from "../models";
+import { Case, Menu } from '../models';
 
 declare module '*.svg' {
   const content: string;
   export default content;
 }
 
-declare module "*.json" {
+declare module '*.json' {
   const value: any;
   export default value;
 }
 
-declare module "case.json" {
+declare module 'case.json' {
   const value: Case[];
   export default value;
 }
 
-declare module "menu.json" {
+declare module 'menu.json' {
   const value: Menu;
   export default value;
+}
+
+declare global {
+  interface Window {
+    GA_INITIALIZED: boolean;
+  }
+
+  namespace NodeJS {
+    interface ProcessEnv {
+      CONTENTFUL_SPACE: string | undefined;
+      CONTENTFUL_TOKEN: string | undefined;
+      GA: string | undefined;
+      NODE_ENV: 'development' | 'production';
+    }
+  }
 }
