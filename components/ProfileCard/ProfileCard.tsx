@@ -12,13 +12,19 @@ interface CardProps {
 
 const Wrapper = styled.div`
   ${tw`relative inline-block m-2`}
-  width: 360px;
+  width: calc(50% - 1rem);
   height: 220px;
+  box-sizing: border-box;
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `;
+
 const Card = styled(animated.div)`
   ${tw`absolute cursor-pointer bg-gray-900 shadow-md p-4 flex items-center justify-center rounded`}
-  width: 360px;
-  height: 220px;
+  width: 100%;
+  height: 100%;
   will-change: transform, opacity;
 `;
 

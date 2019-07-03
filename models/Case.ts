@@ -12,4 +12,5 @@ export interface Case {
   partners: Partner[];
   technologies: string[];
   categories: string[];
+  publishedAt: string;
 }

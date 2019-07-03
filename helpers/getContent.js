@@ -54,17 +54,27 @@ async function getCases() {
     content_type: 'case',
   });
 
-  const contents = entries.items.map(({ sys, fields }) => {
-    const { media = [], partners = [], technologies = [], categories = [], ...rest } = fields;
-    return {
-      ...rest,
-      id: sys.id,
-      media: media.map(getFields),
-      partners: partners.map(getFields),
-      technologies: technologies.map(getFields).map(entry => entry.name),
-      categories: categories.map(getFields).map(entry => entry.name),
-    };
-  });
+  const contents = entries.items
+    .map(({ sys, fields }) => {
+      const {
+        media = [],
+        partners = [],
+        technologies = [],
+        categories = [],
+        publishedAt,
+        ...rest
+      } = fields;
+      return {
+        ...rest,
+        id: sys.id,
+        publishedAt: publishedAt ? publishedAt : sys.createdAt,
+        media: media.map(getFields),
+        partners: partners.map(getFields),
+        technologies: technologies.map(getFields).map(entry => entry.name),
+        categories: categories.map(getFields).map(entry => entry.name),
+      };
+    })
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
 
   fs.writeFileSync(path.join(dataDir, 'case.json'), JSON.stringify(contents));
 }
@@ -73,15 +83,17 @@ async function getMenu() {
   const entries = await client.getEntries({
     // eslint-disable-next-line @typescript-eslint/camelcase
     content_type: 'menu',
+    include: 2,
   });
 
-  const contents = entries.items.map(({ sys, fields }) => {
-    return {
-      id: sys.id,
-      label: fields.label,
-      slug: getFields(fields.page).slug,
-    };
-  });
+  const contents = entries.items.reduce((acc, { sys, fields }) => {
+    acc[fields.label] = fields.menuItems.map(getFields).map(item => ({
+      label: item.label,
+      slug: getFields(item.page).slug,
+    }));
+
+    return acc;
+  }, {});
   fs.writeFileSync(path.join(dataDir, 'menu.json'), JSON.stringify(contents));
 }
 

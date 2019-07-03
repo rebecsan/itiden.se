@@ -1,4 +1,4 @@
-import { Case } from "../models";
+import { Case, Menu } from "../models";
 
 declare module '*.svg' {
   const content: string;
@@ -12,5 +12,10 @@ declare module "*.json" {
 
 declare module "case.json" {
   const value: Case[];
+  export default value;
+}
+
+declare module "menu.json" {
+  const value: Menu;
   export default value;
 }

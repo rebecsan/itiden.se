@@ -1,5 +1,8 @@
 export interface Menu {
-  id: string;
+  Menu: MenuItem[];
+}
+
+interface MenuItem {
   label: string;
   slug: string;
 }

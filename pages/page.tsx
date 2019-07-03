@@ -38,7 +38,7 @@ const PagePage: NextFunctionComponent<PageProps> = ({ data }) => {
       <Content>
         <Body
           css={`
-            ${tw`mt-4`}
+            ${tw`mt-4 px-4`}
           `}
         >
           <Document content={body} />

@@ -23,7 +23,7 @@ const HeaderLogo = styled(Logo)`
   ${tw`fill-logo sm:mx-auto`};
   height: 48px;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     height: 32px;
   }
 `;
@@ -42,8 +42,8 @@ export const Header: React.FC<{}> = () => {
             <NavLink href="/" passHref>
               Case
             </NavLink>
-            {menu.map(item => (
-              <NavLink key={item.id} href={`/${item.slug}`} passHref>
+            {menu.Main.map(item => (
+              <NavLink key={item.label} href={`/${item.slug}`} passHref>
                 {item.label}
               </NavLink>
             ))}

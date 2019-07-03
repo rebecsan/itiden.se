@@ -39,10 +39,13 @@ const IndexPage: React.FC<{}> = () => {
 export default UANextWrapper(IndexPage);
 
 const IntroText = styled(HeaderContent)`
-  ${tw`text-lg md:text-2xl text-primary font-bold tracking-wide`}
+  ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}
 
   & b {
-    ${tw`text-brand font-bold`}
+    ${tw`font-bold text-primary`}
+  }
+  & a {
+    ${tw`font-bold`}
   }
 `;
 
