@@ -59,6 +59,13 @@ const IndexHeader: React.FC<{}> = () => (
       name="Description"
       content="itiden är en digital produktionsbyrå som utvecklar webbplatser, tjänster, webbapplikationer och mobilappar tillsammans med kommunikationsbyråer och teknikföretag inom många olika branscher. Dessutom är vi techpartner i några spännande startups."
     />
+    <meta
+      name="title"
+      property="og:title"
+      content="itiden - utvecklar webbplatser, tjänster, webbapplikationer och mobilappar
+      i Göteborg"
+    />
+    <meta name="image" property="og:image" content="/static/itiden-share.png" />
     <link rel="canonical" href="https://itiden.se" />
   </Head>
 );

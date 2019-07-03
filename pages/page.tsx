@@ -73,5 +73,10 @@ const PageHeader: React.FC<{ title: string; description: string }> = ({
   <Head>
     <title>itiden - {title}</title>
     <meta name="Description" content={description} />
+    <meta
+      name="title"
+      property="og:title"
+      content={`itiden - ${title}`}
+    />
   </Head>
 );
