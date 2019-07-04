@@ -15,7 +15,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test:ts": "tsc --noEmit --skipLibCheck",
-    "test:eslint": "eslint --ext .ts,.tsx --ignore-pattern node_modules/",
+    "test:eslint": "eslint . --ext .ts,.tsx --ignore-pattern node_modules/",
     "lint": "tslint --project tsconfig.json",
     "fix:lint": "yarn run lint --fix"
   },
@@ -65,7 +65,9 @@
     "eslint-config-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "husky": "^3.0.0",
     "imagemin-svgo": "^7.0.0",
+    "lint-staged": "^9.0.2",
     "next-optimized-images": "^2.5.1",
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.18.2",
@@ -85,5 +87,21 @@
     "tailwind": {
       "styled": "styled-components"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn install --frozen-lockfile; fi",
+      "post-merge": "yarn install --frozen-lockfile",
+      "post-rebase": "yarn install",
+      "pre-push": "yarn test:ts && yarn test:eslint"
+    }
+  },
+  "lint-staged": {
+    "*.{ts|tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   }
 }

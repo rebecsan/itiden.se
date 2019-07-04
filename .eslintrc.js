@@ -10,6 +10,11 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',

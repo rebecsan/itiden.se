@@ -77,8 +77,9 @@ const Box = styled.a`
     }
   }
 `;
-
-const trans1 = (x: number, y: number, z: number) =>
+// react spring types are wrong. Apparently fixed in 9.x
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const trans1: any = (x: number, y: number, z: number) =>
   `translate3d(${x / 22}px, ${y / 22}px, 0) scale(${z})`;
 
 export const CasePreview: React.FC<CasePreviewProps> = ({

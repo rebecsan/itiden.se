@@ -55,6 +55,7 @@ export function useUA(type: Type): boolean {
 
 interface UANextComponentProps {
   ua: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -73,6 +74,7 @@ export const UADisplay: React.FC<{
 
 export function UANextWrapper<T>(PageComponent: NextComponentType<T>) {
   return class UAWrapper extends React.Component<UANextComponentProps> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public static async getInitialProps(ctx: any) {
       let pageProps = {};
       let ua = '';

@@ -3,6 +3,7 @@ declare module 'tailwind.macro' {
     [TTag in keyof JSX.IntrinsicElements]: ThemedStyledFunction<TTag, T>;
   };
   // type TailwindComponentFactories = ThemedStyledComponen
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function tw(...args: any[]);
 
   declare const tailwind: tw | TailwindComponentFactories;
