@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import tw from 'tailwind.macro';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
@@ -114,29 +115,31 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
       : {};
 
   return (
-    <Box href={`/case/${slug}`} tabIndex={0} {...bindings}>
-      <ImageContainer>
-        <MaybeLazyImage lazy={index > 6} media={img} />
-      </ImageContainer>
-      <TitleBox>
-        <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
-          {title}
-        </Title>
-      </TitleBox>
-      <Tags>
-        {technologies.map(tech => (
-          <Tag
-            key={tech}
-            css={`
-              ${tw`ml-1 mt-1`}
-            `}
-            inverted
-          >
-            {tech}
-          </Tag>
-        ))}
-      </Tags>
-    </Box>
+    <Link href={`/case/${slug}`} passHref>
+      <Box tabIndex={0} {...bindings}>
+        <ImageContainer>
+          <MaybeLazyImage lazy={index > 6} media={img} />
+        </ImageContainer>
+        <TitleBox>
+          <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
+            {title}
+          </Title>
+        </TitleBox>
+        <Tags>
+          {technologies.map(tech => (
+            <Tag
+              key={tech}
+              css={`
+                ${tw`ml-1 mt-1`}
+              `}
+              inverted
+            >
+              {tech}
+            </Tag>
+          ))}
+        </Tags>
+      </Box>
+    </Link>
   );
 };
 
