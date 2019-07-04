@@ -2,7 +2,7 @@ import React from 'react';
 import { Employee } from '../../models/Employee';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import logo from '../../static/logo.svg';
+import { Logo } from '../Logo';
 import { useSpring, animated } from 'react-spring';
 
 interface CardProps {
@@ -11,14 +11,10 @@ interface CardProps {
 }
 
 const Wrapper = styled.div`
-  ${tw`relative inline-block m-2 outline-none`}
+  ${tw`relative inline-block m-2`}
   width: calc(50% - 1rem);
   height: 220px;
   box-sizing: border-box;
-
-  &:focus {
-    outline: 2px solid var(--primary-color);
-  }
 
   @media (max-width: 640px) {
     width: 100%;
@@ -91,7 +87,7 @@ export const ProfileCard: React.FC<Employee> = props => {
   }
 
   return (
-    <Wrapper tabIndex={0} onClick={handleClick}>
+    <Wrapper onClick={handleClick}>
       <CardBack
         style={{
           opacity,
@@ -100,7 +96,8 @@ export const ProfileCard: React.FC<Employee> = props => {
       />
       <CardFront
         {...props}
-        style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        style={{ opacity: opacity.interpolate((o: any) => 1 - o), transform }}
       />
     </Wrapper>
   );
@@ -138,7 +135,8 @@ export const CardFront: React.FC<Employee & CardProps> = ({
   );
 };
 
-const Logo = styled.img`
+const CardLogo = styled(Logo)`
+  ${tw`fill-black`}
   height: 48px;
 
   @media (max-width: 720px) {
@@ -154,7 +152,7 @@ export const CardBack: React.FC<CardProps> = props => {
         ${tw`bg-brand`}
       `}
     >
-      <Logo src={logo} alt="itiden logga" />
+      <CardLogo />
     </Card>
   );
 };

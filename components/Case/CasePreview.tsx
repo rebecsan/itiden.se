@@ -9,7 +9,9 @@ import { Tag } from '../Tag';
 import 'lazysizes';
 import { Media } from '../../models';
 
-type CasePreviewProps = Case & { index: number };
+interface CasePreviewProps extends Case {
+  index: number;
+}
 
 const ImageContainer = styled(animated.div)`
   ${tw`rounded-sm overflow-hidden relative bg-white hover:shadow-xl`}

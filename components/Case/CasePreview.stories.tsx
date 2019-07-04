@@ -7,7 +7,7 @@ import { CaseGrid } from './CaseGrid';
 const cases = getCases();
 
 storiesOf('CasePreview', module)
-  .add('Default', () => <CasePreview {...cases[0]} />)
+  .add('Default', () => <CasePreview index={0} {...cases[0]} />)
   .add('Grid', () => (
     <div style={{ marginTop: '100px' }}>
       <CaseGrid cases={cases} />
