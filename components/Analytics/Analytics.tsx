@@ -9,8 +9,10 @@ function initGA() {
 }
 
 function logPageView() {
+  if (process.env.GA) {
   ReactGA.set({ page: window.location.pathname });
   ReactGA.pageview(window.location.pathname);
+  }
 }
 
 export const Analytics: React.FC<{}> = () => {
