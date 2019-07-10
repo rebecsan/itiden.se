@@ -47,6 +47,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#C75000" />
+          <meta name="referrer" content="no-referrer" />
           <link
             rel="shortcut icon"
             type="image/x-icon"
