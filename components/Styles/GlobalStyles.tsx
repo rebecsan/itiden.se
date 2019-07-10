@@ -4,7 +4,7 @@ import tw from 'tailwind.macro';
 
 export const GlobalStyles = createGlobalStyle`
   ${reboot()}
-
+  /*
   :root {
     --bg-color: #fff;
     --header-color: #fcfcfc;
@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-color-secondary: #4a5568;
     --text-color-tertiary: #4a5568;
   }
-
+  
   .dark-mode {
     --bg-color: #181819;
     --header-color: #161617;
@@ -39,10 +39,11 @@ export const GlobalStyles = createGlobalStyle`
       --text-color-tertiary: #4a5568;
     }
   }
+  */
 
   body {
     ${tw`font-body`}
-    background: var(--bg-color);
+    background: #fff;
   }
   h2 {
     margin-bottom: 0.2rem;

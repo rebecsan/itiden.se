@@ -60,7 +60,7 @@ const Box = styled.a`
   cursor: pointer;
 
   &:focus {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid #e4570e;
   }
 
   @media (min-width: 768px) {
