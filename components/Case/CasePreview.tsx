@@ -155,6 +155,7 @@ const MaybeLazyImage: React.FC<{
       <Image
         className="lazyload"
         alt={media.title}
+        src="/static/case-placeholder.jpg"
         data-src={`${media.file.url}?w=600`}
       />
     );
