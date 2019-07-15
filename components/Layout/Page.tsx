@@ -3,7 +3,6 @@ import { Header } from '../Header';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Analytics } from '../Analytics';
-import { GlobalStyles } from '../Styles';
 
 const Wrapper = styled.div`
   ${tw`mx-auto pb-32`}
@@ -16,7 +15,6 @@ export const Page: React.FC<{}> = props => {
     <>
       <Header />
       <Analytics />
-      <GlobalStyles />
       <Wrapper>
         <Content>{props.children}</Content>
       </Wrapper>
