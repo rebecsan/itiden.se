@@ -1,6 +1,6 @@
-import { NextFunctionComponent } from 'next';
+import { NextPageContext } from 'next';
 import Head from 'next/head';
-import { withRouter } from 'next/router';
+import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
 import tw from 'tailwind.macro';
 import { Document } from '../components/Contentful';
@@ -10,10 +10,11 @@ import { Page as PageModel } from '../models';
 import { UANextWrapper } from '../components/UAParser';
 
 interface PageProps {
-  data: PageModel | undefined;
+  data?: PageModel;
+  router: NextRouter;
 }
 
-const PagePage: NextFunctionComponent<PageProps> = ({ data }) => {
+const PagePage = ({ data }: PageProps) => {
   if (!data) {
     return <div>404</div>;
   }
@@ -59,7 +60,7 @@ async function fetchPage({ slug = '' }) {
   return { arr, data, type: typeof json };
 }
 
-PagePage.getInitialProps = async ({ query }) => {
+PagePage.getInitialProps = async ({ query }: NextPageContext) => {
   const data = await fetchPage(query);
   return data;
 };
@@ -73,10 +74,6 @@ const PageHeader: React.FC<{ title: string; description: string }> = ({
   <Head>
     <title>itiden - {title}</title>
     <meta name="Description" content={description} />
-    <meta
-      name="title"
-      property="og:title"
-      content={`itiden - ${title}`}
-    />
+    <meta name="title" property="og:title" content={`itiden - ${title}`} />
   </Head>
 );

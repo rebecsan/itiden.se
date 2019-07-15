@@ -2,9 +2,9 @@
 
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { NextFunctionComponent } from 'next';
+import { NextPageContext } from 'next';
 import Head from 'next/head';
-import { withRouter } from 'next/router';
+import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
@@ -16,7 +16,8 @@ import { Case } from '../models/Case';
 import { UANextWrapper } from '../components/UAParser';
 
 interface CasePageProps {
-  data: Case | undefined;
+  data?: Case;
+  router: NextRouter;
 }
 
 const Url = styled.a`
@@ -29,7 +30,7 @@ const MediaContainer = styled.div`
   }
 `;
 
-const CasePage: NextFunctionComponent<CasePageProps> = ({ data }) => {
+const CasePage = ({ data }: CasePageProps) => {
   if (!data) {
     return null;
   }
@@ -86,7 +87,7 @@ async function fetchCase({ slug = '' }) {
   return { arr, data, type: typeof json };
 }
 
-CasePage.getInitialProps = async ({ query }) => {
+CasePage.getInitialProps = async ({ query }: NextPageContext) => {
   const data = await fetchCase(query);
   return data;
 };
