@@ -39,11 +39,16 @@ export const Header: React.FC<{}> = () => {
             </a>
           </Link>
           <Menu>
-            <NavLink href="/" passHref>
+            <NavLink href="/" as="/" passHref>
               Case
             </NavLink>
             {menu.Main.map(item => (
-              <NavLink key={item.label} href={`/${item.slug}`} passHref>
+              <NavLink
+                key={item.label}
+                href={`/page?slug=${item.slug}`}
+                as={`/${item.slug}`}
+                passHref
+              >
                 {item.label}
               </NavLink>
             ))}
