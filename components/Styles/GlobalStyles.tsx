@@ -3,7 +3,7 @@ import reboot from 'styled-reboot';
 import tw from 'tailwind.macro';
 
 export const GlobalStyles = createGlobalStyle`
-  ${reboot()}
+  ${reboot({ black: '0, 0, 0' })}
   /*
   :root {
     --bg-color: #fff;
