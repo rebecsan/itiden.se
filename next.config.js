@@ -13,7 +13,7 @@ module.exports = withCSS(
       optimizeImages: false,
       exportPathMap: async function() {
         const paths = {
-          '/': { page: '/' },
+          '/': { page: '/' }
         };
 
         pages
@@ -21,11 +21,14 @@ module.exports = withCSS(
           .forEach(page => {
             paths[`/${page.slug}`] = {
               page: '/page',
-              query: { slug: page.slug },
+              query: { slug: page.slug }
             };
           });
         cases.forEach(c => {
-          paths[`/case/${c.slug}`] = { page: '/case', query: { slug: c.slug } };
+          paths[`/case/${c.slug}`] = {
+            page: '/case',
+            query: { slug: c.slug }
+          };
         });
 
         return paths;
@@ -39,12 +42,35 @@ module.exports = withCSS(
           // Read the .env file
           new Dotenv({
             path: path.join(__dirname, '.env'),
-            systemvars: true,
-          }),
+            systemvars: true
+          })
         ];
 
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          'react-spring$': require.resolve('react-spring/web.cjs'),
+          'react-spring/renderprops$': require.resolve(
+            'react-spring/renderprops.cjs'
+          ),
+          'react-use-gesture': require.resolve('react-use-gesture/web.cjs')
+        };
+
+        const originalEntry = config.entry;
+        config.entry = async () => {
+          const entries = await originalEntry();
+
+          if (
+            entries['main.js'] &&
+            !entries['main.js'].includes('./polyfills.js')
+          ) {
+            entries['main.js'].unshift('./polyfills.js');
+          }
+
+          return entries;
+        };
+
         return config;
-      },
+      }
     })
   )
 );
