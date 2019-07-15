@@ -1,7 +1,7 @@
 import React from 'react';
 import Document, {
-  Html,
   Head,
+  Html,
   Main,
   NextScript,
   DocumentContext,
@@ -45,12 +45,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="sv">
         <Head>
-          <meta key="charSet" charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1"
-            key="viewport"
-          />
           <meta name="theme-color" content="#C75000" />
           <meta name="referrer" content="no-referrer" />
           <link
