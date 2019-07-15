@@ -3,7 +3,12 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": ["es6", "dom", "es2017.object", "es2016.array.include"],
+    "lib": [
+      "es6",
+      "dom",
+      "es2017.object",
+      "es2016.array.include"
+    ],
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,6 +26,15 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "isolatedModules": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
