@@ -47,6 +47,10 @@ const IntroText = styled(HeaderContent)`
   & a {
     ${tw`font-bold`}
   }
+
+  & h1 {
+    ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}
+  }
 `;
 
 const IndexHeader: React.FC<{}> = () => (
