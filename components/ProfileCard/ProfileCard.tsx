@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 640px) {
+    ${tw`mx-0`}
     width: 100%;
   }
 `;
