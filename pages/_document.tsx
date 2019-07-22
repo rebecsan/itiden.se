@@ -54,7 +54,7 @@ export default class MyDocument extends Document {
           />
           {this.props.styles}
           <link
-            href="https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:700&display=swap"
+            href="https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap"
             rel="stylesheet"
           />
         </Head>
