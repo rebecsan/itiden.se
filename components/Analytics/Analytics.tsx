@@ -10,8 +10,8 @@ function initGA() {
 
 function logPageView() {
   if (process.env.GA) {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
   }
 }
 
@@ -20,12 +20,14 @@ export const Analytics: React.FC<{}> = () => {
     if (!window.GA_INITIALIZED) {
       initGA();
       window.GA_INITIALIZED = true;
-      logPageView();
     }
 
+    logPageView();
     Router.events.on('routeChangeComplete', logPageView);
 
-    return () => Router.events.off('routeChangeComplete', logPageView);
+    return () => {
+      Router.events.off('routeChangeComplete', logPageView);
+    };
   }, []);
 
   return null;
