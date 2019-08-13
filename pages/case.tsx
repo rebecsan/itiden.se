@@ -1,5 +1,3 @@
-/// <reference types="styled-components/cssprop" />
-
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { NextPageContext } from 'next';
