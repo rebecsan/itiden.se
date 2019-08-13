@@ -7,7 +7,6 @@ import { Document } from '../components/Contentful';
 import { Content, Header, HeaderContent, Page } from '../components/Layout';
 import { Body, Title } from '../components/Typography';
 import { Page as PageModel } from '../models';
-import { UANextWrapper } from '../components/UAParser';
 
 interface PageProps {
   data?: PageModel;
@@ -65,7 +64,7 @@ PagePage.getInitialProps = async ({ query }: NextPageContext) => {
   return data;
 };
 
-export default UANextWrapper(withRouter(PagePage));
+export default withRouter(PagePage);
 
 const PageHeader: React.FC<{ title: string; description: string }> = ({
   title,

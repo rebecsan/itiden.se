@@ -1,11 +1,14 @@
 import React from 'react';
 import { Page, Header, HeaderContent } from '../components/Layout';
-import { getCases } from '../data/case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { CaseGrid } from '../components/Case';
+import { NextComponentType } from 'next';
+import { Case } from '../models';
 
-const cases = getCases();
+interface ErrorPageProps {
+  cases: Case[];
+}
 
 const IntroText = styled(HeaderContent)`
   ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}
@@ -24,7 +27,7 @@ const CaseWrapper = styled.div`
   }
 `;
 
-const ErrorPage = () => {
+const ErrorPage: NextComponentType<{}, {}, ErrorPageProps> = ({ cases }) => {
   return (
     <Page>
       <Header>
@@ -40,6 +43,11 @@ const ErrorPage = () => {
       </CaseWrapper>
     </Page>
   );
+};
+
+ErrorPage.getInitialProps = async () => {
+  const cases = await import('../data/data/case.json').then(m => m.default);
+  return { cases };
 };
 
 export default ErrorPage;

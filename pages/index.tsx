@@ -1,16 +1,17 @@
 import React from 'react';
 import Head from 'next/head';
 import { Page, Header, HeaderContent } from '../components/Layout';
-import { getCases } from '../data/case';
-import { getPage } from '../data/page';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { UANextWrapper } from '../components/UAParser';
+import { NextComponentType } from 'next';
+import { Case, Page as PageModel } from '../models';
 
-const cases = getCases();
-const page = getPage('/');
+interface IndexPageProps {
+  cases: Case[];
+  page: PageModel | undefined;
+}
 
 const CaseWrapper = styled.div`
   @media (min-width: 768px) {
@@ -18,7 +19,10 @@ const CaseWrapper = styled.div`
   }
 `;
 
-const IndexPage: React.FC<{}> = () => {
+const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
+  cases,
+  page,
+}) => {
   if (!page) {
     return null;
   }
@@ -36,7 +40,15 @@ const IndexPage: React.FC<{}> = () => {
   );
 };
 
-export default UANextWrapper(IndexPage);
+IndexPage.getInitialProps = async () => {
+  const cases = await import('../data/data/case.json').then(m => m.default);
+  const pages = await import('../data/data/page.json').then(m => m.default);
+  const page = pages.find(p => p.slug === '/');
+
+  return { cases, page };
+};
+
+export default IndexPage;
 
 const IntroText = styled(HeaderContent)`
   ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}

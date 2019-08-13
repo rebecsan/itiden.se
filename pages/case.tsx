@@ -11,7 +11,6 @@ import { Media } from '../components/Media/Media';
 import { Tags } from '../components/Tag';
 import { Body, Title } from '../components/Typography';
 import { Case } from '../models/Case';
-import { UANextWrapper } from '../components/UAParser';
 
 interface CasePageProps {
   data?: Case;
@@ -74,23 +73,13 @@ const CasePage = ({ data }: CasePageProps) => {
   );
 };
 
-async function fetchCase({ slug = '' }) {
-  const json = await import('../data/data/case.json');
-  let arr: object | Case[] = json;
-  // Why is json an object?
-  if (typeof json === 'object') {
-    arr = Object.entries(json).map(([, value]) => value);
-  }
-  const data = (arr as Case[]).find(c => c.slug === slug);
-  return { arr, data, type: typeof json };
-}
-
 CasePage.getInitialProps = async ({ query }: NextPageContext) => {
-  const data = await fetchCase(query);
-  return data;
+  const cases = await import('../data/data/case.json').then(m => m.default);
+  const data = cases.find(c => c.slug === query.slug);
+  return { data };
 };
 
-export default UANextWrapper(withRouter(CasePage));
+export default withRouter(CasePage);
 
 const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
   const imageUrl = media[0].file.url;
