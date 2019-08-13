@@ -18,14 +18,13 @@ module.exports = {
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/no-use-before-define': 'never',
-    '@typescript-eslint/explicit-function-return-type': 'never',
+    '@typescript-eslint/no-use-before-define': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-unused-vars': [
       'error',
       { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
     ],
-    '@typescript-eslint/no-parameter-properties': [{ allows: ['private'] }],
-    'react/prop-types': 'never',
-    'react/display-name': 'never',
+    'react/prop-types': 0,
+    'react/display-name': 0,
   },
 };
