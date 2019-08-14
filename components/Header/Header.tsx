@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { menu } from '../../data/menu';
-import routes from '../../routes';
+import Link from 'next/link';
 import { Logo } from '../Logo';
 import { NavLink } from '../Navigation/NavLink';
-
-const { Link } = routes;
 
 const Wrapper = styled.div`
   ${tw`bg-header`};
