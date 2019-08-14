@@ -39,22 +39,27 @@ export const Header: React.FC<{}> = () => {
             </a>
           </Link>
           <Menu>
-            <NavLink href="/" as="/" passHref>
-              Case
-            </NavLink>
             {menu.Main.map(item => (
-              <NavLink
-                key={item.label}
-                href={`/page?slug=${item.slug}`}
-                as={`/${item.slug}`}
-                passHref
-              >
-                {item.label}
-              </NavLink>
+              <MenuItem key={item.label} {...item} />
             ))}
           </Menu>
         </Content>
       </Wrapper>
     </>
+  );
+};
+
+const MenuItem: React.FC<{ label: string; slug: string }> = ({
+  label,
+  slug,
+}) => {
+  const isRootLink: boolean = slug === '/';
+  const href: string = isRootLink ? slug : `/page?slug=${slug}`;
+  const as: string = isRootLink ? slug : `/${slug}`;
+
+  return (
+    <NavLink href={href} as={as} passHref>
+      {label}
+    </NavLink>
   );
 };
