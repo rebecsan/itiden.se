@@ -27,15 +27,18 @@ function isImage(type: string): boolean {
 
 export const Media: React.FC<MediaProps> = ({ media }) => {
   const { title, description, file } = media;
+  const { url } = file;
 
-  if (isImage(media.file.contentType)) {
+  if (isImage(file.contentType)) {
     const { width } = file.details.image;
     return (
       <Wrapper style={{ width }}>
         <figure>
           <Image
             alt={title}
-            src={media.file.url}
+            src={url}
+            srcSet={`${url}?w=375 375w, ${url}?w=400 400w, ${url}?w=600 600w, ${url}?w=768 768w, ${url}`}
+            sizes="(max-width: 375px) 375px, (max-width: 400px) 400px, (max-width: 600px) 600px, (max-width: 768px) 768px, 800px"
           />
           {description && <Caption>{description}</Caption>}
         </figure>

@@ -26,7 +26,7 @@ const ImageContainer = styled(animated.div)`
   }
 `;
 
-const Image = styled(animated.img)`
+const Image = styled.img`
   display: block;
   width: 100%;
   will-change: transform;
@@ -150,15 +150,22 @@ const MaybeLazyImage: React.FC<{
   lazy: boolean;
   media: Media;
 }> = ({ lazy, media }) => {
+  const url = media.file.url;
+  const src = `${url}?w=600`;
+  const srcset = `${url}?w=600 600w, ${url}?w=400 400w, ${url}?w=300 300w`;
+  const sizes = 'auto';
+
   if (lazy) {
     return (
       <Image
         className="lazyload"
         alt={media.title}
         src="/static/case-placeholder.jpg"
-        data-src={`${media.file.url}?w=600`}
+        data-src={src}
+        data-srcset={srcset}
+        data-sizes={sizes}
       />
     );
   }
-  return <Image alt={media.title} src={`${media.file.url}?w=600`} />;
+  return <Image alt={media.title} src={src} srcSet={srcset} sizes={sizes} />;
 };
