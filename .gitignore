@@ -21,6 +21,7 @@ jspm_packages
 out
 .vscode
 .env
+.netlify
 
 data/*.json
 data/data
