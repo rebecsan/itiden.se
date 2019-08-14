@@ -152,8 +152,8 @@ const MaybeLazyImage: React.FC<{
 }> = ({ lazy, media }) => {
   const url = media.file.url;
   const src = `${url}?w=600`;
-  const srcset = `${url}?w=600 600w, ${url}?w=400 400w, ${url}?w=300 300w`;
-  const sizes = 'auto';
+  const srcset = `${url}?w=400 400w, ${url}?w=600 600w`;
+  const sizes = '(max-width: 375px) 400px, 600px';
 
   if (lazy) {
     return (
