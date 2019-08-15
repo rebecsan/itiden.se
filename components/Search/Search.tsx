@@ -10,13 +10,14 @@ import {
 import { Hit, HitData } from './Hit';
 import { useKeyPress } from '../../hooks/useKeyPress';
 import { VisuallyHidden } from '../Helpers/VisuallyHidden';
+import { animated, useTransition } from 'react-spring';
 
 interface SearchProps {
   show: boolean;
   onRequestClose(): void;
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled(animated.section)`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -137,22 +138,32 @@ const SearchBox = connectSearchBox(({ currentRefinement, refine }) => {
 });
 
 export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
-  useKeyPress('Escape', onRequestClose);
+  useKeyPress('Escape', onRequestClose, !show);
 
-  if (!show) {
-    return null;
-  }
+  const transitions = useTransition(show, null, {
+    from: { opacity: 0, top: 50 },
+    enter: { opacity: 1, top: 0 },
+    leave: { opacity: 0 },
+    immediate: !show,
+  });
 
   return (
-    <Wrapper>
-      <VisuallyHidden as="h2">Sök</VisuallyHidden>
-      <Content>
-        <InstantSearch indexName="itiden" searchClient={searchClient}>
-          <SearchBox />
-          <Hits />
-        </InstantSearch>
-      </Content>
-      <Close onClick={onRequestClose} />
-    </Wrapper>
+    <>
+      {transitions.map(
+        ({ item, key, props }) =>
+          item && (
+            <Wrapper key={key} style={props}>
+              <VisuallyHidden as="h2">Sök</VisuallyHidden>
+              <Content>
+                <InstantSearch indexName="itiden" searchClient={searchClient}>
+                  <SearchBox />
+                  <Hits />
+                </InstantSearch>
+              </Content>
+              <Close onClick={onRequestClose} />
+            </Wrapper>
+          )
+      )}
+    </>
   );
 };
