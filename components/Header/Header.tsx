@@ -77,7 +77,7 @@ const MenuItem: React.FC<{ label: string; slug: string }> = ({
 };
 
 const SearchButton = styled.button`
-  ${tw`p-4 text-xl`}
+  ${tw`p-4 text-xl bg-transparent`}
   border: none;
 
   & svg {
