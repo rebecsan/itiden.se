@@ -32,6 +32,9 @@ declare global {
       CONTENTFUL_TOKEN: string | undefined;
       GA: string | undefined;
       NODE_ENV: 'development' | 'production';
+      ALGOLIA_APP_ID: string | undefined;
+      ALGOLIA_API_KEY: string | undefined;
+      ALGOLIA_SEARCH_KEY: string | undefined;
     }
   }
 }

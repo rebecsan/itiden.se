@@ -44,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     ${tw`font-body`}
     background: #fff;
+    position: relative;
   }
   h2 {
     margin-bottom: 0.2rem;

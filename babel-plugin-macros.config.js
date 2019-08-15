@@ -1,5 +1,5 @@
 module.exports = {
   tailwind: {
-    styled: 'styled-components'
+    styled: 'styled-components/macro'
   }
 }
