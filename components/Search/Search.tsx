@@ -27,7 +27,7 @@ const Wrapper = styled(animated.section)`
   z-index: 100;
 `;
 
-const Content = tw.div`flex flex-col max-w-4xl m-auto p-8 pt-12`;
+const Content = tw.div`flex flex-col max-w-4xl m-auto p-8 pt-16 md:pt-12`;
 
 const searchClient = algoliasearch(
   process.env.ALGOLIA_APP_ID || '',
@@ -62,7 +62,7 @@ const Input = styled.input.attrs({
 `;
 
 const Close = styled.button`
-  ${tw`absolute bg-none border-0 p-0 text-4xl`}
+  ${tw`absolute bg-transparent border-0 p-0 text-4xl`}
   top: 20px;
   right: 20px;
   width: 32px;
