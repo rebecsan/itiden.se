@@ -81,8 +81,9 @@ const SearchButton = styled.button`
   border: none;
 
   & svg {
+    ${tw`fill-secondary relative`}
+    top: -2px;
     height: 24px;
-    ${tw`fill-secondary`}
   }
 
   &:hover svg {
