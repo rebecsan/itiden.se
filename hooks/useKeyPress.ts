@@ -2,7 +2,8 @@ import React from 'react';
 
 export function useKeyPress(
   targetKey: string,
-  onKeyPressed?: (event: KeyboardEvent) => void
+  onKeyPressed?: (event: KeyboardEvent) => void,
+  disabled?: boolean
 ): boolean {
   const [keyPressed, setKeyPressed] = React.useState(false);
 
@@ -25,17 +26,20 @@ export function useKeyPress(
     }
   };
 
+  // @ts-ignore: no-implicit-returns
   React.useEffect(() => {
-    window.addEventListener('keydown', downHandler);
-    window.addEventListener('keyup', upHandler);
+    if (!disabled) {
+      window.addEventListener('keydown', downHandler);
+      window.addEventListener('keyup', upHandler);
 
-    return () => {
-      window.removeEventListener('keydown', downHandler);
-      window.removeEventListener('keyup', upHandler);
-    };
+      return () => {
+        window.removeEventListener('keydown', downHandler);
+        window.removeEventListener('keyup', upHandler);
+      };
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [disabled]);
 
   return keyPressed;
 }
