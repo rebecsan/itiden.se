@@ -9,6 +9,7 @@ import {
 } from 'react-instantsearch-dom';
 import { Hit, HitData } from './Hit';
 import { useKeyPress } from '../../hooks/useKeyPress';
+import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 interface SearchProps {
   show: boolean;
@@ -26,17 +27,6 @@ const Wrapper = styled.section`
 `;
 
 const Content = tw.div`flex flex-col max-w-4xl m-auto p-8 pt-12`;
-const Title = styled.h2`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-`;
 
 const searchClient = algoliasearch(
   process.env.ALGOLIA_APP_ID || '',
@@ -155,7 +145,7 @@ export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
 
   return (
     <Wrapper>
-      <Title>Sök</Title>
+      <VisuallyHidden as="h2">Sök</VisuallyHidden>
       <Content>
         <InstantSearch indexName="itiden" searchClient={searchClient}>
           <SearchBox />
