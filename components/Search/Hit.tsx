@@ -26,8 +26,8 @@ interface EmployeeHitData {
   objectID: string;
   name: string;
   title: string;
-  email: string;
-  phone: string;
+  email: string | undefined;
+  phone: string | undefined;
 }
 
 export type HitData = PageHitData | CaseHitData | EmployeeHitData;
@@ -58,12 +58,16 @@ const EmployeeHit: React.FC<EmployeeHitData> = ({
     <div css={tw`mb-4`}>
       <div css={tw`font-bold text-primary`}>{name}</div>
       <div css={tw`text-tertiary text-sm`}>{title}</div>
-      <Link href={`mailto:${email}`} passHref>
-        <a css={tw`block text-sm`}>{email}</a>
-      </Link>
-      <Link href={`tel:${phone}`} passHref>
-        <a css={tw`block text-sm`}>{phone}</a>
-      </Link>
+      {email && (
+        <Link href={`mailto:${email}`} passHref>
+          <a css={tw`block text-sm`}>{email}</a>
+        </Link>
+      )}
+      {phone && (
+        <Link href={`tel:${phone}`} passHref>
+          <a css={tw`block text-sm`}>{phone}</a>
+        </Link>
+      )}
     </div>
   );
 };
