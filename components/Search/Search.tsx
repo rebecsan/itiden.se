@@ -11,6 +11,7 @@ import { Hit, HitData } from './Hit';
 import { useKeyPress } from '../../hooks/useKeyPress';
 import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 import { animated, useTransition } from 'react-spring';
+import FocusLock from 'react-focus-lock';
 
 interface SearchProps {
   show: boolean;
@@ -152,15 +153,19 @@ export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
       {transitions.map(
         ({ item, key, props }) =>
           item && (
-            <Wrapper key={key} style={props}>
-              <VisuallyHidden as="h2">Sök</VisuallyHidden>
-              <Content>
-                <InstantSearch indexName="itiden" searchClient={searchClient}>
-                  <SearchBox />
-                  <Hits />
-                </InstantSearch>
-              </Content>
-              <Close onClick={onRequestClose} />
+            <Wrapper key={key} style={props} tabIndex={-1} aria-modal="true">
+              <FocusLock>
+                <VisuallyHidden as="h2">Sök</VisuallyHidden>
+                <Content>
+                  <InstantSearch indexName="itiden" searchClient={searchClient}>
+                    <SearchBox />
+                    <Hits />
+                  </InstantSearch>
+                </Content>
+                <Close onClick={onRequestClose}>
+                  <VisuallyHidden>Stäng</VisuallyHidden>
+                </Close>
+              </FocusLock>
             </Wrapper>
           )
       )}

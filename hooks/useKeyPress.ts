@@ -8,7 +8,6 @@ export function useKeyPress(
   const [keyPressed, setKeyPressed] = React.useState(false);
 
   function downHandler(event: KeyboardEvent) {
-    console.log(event.key);
     if (event.key === targetKey) {
       setKeyPressed(true);
       if (onKeyPressed) {
