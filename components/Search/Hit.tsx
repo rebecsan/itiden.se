@@ -59,14 +59,14 @@ const EmployeeHit: React.FC<EmployeeHitData> = ({
       <div css={tw`font-bold text-primary`}>{name}</div>
       <div css={tw`text-tertiary text-sm`}>{title}</div>
       {email && (
-        <Link href={`mailto:${email}`} passHref>
-          <a css={tw`block text-sm`}>{email}</a>
-        </Link>
+        <a href={`mailto:${email}`} css={tw`block text-sm`}>
+          {email}
+        </a>
       )}
       {phone && (
-        <Link href={`tel:${phone}`} passHref>
-          <a css={tw`block text-sm`}>{phone}</a>
-        </Link>
+        <a href={`tel:${phone}`} css={tw`block text-sm`}>
+          {phone}
+        </a>
       )}
     </div>
   );
