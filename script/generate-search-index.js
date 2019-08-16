@@ -22,7 +22,7 @@ async function generateSearchIndex() {
         title: page.title,
         header: documentToPlainTextString(page.header),
         body: documentToPlainTextString(page.body),
-        href: `/${page.slug}`,
+        slug: page.slug,
         type: 'page',
       });
     });
@@ -31,7 +31,7 @@ async function generateSearchIndex() {
     indexes.push({
       objectID: c.id,
       title: c.title,
-      href: `/case/${c.slug}`,
+      slug: c.slug,
       description: documentToPlainTextString(c.description),
       partners: c.partners.map(p => p.name),
       tags: [...c.technologies, ...c.categories],

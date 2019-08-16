@@ -8,14 +8,14 @@ interface PageHitData {
   title: string;
   header: string;
   body: string;
-  href: string;
+  slug: string;
 }
 
 interface CaseHitData {
   type: 'case';
   objectID: string;
   title: string;
-  href: string;
+  slug: string;
   description: string;
   partners: string[];
   tags: string[];
@@ -32,17 +32,17 @@ interface EmployeeHitData {
 
 export type HitData = PageHitData | CaseHitData | EmployeeHitData;
 
-const PageHit: React.FC<PageHitData> = ({ href, title }) => {
+const PageHit: React.FC<PageHitData> = ({ slug, title }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={`/page?slug=${slug}`} as={`/${slug}`} passHref>
       <a>{title}</a>
     </Link>
   );
 };
 
-const CaseHit: React.FC<CaseHitData> = ({ href, title }) => {
+const CaseHit: React.FC<CaseHitData> = ({ slug, title }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={`/case?slug=${slug}`} as={`/case/${slug}`} passHref>
       <a>{title}</a>
     </Link>
   );
