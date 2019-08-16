@@ -77,8 +77,7 @@ const MenuItem: React.FC<{ label: string; slug: string }> = ({
 };
 
 const SearchButton = styled.button`
-  ${tw`p-4 text-xl bg-transparent`}
-  border: none;
+  ${tw`p-4 text-xl bg-transparent outline-none focus:outline-none border-0`}
 
   & svg {
     ${tw`fill-secondary relative`}
@@ -86,7 +85,8 @@ const SearchButton = styled.button`
     height: 24px;
   }
 
-  &:hover svg {
+  &:hover svg,
+  &:focus svg {
     ${tw`fill-brand`}
   }
 `;
