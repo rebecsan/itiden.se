@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Card = styled(animated.div)`
+const Card = styled(({ _css, ...rest }) => <animated.div {...rest} />)`
   ${tw`absolute cursor-pointer bg-gray-900 shadow-md p-4 flex items-center justify-center rounded`}
   width: 100%;
   height: 100%;
@@ -32,6 +32,8 @@ const Card = styled(animated.div)`
 const Content = styled.dl`
   ${tw`font-mono text-sm m-0`}
   position: relative;
+  left: 60px;
+
   &:before {
     ${tw`text-gray-500`}
     content: '{';
@@ -49,7 +51,7 @@ const Content = styled.dl`
 `;
 
 const Label = styled.dt`
-  ${tw`text-brand inline-block`}
+  ${tw`text-orange-600 inline-block`}
 
   &:before {
     content: '"';
@@ -60,6 +62,8 @@ const Label = styled.dt`
 `;
 const Value = styled.dd`
   ${tw`text-white inline-block`}
+  width: 70%;
+
   &:before {
     content: '"';
   }
@@ -115,16 +119,13 @@ export const CardFront: React.FC<Employee & CardProps> = ({
     <Card {...rest}>
       <Content>
         <Label>name</Label> <Value>{name}</Value>
-        <br />
         <Label>title</Label> <Value>{title}</Value>
-        <br />
         <Label>email</Label>{' '}
         <Value>
           <Link href={`mailto:${email}`} onClick={e => e.stopPropagation()}>
             {email}
           </Link>
         </Value>
-        <br />
         <Label>phone</Label>{' '}
         <Value>
           {phone && (
