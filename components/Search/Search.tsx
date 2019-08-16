@@ -154,7 +154,7 @@ export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
         ({ item, key, props }) =>
           item && (
             <Wrapper key={key} style={props} tabIndex={-1} aria-modal="true">
-              <FocusLock>
+              <FocusLock returnFocus>
                 <VisuallyHidden as="h2">Sök</VisuallyHidden>
                 <Content>
                   <InstantSearch indexName="itiden" searchClient={searchClient}>
