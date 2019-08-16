@@ -127,9 +127,11 @@ export const CardFront: React.FC<Employee & CardProps> = ({
         <br />
         <Label>phone</Label>{' '}
         <Value>
-          <Link href={`tel:${phone}`} onClick={e => e.stopPropagation()}>
-            {phone}
-          </Link>
+          {phone && (
+            <Link href={`tel:${phone}`} onClick={e => e.stopPropagation()}>
+              {phone}
+            </Link>
+          )}
         </Value>
       </Content>
     </Card>
