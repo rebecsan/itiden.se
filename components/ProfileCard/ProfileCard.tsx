@@ -29,20 +29,17 @@ const Card = styled(({ _css, ...rest }) => <animated.div {...rest} />)`
   will-change: transform, opacity;
 `;
 
-const Content = styled.dl`
-  ${tw`font-mono text-sm m-0`}
+const Content = styled.ul`
+  ${tw`font-mono text-sm p-0 m-0 text-white`}
   position: relative;
-  left: 60px;
 
   &:before {
-    ${tw`text-gray-500`}
     content: '{';
     position: absolute;
     top: -20px;
     left: -14px;
   }
   &:after {
-    ${tw`text-gray-500`}
     content: '}';
     position: absolute;
     bottom: -10px;
@@ -50,8 +47,17 @@ const Content = styled.dl`
   }
 `;
 
-const Label = styled.dt`
-  ${tw`text-orange-600 inline-block`}
+const Row = styled.li`
+  ${tw`block list-none text-white`}
+
+  &:not(:last-child):after {
+    color: #fff;
+    content: ',';
+  }
+`;
+
+const Label = styled.span`
+  ${tw`text-orange-600 inline-block font-bold`}
 
   &:before {
     content: '"';
@@ -60,15 +66,11 @@ const Label = styled.dt`
     content: '":';
   }
 `;
-const Value = styled.dd`
+const Value = styled.span`
   ${tw`text-white inline-block`}
-  width: 70%;
 
   &:before {
     content: '"';
-  }
-  &:not(:last-child):after {
-    content: '",';
   }
   &:last-child:after {
     content: '"';
@@ -118,22 +120,30 @@ export const CardFront: React.FC<Employee & CardProps> = ({
   return (
     <Card {...rest}>
       <Content>
-        <Label>name</Label> <Value>{name}</Value>
-        <Label>title</Label> <Value>{title}</Value>
-        <Label>email</Label>{' '}
-        <Value>
-          <Link href={`mailto:${email}`} onClick={e => e.stopPropagation()}>
-            {email}
-          </Link>
-        </Value>
-        <Label>phone</Label>{' '}
-        <Value>
-          {phone && (
-            <Link href={`tel:${phone}`} onClick={e => e.stopPropagation()}>
-              {phone}
+        <Row>
+          <Label>name</Label> <Value>{name}</Value>
+        </Row>
+        <Row>
+          <Label>title</Label> <Value>{title}</Value>
+        </Row>
+        <Row>
+          <Label>email</Label>{' '}
+          <Value>
+            <Link href={`mailto:${email}`} onClick={e => e.stopPropagation()}>
+              {email}
             </Link>
-          )}
-        </Value>
+          </Value>
+        </Row>
+        <Row>
+          <Label>phone</Label>{' '}
+          <Value>
+            {phone && (
+              <Link href={`tel:${phone}`} onClick={e => e.stopPropagation()}>
+                {phone}
+              </Link>
+            )}
+          </Value>
+        </Row>
       </Content>
     </Card>
   );
