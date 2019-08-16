@@ -55,14 +55,14 @@ const EmployeeHit: React.FC<EmployeeHitData> = ({
   phone,
 }) => {
   return (
-    <div>
+    <div css={tw`mb-4`}>
       <div css={tw`font-bold text-primary`}>{name}</div>
-      <div css={tw`text-secondary text-sm`}>{title}</div>
+      <div css={tw`text-tertiary text-sm`}>{title}</div>
       <Link href={`mailto:${email}`} passHref>
-        <a css={tw`block text-secondary text-sm`}>{email}</a>
+        <a css={tw`block text-sm`}>{email}</a>
       </Link>
       <Link href={`tel:${phone}`} passHref>
-        <a css={tw`block text-secondary text-sm`}>{phone}</a>
+        <a css={tw`block text-sm`}>{phone}</a>
       </Link>
     </div>
   );
