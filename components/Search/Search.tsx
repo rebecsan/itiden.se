@@ -28,7 +28,9 @@ const Wrapper = styled(animated.section)`
   z-index: 100;
 `;
 
-const Content = tw.div`flex flex-col max-w-4xl m-auto p-8 pt-16 md:pt-12`;
+const Content = styled.div`
+  ${tw`flex flex-col max-w-4xl m-auto p-8 pt-16 md:pt-12`}
+`;
 
 const searchClient = algoliasearch(
   process.env.ALGOLIA_APP_ID || '',
@@ -42,14 +44,14 @@ const Section = styled.section`
   ${tw`p-4`}
   flex-basis: 33%;
 `;
-const SectionTitle = tw.h3`
-  text-secondary text-sm uppercase
+const SectionTitle = styled.h3`
+  ${tw`text-secondary text-sm uppercase`}
 `;
-const SectionList = tw.ul`
-  list-none m-0 p-0
+const SectionList = styled.ul`
+  ${tw`list-none m-0 p-0`}
 `;
-const SectionListItem = tw.li`
-  mb-2
+const SectionListItem = styled.li`
+  ${tw`mb-2`}
 `;
 
 const Input = styled.input.attrs({

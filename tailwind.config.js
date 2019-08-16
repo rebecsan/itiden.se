@@ -1,8 +1,12 @@
-// const defaultConfig = require('tailwindcss/defaultConfig')();
-import defaultConfig from 'tailwindcss/defaultConfig';
-
 const brandColor = '#CC4A02';
 const brandColorLight = '#C94D06';
+const defaultColors = {
+  gray: {
+    600: '#718096',
+    700: '#4a5568',
+    900: '#1a202c',
+  },
+};
 
 module.exports = {
   theme: {
@@ -19,13 +23,13 @@ module.exports = {
       },
       fill: {
         logo: '#000',
-        secondary: defaultConfig.theme.colors.gray[700],
+        secondary: defaultColors.gray[700],
         brand: brandColor,
       },
       textColor: {
-        primary: defaultConfig.theme.colors.gray[900],
-        secondary: defaultConfig.theme.colors.gray[700],
-        tertiary: defaultConfig.theme.colors.gray[600],
+        primary: defaultColors.gray[900],
+        secondary: defaultColors.gray[700],
+        tertiary: defaultColors.gray[600],
       },
     },
   },
