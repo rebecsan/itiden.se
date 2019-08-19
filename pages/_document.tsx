@@ -8,6 +8,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GlobalStyles } from '../components/Styles';
+import fontChars from '../data/data/chars';
 
 export default class MyDocument extends Document {
   public static async getInitialProps(ctx: DocumentContext) {
@@ -53,7 +54,7 @@ export default class MyDocument extends Document {
             href="/static/favicon.ico"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap"
+            href={`https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap&text=${fontChars}`}
             rel="stylesheet"
           />
         </Head>
