@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
 const fs = require('fs');
 const sm = require('sitemap');
 const { exportPathMap } = require('../next.config');

@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
 const {
   documentToPlainTextString,
 } = require('@contentful/rich-text-plain-text-renderer');

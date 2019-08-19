@@ -1,8 +1,8 @@
+/* eslint @typescript-eslint/no-var-requires: 0 */
 const algoliasearch = require('algoliasearch');
 const {
   documentToPlainTextString,
 } = require('@contentful/rich-text-plain-text-renderer');
-const fs = require('fs');
 const pages = require('../data/data/page.json');
 const cases = require('../data/data/case.json');
 const employees = require('../data/data/employee.json');
@@ -49,8 +49,6 @@ async function generateSearchIndex() {
       type: 'employee',
     });
   });
-
-  // fs.writeFileSync('./search-index.json', JSON.stringify(indexes));
 
   const client = algoliasearch(APP_ID, API_KEY);
   const index = client.initIndex('itiden');
