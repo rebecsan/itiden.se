@@ -121,7 +121,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
     <Link href={`/case?slug=${slug}`} as={`/case/${slug}`} passHref>
       <Box tabIndex={0} {...bindings}>
         <ImageContainer>
-          <MaybeLazyImage lazy={index > 6} media={img} />
+          <MaybeLazyImage lazy={index > 5} media={img} />
         </ImageContainer>
         <TitleBox>
           <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
