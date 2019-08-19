@@ -56,4 +56,6 @@ async function generateSearchIndex() {
   await index.addObjects(indexes);
 }
 
-generateSearchIndex();
+if (APP_ID && API_KEY) {
+  generateSearchIndex();
+}
