@@ -11,12 +11,8 @@ const path = require('path');
 const uniqueChars = [];
 
 function pushUniqueChars(value) {
-  const logStringsWithChars = ['['];
   if (value && typeof value === 'string') {
     value.split('').forEach(char => {
-      if (logStringsWithChars.includes(char)) {
-        console.log(value);
-      }
       if (!uniqueChars.includes(char) && char !== ' ') {
         uniqueChars.push(char);
       }
