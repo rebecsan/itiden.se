@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import tw from 'tailwind.macro';
+import { SearchContext } from './Search';
 
 interface PageHitData {
   type: 'page';
@@ -41,9 +42,11 @@ const PageHit: React.FC<PageHitData> = ({ slug, title }) => {
 };
 
 const CaseHit: React.FC<CaseHitData> = ({ slug, title }) => {
+  const { onRequestClose } = React.useContext(SearchContext);
+
   return (
     <Link href={`/case?slug=${slug}`} as={`/case/${slug}`} passHref>
-      <a>{title}</a>
+      <a onClick={onRequestClose}>{title}</a>
     </Link>
   );
 };

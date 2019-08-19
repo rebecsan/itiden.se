@@ -18,6 +18,16 @@ interface SearchProps {
   onRequestClose(): void;
 }
 
+interface SearchContextValue {
+  onRequestClose(): void;
+}
+
+export const SearchContext = React.createContext<SearchContextValue>({
+  onRequestClose: () => {
+    //
+  },
+});
+
 const Wrapper = styled(animated.section)`
   position: absolute;
   width: 100%;
@@ -151,7 +161,7 @@ export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
   });
 
   return (
-    <>
+    <SearchContext.Provider value={{ onRequestClose }}>
       {transitions.map(
         ({ item, key, props }) =>
           item && (
@@ -171,6 +181,6 @@ export const Search: React.FC<SearchProps> = ({ show, onRequestClose }) => {
             </Wrapper>
           )
       )}
-    </>
+    </SearchContext.Provider>
   );
 };
