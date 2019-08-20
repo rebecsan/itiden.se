@@ -151,21 +151,44 @@ const MaybeLazyImage: React.FC<{
   media: Media;
 }> = ({ lazy, media }) => {
   const url = media.file.url;
-  const src = `${url}?w=600`;
-  const srcset = `${url}?w=400 400w, ${url}?w=600 600w`;
-  const sizes = '(max-width: 375px) 400px, 600px';
+  const src = `${url}?w=700`;
+  const imgSizes = [600, 500, 400, 300];
+  const sizes =
+    '(min-width: 768px) calc(100vw / 2), (min-width: 1200px) calc(1200px / 2), 100vw';
+  const srcsetWebp = imgSizes
+    .map(size => `${url}?fm=webp&w=${size} ${size}w`)
+    .join(',');
+  const srcset = imgSizes.map(size => `${url}?w=${size} ${size}w`).join(',');
 
   if (lazy) {
     return (
-      <Image
-        className="lazyload"
-        alt={media.title}
-        src="/static/case-placeholder.jpg"
-        data-src={src}
-        data-srcset={srcset}
-        data-sizes={sizes}
-      />
+      <picture>
+        <source
+          type="image/webp"
+          // source element requires a src-set.
+          srcSet="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-srcset={srcsetWebp}
+          data-sizes={sizes}
+        />
+        <Image
+          className="lazyload"
+          alt={media.title}
+          src="/static/case-placeholder.jpg"
+          data-src={src}
+          data-sizes={sizes}
+        />
+      </picture>
     );
   }
-  return <Image alt={media.title} src={src} srcSet={srcset} sizes={sizes} />;
+  return (
+    <picture>
+      <source type="image/webp" srcSet={srcsetWebp} sizes={sizes} />
+      <Image
+        alt={media.title}
+        src="/static/case-placeholder.jpg"
+        srcSet={srcset}
+        sizes={sizes}
+      />
+    </picture>
+  );
 };
