@@ -54,10 +54,6 @@ export default class MyDocument extends Document {
             href="/static/favicon.ico"
           />
           <link
-            href={`https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap&text=${fontChars}`}
-            rel="stylesheet"
-          />
-          <link
             rel="preconnect"
             href="https://fonts.gstatic.com/"
             crossOrigin="anonymous"
@@ -66,6 +62,10 @@ export default class MyDocument extends Document {
             rel="preconnect dns-prefetch"
             href="https://www.google-analytics.com"
             crossOrigin="anonymous"
+          />
+          <link
+            href={`https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap&text=${fontChars}`}
+            rel="stylesheet"
           />
         </Head>
         <body>
