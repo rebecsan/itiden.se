@@ -175,6 +175,7 @@ const MaybeLazyImage: React.FC<{
           alt={media.title}
           src="/static/case-placeholder.jpg"
           data-src={src}
+          data-srcset={srcset}
           data-sizes={sizes}
         />
       </picture>
@@ -183,12 +184,7 @@ const MaybeLazyImage: React.FC<{
   return (
     <picture>
       <source type="image/webp" srcSet={srcsetWebp} sizes={sizes} />
-      <Image
-        alt={media.title}
-        src="/static/case-placeholder.jpg"
-        srcSet={srcset}
-        sizes={sizes}
-      />
+      <Image alt={media.title} src={src} srcSet={srcset} sizes={sizes} />
     </picture>
   );
 };
