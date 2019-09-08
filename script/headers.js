@@ -3,11 +3,11 @@ const fs = require('fs');
 
 async function generateHeadersFile() {
   const header = `/*
-  content-security-policy: script-src 'self' https://www.google-analytics.com
-  x-xss-protection: 1; mode=block
-  strict-transport-security: max-age=31536000; includeSubDomains; preload
-  x-frame-options: SAMEORIGIN
-  x-content-type-options: nosniff`;
+  Content-Security-Policy: default-src 'self' https://www.google-analytics.com 'unsafe-inline'
+  X-Xss-Protection: 1; mode=block
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff`;
 
   fs.writeFileSync('./out/_headers', header);
 }
