@@ -23,7 +23,7 @@ const PagePage = ({ data }: PageProps) => {
   return (
     <Page>
       <PageHeader title={title} description={description} />
-      <Header>
+      <Header role="banner">
         <HeaderContent>
           <Title>{title}</Title>
           <Body

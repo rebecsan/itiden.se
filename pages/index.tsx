@@ -30,7 +30,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
   return (
     <Page>
       <IndexHeader />
-      <Header>
+      <Header role="banner">
         <IntroText>{documentToReactComponents(page.header)}</IntroText>
       </Header>
       <CaseWrapper role="main">

@@ -42,13 +42,13 @@ export const Header: React.FC<{}> = () => {
   return (
     <>
       <Wrapper>
-        <Content>
+        <Content role="complementary">
           <Link href="/">
             <a aria-label="itiden.se">
               <HeaderLogo />
             </a>
           </Link>
-          <Menu>
+          <Menu role="navigation">
             {menu.Main.map(item => (
               <MenuItem key={item.label} {...item} />
             ))}
