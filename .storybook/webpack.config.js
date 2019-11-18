@@ -6,5 +6,8 @@ module.exports = ({ config }) => {
     loader: require.resolve('babel-loader'),
   });
   config.resolve.extensions.push('.ts', '.tsx');
+  config.node = {
+    fs: 'empty',
+  };
   return config;
 };
