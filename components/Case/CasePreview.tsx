@@ -8,6 +8,7 @@ import { Case } from '../../models/Case';
 import { Tag } from '../Tag';
 import 'lazysizes';
 import { Media } from '../../models';
+import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 interface CasePreviewProps extends Case {
   index: number;
@@ -124,7 +125,10 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
           <MaybeLazyImage lazy={index > 5} media={img} />
         </ImageContainer>
         <TitleBox>
-          <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
+          <Title
+            aria-hidden="true"
+            style={{ transform: anim.xyz.interpolate(trans1) }}
+          >
             {title}
           </Title>
         </TitleBox>
@@ -141,6 +145,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
             </Tag>
           ))}
         </Tags>
+        <VisuallyHidden>{title}</VisuallyHidden>
       </Box>
     </Link>
   );
