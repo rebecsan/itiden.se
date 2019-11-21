@@ -14,6 +14,9 @@ module.exports = withBundleAnalyzer(
     withOptimizedImages({
       exportTrailingSlash: true,
       optimizeImages: false,
+      experimental: {
+        modern: true,
+      },
       exportPathMap: async function() {
         const paths = {
           '/': { page: '/' },
