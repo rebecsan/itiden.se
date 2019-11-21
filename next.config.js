@@ -12,7 +12,6 @@ const cases = require('./data/data/case.json');
 module.exports = withBundleAnalyzer(
   withCSS(
     withOptimizedImages({
-      modern: true,
       exportTrailingSlash: true,
       optimizeImages: false,
       exportPathMap: async function() {
