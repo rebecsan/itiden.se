@@ -27,11 +27,12 @@ function isImage(type: string): boolean {
 
 export const Media: React.FC<MediaProps> = ({ media }) => {
   const { title, description, file } = media;
-  const { url: origUrl } = file;
-  const url = `${origUrl}?q=90`;
 
   if (isImage(file.contentType)) {
+    const { url: origUrl } = file;
+    const url = `${origUrl}?q=90`;
     const { width } = file.details.image;
+
     return (
       <Wrapper style={{ width }}>
         <figure>
