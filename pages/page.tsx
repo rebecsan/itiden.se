@@ -48,20 +48,10 @@ const PagePage = ({ data }: PageProps) => {
   );
 };
 
-async function fetchPage({ slug = '' }) {
-  const json = await import('../data/data/page.json');
-  let arr: object | PageModel[] = json;
-  // Why is json an object?
-  if (typeof json === 'object') {
-    arr = Object.entries(json).map(([, value]) => value);
-  }
-  const data = (arr as PageModel[]).find(c => c.slug === slug);
-  return { arr, data, type: typeof json };
-}
-
 PagePage.getInitialProps = async ({ query }: NextPageContext) => {
-  const data = await fetchPage(query);
-  return data;
+  const pages = await import('../data/data/page.json').then(m => m.default);
+  const data = pages.find(p => p.slug === query.slug);
+  return { data };
 };
 
 export default withRouter(PagePage);
