@@ -8,6 +8,7 @@ import { Case } from '../../models/Case';
 import { Tag } from '../Tag';
 import 'lazysizes';
 import { Media } from '../../models';
+import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 interface CasePreviewProps extends Case {
   index: number;
@@ -124,7 +125,10 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
           <MaybeLazyImage lazy={index > 5} media={img} />
         </ImageContainer>
         <TitleBox>
-          <Title style={{ transform: anim.xyz.interpolate(trans1) }}>
+          <Title
+            aria-hidden="true"
+            style={{ transform: anim.xyz.interpolate(trans1) }}
+          >
             {title}
           </Title>
         </TitleBox>
@@ -141,6 +145,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
             </Tag>
           ))}
         </Tags>
+        <VisuallyHidden>{title}</VisuallyHidden>
       </Box>
     </Link>
   );
@@ -151,14 +156,16 @@ const MaybeLazyImage: React.FC<{
   media: Media;
 }> = ({ lazy, media }) => {
   const url = media.file.url;
-  const src = `${url}?w=600`;
+  const src = `${url}?q=90&w=600`;
   const imgSizes = [600, 500, 400, 300];
   const sizes =
     '(min-width: 768px) calc(100vw / 2), (min-width: 1200px) calc(1200px / 2), 100vw';
   const srcsetWebp = imgSizes
-    .map(size => `${url}?fm=webp&w=${size} ${size}w`)
+    .map(size => `${url}?q=90&fm=webp&w=${size} ${size}w`)
     .join(',');
-  const srcset = imgSizes.map(size => `${url}?w=${size} ${size}w`).join(',');
+  const srcset = imgSizes
+    .map(size => `${url}?q=90&w=${size} ${size}w`)
+    .join(',');
 
   if (lazy) {
     return (
