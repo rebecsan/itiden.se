@@ -1,6 +1,6 @@
 const withCSS = require('@zeit/next-css');
 const withOptimizedImages = require('next-optimized-images');
-const withPreact = require('@zeit/next-preact')
+const withTM = require('next-transpile-modules');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -11,80 +11,79 @@ const pages = require('./data/data/page.json');
 const cases = require('./data/data/case.json');
 
 module.exports = withBundleAnalyzer(
-  withPreact(
-    withCSS(
-      withOptimizedImages({
-        exportTrailingSlash: true,
-        optimizeImages: false,
-        experimental: {
-          modern: true,
-        },
-        exportPathMap: async function() {
-          const paths = {
-            '/': { page: '/' },
-          };
+  withCSS(
+    withOptimizedImages(withTM({
+      transpileModules: ['tailwindcss'],
+      exportTrailingSlash: true,
+      optimizeImages: false,
+      experimental: {
+        modern: true,
+      },
+      exportPathMap: async function() {
+        const paths = {
+          '/': { page: '/' },
+        };
 
-          pages
-            .filter(page => page.slug !== '/')
-            .forEach(page => {
-              paths[`/${page.slug}`] = {
-                page: '/page',
-                query: { slug: page.slug },
-              };
-            });
-          cases.forEach(c => {
-            paths[`/case/${c.slug}`] = {
-              page: '/case',
-              query: { slug: c.slug },
+        pages
+          .filter(page => page.slug !== '/')
+          .forEach(page => {
+            paths[`/${page.slug}`] = {
+              page: '/page',
+              query: { slug: page.slug },
             };
           });
-
-          return paths;
-        },
-        webpack: config => {
-          config.plugins = config.plugins || [];
-
-          config.plugins = [
-            ...config.plugins,
-
-            // Read the .env file
-            new Dotenv({
-              path: path.join(__dirname, '.env'),
-              systemvars: true,
-            }),
-          ];
-
-          config.resolve.alias = {
-            ...config.resolve.alias,
-            'react-spring$': require.resolve('react-spring/web.cjs'),
-            'react-spring/renderprops$': require.resolve(
-              'react-spring/renderprops.cjs'
-            ),
-            // 'react-use-gesture': require.resolve('react-use-gesture/web.cjs')
+        cases.forEach(c => {
+          paths[`/case/${c.slug}`] = {
+            page: '/case',
+            query: { slug: c.slug },
           };
+        });
 
-          const originalEntry = config.entry;
-          config.entry = async () => {
-            const entries = await originalEntry();
+        return paths;
+      },
+      webpack: config => {
+        config.plugins = config.plugins || [];
 
-            if (
-              entries['main.js'] &&
-              !entries['main.js'].includes('./polyfills.js')
-            ) {
-              entries['main.js'].unshift('./polyfills.js');
-            }
+        config.plugins = [
+          ...config.plugins,
 
-            return entries;
-          };
+          // Read the .env file
+          new Dotenv({
+            path: path.join(__dirname, '.env'),
+            systemvars: true,
+          }),
+        ];
 
-          config.node = {
-            ...config.node,
-            fs: 'empty',
-          };
+        config.resolve.alias = {
+          ...config.resolve.alias,
+          'react-spring$': require.resolve('react-spring/web.cjs'),
+          'react-spring/renderprops$': require.resolve(
+            'react-spring/renderprops.cjs'
+          ),
+          // 'react-use-gesture': require.resolve('react-use-gesture/web.cjs')
+        };
 
-          return config;
-        },
-      })
-    )
-  )
+        const originalEntry = config.entry;
+        config.entry = async () => {
+          const entries = await originalEntry();
+
+          if (
+            entries['main.js'] &&
+            !entries['main.js'].includes('./polyfills.js')
+          ) {
+            entries['main.js'].unshift('./polyfills.js');
+          }
+
+          return entries;
+        };
+
+        config.node = {
+          ...config.node,
+          fs: 'empty',
+        };
+
+        return config;
+      },
+    })
+  ))
 );
