@@ -18,7 +18,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test:ts": "tsc --noEmit --skipLibCheck",
-    "test:eslint": "eslint . --ext .ts,.tsx --ignore-pattern node_modules/",
+    "test:eslint": "eslint -c .eslintrc.js . --ext .ts,.tsx --ignore-pattern node_modules/",
     "lint": "tslint --project tsconfig.json",
     "fix:lint": "yarn run lint --fix"
   },
