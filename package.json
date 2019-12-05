@@ -41,7 +41,7 @@
     "react-use-gesture": "^5.2.4",
     "sitemap": "^5.1.0",
     "styled-components": "^5.0.0-rc.2",
-    "styled-reboot": "^4.0.3",
+    "styled-reboot": "3.0.1",
     "tailwind.macro": "^1.0.0-alpha.10"
   },
   "devDependencies": {
