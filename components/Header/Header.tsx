@@ -48,7 +48,7 @@ export const Header: React.FC<{}> = () => {
               <HeaderLogo />
             </a>
           </Link>
-          <Menu role="navigation">
+          <Menu>
             {menu.Main.map(item => (
               <MenuItem key={item.label} {...item} />
             ))}
