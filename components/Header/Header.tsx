@@ -8,10 +8,6 @@ import { NavLink } from '../Navigation/NavLink';
 // import { Search } from '../Search';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
-const Wrapper = styled.div`
-  ${tw`bg-header`};
-`;
-
 const Content = styled.div`
   ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 md:px-16 mx-auto`};
   max-width: 1400px;
@@ -41,21 +37,19 @@ export const Header: React.FC<{}> = () => {
 
   return (
     <>
-      <Wrapper>
-        <Content role="complementary">
-          <Link href="/">
-            <a aria-label="itiden.se">
-              <HeaderLogo />
-            </a>
-          </Link>
-          <Menu>
-            {menu.Main.map(item => (
-              <MenuItem key={item.label} {...item} />
-            ))}
-            {/* <SearchIcon onClick={handleSearchClick} /> */}
-          </Menu>
-        </Content>
-      </Wrapper>
+      <Content role="complementary">
+        <Link href="/">
+          <a aria-label="itiden.se">
+            <HeaderLogo />
+          </a>
+        </Link>
+        <Menu>
+          {menu.Main.map(item => (
+            <MenuItem key={item.label} {...item} />
+          ))}
+          {/* <SearchIcon onClick={handleSearchClick} /> */}
+        </Menu>
+      </Content>
       {/* <Search show={showSearch} onRequestClose={handleSearchCloseRequest} /> */}
     </>
   );

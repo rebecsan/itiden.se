@@ -4,50 +4,19 @@ import tw from 'tailwind.macro';
 
 export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}
-  /*
-  :root {
-    --bg-color: #fff;
-    --header-color: #fcfcfc;
-    --logo-color: #000;
-    --primary-color: #e4570e;
-    --primary-color-light: #e4570e;
-    --text-color: #2d3748;
-    --text-color-secondary: #4a5568;
-    --text-color-tertiary: #4a5568;
-  }
-  
-  .dark-mode {
-    --bg-color: #181819;
-    --header-color: #161617;
-    --logo-color: #ea6912;
-    --primary-color: #ea6912;
-    --primary-color-light: #e4570e;
-    --text-color: #E0E0E0;
-    --text-color-secondary: #F2F2F2;
-    --text-color-tertiary: #4a5568;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-color: #181819;
-      --header-color: #161617;
-      --logo-color: #ea6912;
-      --primary-color: #ea6912;
-      --primary-color-light: #e4570e;
-      --text-color: #E0E0E0;
-      --text-color-secondary: #F2F2F2;
-      --text-color-tertiary: #4a5568;
-    }
-  }
-  */
 
   body {
-    ${tw`font-body`}
-    background: #fff;
+    ${tw`font-body bg-default`}
     position: relative;
   }
+  h1 {
+    ${tw`mb-3 leading-tight`}
+  }
   h2 {
-    margin-bottom: 0.2rem;
+    ${tw`text-lg mb-3 leading-tight`}
+  }
+  h3 {
+    ${tw`text-base mb-3 leading-tight`}
   }
   a {
     ${tw`text-brand`}

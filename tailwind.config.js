@@ -1,9 +1,9 @@
-const brandColor = '#CC4A02';
-const brandColorLight = '#C94D06';
+const brandColor = '#504DD2';
+const brandColorLight = '#F5F8FF';
 const defaultColors = {
   gray: {
     600: '#718096',
-    700: '#4a5568',
+    700: '#242424',
     900: '#1a202c',
   },
 };
@@ -11,18 +11,15 @@ const defaultColors = {
 module.exports = {
   theme: {
     fontFamily: {
-      body:
-        '"Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial',
-      mono: '"Ubuntu Mono", monospace',
+      body: '"Open Sans", sans-serif',
     },
     extend: {
       colors: {
         brand: { default: brandColor, light: brandColorLight },
-        header: '#fcfcfc',
-        bg: { default: '#fff', light: '#fff', dark: '#1A1A1A' },
+        bg: { default: '#F0F0F0' },
       },
       fill: {
-        logo: '#000',
+        logo: '#242424',
         secondary: defaultColors.gray[700],
         brand: brandColor,
       },

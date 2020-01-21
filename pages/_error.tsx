@@ -11,7 +11,7 @@ interface ErrorPageProps {
 }
 
 const IntroText = styled(HeaderContent)`
-  ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}
+  ${tw`text-lg md:text-2xl text-primary tracking-wide`}
 
   & b {
     ${tw`font-bold text-primary`}

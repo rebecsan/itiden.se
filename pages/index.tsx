@@ -51,17 +51,18 @@ IndexPage.getInitialProps = async () => {
 export default IndexPage;
 
 const IntroText = styled(HeaderContent)`
-  ${tw`text-lg md:text-2xl text-secondary font-light tracking-wide`}
-
+  ${tw`text-secondary tracking-wide`}
+  & p {
+    ${tw`md:mr-24 clearfix`}
+  }
   & b {
     ${tw`font-bold text-primary`}
   }
   & a {
-    ${tw`font-bold`}
+    ${tw`inline-block bg-brand text-white py-2 px-8 rounded-full`}
   }
-
   & h1 {
-    ${tw`text-lg md:text-2xl text-secondary font-light tracking-wide`}
+    ${tw`text-2xl md:text-3xl text-secondary tracking-wide`}
   }
 `;
 

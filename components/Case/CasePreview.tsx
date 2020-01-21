@@ -45,7 +45,7 @@ const TitleBox = styled.div`
 `;
 
 const Title = styled(animated.div)`
-  ${tw`font-mono font-bold text-lg md:text-2xl lg:text-2xl xl:text-4xl font-semiBold text-primary md:text-white relative md:px-20 w-full`}
+  ${tw`font-bold text-lg md:text-2xl lg:text-2xl xl:text-4xl font-semiBold text-primary md:text-white relative md:px-20 w-full`}
 `;
 
 const Tags = styled.div`

@@ -30,7 +30,7 @@ const Card = styled(({ _css, ...rest }) => <animated.div {...rest} />)`
 `;
 
 const Content = styled.ul`
-  ${tw`font-mono text-sm p-0 m-0 text-white`}
+  ${tw`text-sm p-0 m-0 text-white`}
   position: relative;
 
   &:before {
