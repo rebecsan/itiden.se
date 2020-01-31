@@ -13,4 +13,6 @@ export interface Case {
   technologies: string[];
   categories: string[];
   publishedAt: string;
+  showOnStartPage: boolean;
+  labs: boolean;
 }

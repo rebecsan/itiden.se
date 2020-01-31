@@ -10,13 +10,13 @@ export const GlobalStyles = createGlobalStyle`
     position: relative;
   }
   h1 {
-    ${tw`mb-3 leading-tight`}
+    ${tw`text-4xl mb-3 leading-tight uppercase`}
   }
   h2 {
-    ${tw`text-lg mb-3 leading-tight`}
+    ${tw`text-4xl mb-3 leading-tight uppercase`}
   }
   h3 {
-    ${tw`text-base mb-3 leading-tight`}
+    ${tw`text-base mb-3 leading-tight font-normal uppercase`}
   }
   a {
     ${tw`text-brand`}

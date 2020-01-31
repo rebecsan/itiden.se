@@ -14,7 +14,7 @@ interface NavLinkProps {
 }
 
 const Wrapper = styled.a<{ active: boolean }>`
-  ${tw`p-4 inline-block text-secondary text-base hover:text-brand outline-none focus:text-brand uppercase`};
+  ${tw`py-5 px-3 md:px-4 inline-block text-secondary text-base hover:text-brand outline-none focus:text-brand uppercase`};
   ${({ active }) => active && tw`font-bold`};
   text-decoration: none;
   transition: color 0.2s;
@@ -25,8 +25,7 @@ export const NavLink = withRouter<NavLinkProps, {}>(
     const active: boolean = router
       ? router.route === rest.as ||
         router.asPath === rest.as ||
-        router.asPath === `${rest.as}/` ||
-        (router.route === '/case' && rest.as === '/')
+        router.asPath === `${rest.as}/`
       : false;
 
     return (

@@ -40,7 +40,7 @@
     "react-spring": "^8.0.27",
     "react-use-gesture": "^5.2.4",
     "sitemap": "^5.1.0",
-    "styled-components": "^5.0.0-rc.2",
+    "styled-components": "^5.0.0",
     "styled-reboot": "3.0.1",
     "tailwind.macro": "^1.0.0-alpha.10"
   },

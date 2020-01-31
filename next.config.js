@@ -7,9 +7,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const pages = require('./data/data/page.json');
-const cases = require('./data/data/case.json');
-
 module.exports = withBundleAnalyzer(
   withCSS(
     withOptimizedImages(withTM({
@@ -20,10 +17,14 @@ module.exports = withBundleAnalyzer(
         modern: true,
       },
       exportPathMap: async function() {
+        
         const paths = {
           '/': { page: '/' },
+          '/case': { page: '/case' },
+          '/labs': { page: '/labs' },
+          '/kontakt': { page: '/kontakt' },
         };
-
+        /*
         pages
           .filter(page => page.slug !== '/')
           .forEach(page => {
@@ -32,13 +33,14 @@ module.exports = withBundleAnalyzer(
               query: { slug: page.slug },
             };
           });
+        
         cases.forEach(c => {
           paths[`/case/${c.slug}`] = {
             page: '/case',
             query: { slug: c.slug },
           };
         });
-
+*/
         return paths;
       },
       webpack: config => {

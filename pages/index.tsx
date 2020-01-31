@@ -1,56 +1,68 @@
 import React from 'react';
 import Head from 'next/head';
-import { Page, Header, HeaderContent } from '../components/Layout';
+import { Page, Header, Content } from '../components/Layout';
 import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { NextComponentType } from 'next';
 import { Case, Page as PageModel } from '../models';
+import Link from 'next/link';
 
 interface IndexPageProps {
   cases: Case[];
   page: PageModel | undefined;
 }
 
-const CaseWrapper = styled.div`
-  @media (min-width: 768px) {
-    transform: translateY(-4rem);
-  }
+const Section = styled.div`
+  ${tw`bg-brand-light pt-6 pb-12 md:pb-32 md:pt-20 mb-24`};
 `;
 
-const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
-  cases,
-  page,
-}) => {
-  if (!page) {
-    return null;
-  }
-
+const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
       <IndexHeader />
       <Header role="banner">
-        <IntroText>{documentToReactComponents(page.header)}</IntroText>
+        <IntroText>
+          <h3>Göteborg, kungsportsplatsen</h3>
+          <h1>Webbutveckling och Apputveckling</h1>
+          <p>
+            itiden är en digital produktionsbyrå specialiserade på
+            webbutveckling och apputveckling i Göteborg. Vi hjälper våra kunder
+            att utveckla webbplatser, webbapplikationer och mobilappar.
+          </p>
+          <p>
+            Dessutom är itiden techpartner i spännande startups där vi hjälper
+            till med arkitektur, servrar, front-end, back-end, UX och design.
+          </p>
+          <p>
+            <Link href="/kontakt">Kontakta oss</Link>
+          </p>
+        </IntroText>
       </Header>
-      <CaseWrapper role="main">
+      <Section>
+        <Content>
+          <h2>Teknisk kreativitet</h2>
+        </Content>
+      </Section>
+      <Content role="main">
+        <h2>Se vad vi gör</h2>
         <CaseGrid cases={cases} />
-      </CaseWrapper>
+        <p>
+          <Link href="/case">Visa fler</Link>
+        </p>
+      </Content>
     </Page>
   );
 };
 
 IndexPage.getInitialProps = async () => {
   const cases = await import('../data/data/case.json').then(m => m.default);
-  const pages = await import('../data/data/page.json').then(m => m.default);
-  const page = pages.find(p => p.slug === '/');
-
-  return { cases, page };
+  return { cases: cases.filter(c => c.showOnStartpage) };
 };
 
 export default IndexPage;
 
-const IntroText = styled(HeaderContent)`
+const IntroText = styled(Content)`
   ${tw`text-secondary tracking-wide`}
   & p {
     ${tw`md:mr-24 clearfix`}

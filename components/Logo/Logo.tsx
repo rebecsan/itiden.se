@@ -1,5 +1,4 @@
 import React from 'react';
-import tw from 'tailwind.macro';
 
 interface LogoProps {
   className?: string;
@@ -9,23 +8,8 @@ export const Logo: React.FC<LogoProps> = props => {
   return (
     <>
       <svg
-        width="88"
-        height="96"
-        viewBox="0 0 88 96"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        css={`
-          ${tw`h-8 w-auto mr-4`};
-        `}
-      >
-        <path d="M88 0H0L36.3846 96H51.6154L88 0Z" fill="#504DD2" />
-      </svg>
-      <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 258.6 77.3"
-        css={`
-          ${tw`fill-logo h-8`};
-        `}
         {...props}
       >
         <path

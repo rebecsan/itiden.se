@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Header, HeaderContent } from '../components/Layout';
+import { Page, Header, Content } from '../components/Layout';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { CaseGrid } from '../components/Case';
@@ -10,7 +10,7 @@ interface ErrorPageProps {
   cases: Case[];
 }
 
-const IntroText = styled(HeaderContent)`
+const IntroText = styled(Content)`
   ${tw`text-lg md:text-2xl text-primary tracking-wide`}
 
   & b {

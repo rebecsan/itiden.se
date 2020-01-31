@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 import { Page, Header, Content } from '../components/Layout';
-import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { NextComponentType } from 'next';
+import { CaseGrid } from '../components/Case';
 import { Case } from '../models';
 
 interface IndexPageProps {
@@ -17,22 +17,24 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader />
       <Header role="banner">
         <IntroText>
-          <h3>Case, itiden</h3>
-          <h1>Vad vi gör</h1>
+          <h3>Labs, itiden</h3>
+          <h1>Utveckling + nöje</h1>
           <p>
-            Tillsammans med IT-bolag, reklambyråer, start-ups och produktbolag
-            hjälper vi att utveckla hemsidor, webbapplikationer och mobilappar.
+            Det händer ibland att vi bygger egna produkter eller tjänster på
+            itiden. Det kan vara för att utmana oss, lära oss nya tekniker eller
+            helt enkelt för att vi tycker produkten behövs. Denna utveckling
+            samlar vi under vad vi kallar Itiden Labs.
           </p>
         </IntroText>
       </Header>
-      <CaseGrid cases={cases.filter(c => !c.labs)} />
+      <CaseGrid cases={cases.filter(c => c.labs)} />
     </Page>
   );
 };
 
 IndexPage.getInitialProps = async () => {
   const cases = await import('../data/data/case.json').then(m => m.default);
-  return { cases: cases.filter(c => !c.labs) };
+  return { cases: cases.filter(c => c.labs) };
 };
 
 export default IndexPage;
@@ -47,6 +49,9 @@ const IntroText = styled(Content)`
   }
   & a {
     ${tw`inline-block bg-brand text-white py-2 px-8 rounded-full`}
+  }
+  & h1 {
+    ${tw`text-2xl md:text-3xl text-secondary tracking-wide`}
   }
 `;
 

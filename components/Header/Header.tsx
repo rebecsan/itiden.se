@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { menu } from '../../data/menu';
 import Link from 'next/link';
 import { Logo } from '../Logo';
 import { NavLink } from '../Navigation/NavLink';
@@ -16,8 +15,7 @@ const Content = styled.div`
 const Menu = styled.nav``;
 
 const HeaderLogo = styled(Logo)`
-  ${tw`fill-logo sm:mx-auto`};
-  height: 48px;
+  ${tw`sm:mx-auto h-8`};
 
   @media (max-width: 768px) {
     height: 32px;
@@ -44,10 +42,10 @@ export const Header: React.FC<{}> = () => {
           </a>
         </Link>
         <Menu>
-          {menu.Main.map(item => (
-            <MenuItem key={item.label} {...item} />
-          ))}
-          {/* <SearchIcon onClick={handleSearchClick} /> */}
+          <MenuItem key="home" label="Vad vi gör" slug="/" />
+          <MenuItem key="case" label="Case" slug="case" />
+          <MenuItem key="labs" label="Labs" slug="labs" />
+          <MenuItem key="kontakt" label="Kontakt" slug="kontakt" />
         </Menu>
       </Content>
       {/* <Search show={showSearch} onRequestClose={handleSearchCloseRequest} /> */}
