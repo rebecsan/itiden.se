@@ -17,6 +17,7 @@ module.exports = {
       colors: {
         brand: { default: brandColor, light: brandColorLight },
         bg: { default: '#F0F0F0' },
+        dark: { default: '#4B4A4F' },
       },
       fill: {
         logo: '#242424',

@@ -14,7 +14,45 @@ interface IndexPageProps {
 }
 
 const Section = styled.div`
-  ${tw`bg-brand-light pt-6 pb-12 md:pb-32 md:pt-20 mb-24`};
+  ${tw`flex flex-col-reverse relative lg:flex-row mb-12 md:mb-16`};
+  @media (min-width: 1024px) {
+    height: 424px;
+  }
+`;
+
+const HalfContent = styled.div`
+  ${tw`w-full px-4 py-8 flex justify-center flex-col`};
+  @media (min-width: 1024px) {
+    max-width: 600px;
+  }
+`;
+
+const CreativeImage = styled.img`
+  @media (min-width: 1024px) {
+    ${tw`ml-6`};
+  }
+`;
+
+const Half = styled.div`
+  ${tw`flex flex-1 justify-end bg-brand-light h-full items-center relative`};
+  @media (min-width: 1024px) {
+    :after {
+      content: '';
+      position: absolute;
+      right: -120px;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: 0 solid transparent;
+      border-right: 120px solid transparent;
+      border-bottom: 424px solid #f5f8ff;
+      clear: both;
+    }
+  }
+`;
+
+const HalfGrey = styled.div`
+  ${tw`flex bg-dark flex-1 h-full items-center`};
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
@@ -40,9 +78,21 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
         </IntroText>
       </Header>
       <Section>
-        <Content>
-          <h2>Teknisk kreativitet</h2>
-        </Content>
+        <Half>
+          <HalfContent>
+            <h2>Teknisk kreativitet</h2>
+            <p>
+              Itiden är en digital produktionsbyrå med ett brinnande intresse
+              för framtidens teknik och flera års erfarenhet i utveckling av
+              webbplatser, webbapplikationer och mobilappar.
+            </p>
+          </HalfContent>
+        </Half>
+        <HalfGrey>
+          <HalfContent>
+            <CreativeImage src="/static/creative.svg" alt="creative" />
+          </HalfContent>
+        </HalfGrey>
       </Section>
       <Content role="main">
         <h2>Se vad vi gör</h2>
@@ -65,7 +115,7 @@ export default IndexPage;
 const IntroText = styled(Content)`
   ${tw`text-secondary tracking-wide`}
   & p {
-    ${tw`md:mr-24 clearfix`}
+    ${tw`md:mr-64 clearfix`}
   }
   & b {
     ${tw`font-bold text-primary`}
