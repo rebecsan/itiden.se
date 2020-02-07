@@ -15,6 +15,7 @@ interface ProfileCardProps {
   title: string;
   email: string;
   phone: string;
+  avatarFileUrl?: string;
 }
 
 export const ProfileCard: React.FC<ProfileCardProps> = ({
@@ -22,9 +23,13 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   title,
   email,
   phone,
+  avatarFileUrl,
 }) => {
   return (
     <Wrapper>
+      {avatarFileUrl != null && (
+        <img src={avatarFileUrl} alt={`${name} avatar`} />
+      )}
       <b>{name}</b>
       <br />
       {title}

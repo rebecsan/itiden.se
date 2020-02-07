@@ -80,6 +80,31 @@ async function getCases() {
   fs.writeFileSync(path.join(dataDir, 'case.json'), JSON.stringify(contents));
 }
 
+async function getEmployees() {
+  const entries = await client.getEntries({
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    content_type: 'employee',
+  });
+
+  const contents = entries.items
+    .map(({ sys, fields }) => {
+      const {
+        avatar,
+        publishedAt,
+        ...rest
+      } = fields;
+      return {
+        ...rest,
+        id: sys.id,
+        publishedAt: publishedAt ? publishedAt : sys.createdAt,
+        avatar: avatar ? getFields(avatar) : null,
+      };
+    })
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+  fs.writeFileSync(path.join(dataDir, 'employee.json'), JSON.stringify(contents));
+}
+
 async function getMenu() {
   const entries = await client.getEntries({
     // eslint-disable-next-line @typescript-eslint/camelcase
@@ -102,7 +127,7 @@ const getcontent = async () => {
   await getCases();
   await getMenu();
   await getEntries('page');
-  await getEntries('employee');
+  await getEmployees();
   return true;
 };
 

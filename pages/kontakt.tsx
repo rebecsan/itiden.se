@@ -104,6 +104,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
                 title={employee.title}
                 email={employee.email}
                 phone={employee.phone}
+                avatarFileUrl={employee.avatar?.file.url}
               />
             ))}
         </ProfileWrapper>
