@@ -5,6 +5,7 @@ export interface Employee {
   name: string;
   title: string;
   email: string;
-  phone: string;
-  avatar?: Media;
+  phone?: string;
+  avatar: Media | null;
+  order: number;
 }

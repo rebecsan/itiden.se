@@ -11,9 +11,8 @@ interface IndexPageProps {
   employees: Employee[];
 }
 
-const ContactWrapper = styled.div`
-  ${tw`mx-auto pl-4`};
-  max-width: 900px;
+const ContactWrapper = styled(Content)`
+  ${tw`mx-auto px-4 flex justify-around flex-col md:flex-row`};
 `;
 
 const ContactBoxWrapper = styled(ContactWrapper)`
@@ -21,7 +20,7 @@ const ContactBoxWrapper = styled(ContactWrapper)`
 `;
 
 const ContactBox = styled.div`
-  ${tw`w-1/2 mb-8 md:w-1/3 text-center content-center items-center flex flex-wrap flex-col`}
+  ${tw`mb-4 md:mb-8 text-center content-center items-center flex flex-wrap flex-row md:flex-col`}
 `;
 
 const ProfileWrapper = styled.div`
@@ -29,7 +28,7 @@ const ProfileWrapper = styled.div`
 `;
 
 const ContactLink = styled.a`
-  ${tw`rounded-full inline-block flex content-center items-center justify-center flex-wrap mb-8 w-24 h-24 md:w-56 md:h-56 lg:w-64 lg:h-64`}
+  ${tw`rounded-full inline-block flex content-center items-center justify-center flex-wrap sm:mb-4 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64`}
   border: 1px solid rgba(77, 100, 210, 0.1);
   box-sizing: border-box;
   img {
@@ -38,14 +37,21 @@ const ContactLink = styled.a`
   &:hover img {
     transform: scale(1.1);
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     img {
-      height: 80px;
-    }
-    h2 {
-      font-size: 1rem;
+      height: 120px;
     }
   }
+  @media (max-width: 767px) {
+    border: none;
+    img {
+      height: 100px;
+    }
+  }
+`;
+
+const ContactInfo = styled.div`
+  text-align: left;
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
@@ -70,43 +76,47 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
           <ContactLink href="tel:031-7740950">
             <img src="/static/call.svg" alt="Ring" />
           </ContactLink>
-          <h2>Ring</h2>
-          <p>031-774 09 50</p>
+          <ContactInfo>
+            <h2>Ring</h2>
+            <a href="tel:031-7740950">031-774 09 50</a>
+          </ContactInfo>
         </ContactBox>
         <ContactBox>
-          <ContactLink href="tel:0709-597008">
+          <ContactLink href="mailto:hej@itiden.se">
             <img src="/static/mail.svg" alt="Maila" />
           </ContactLink>
-          <h2>Maila</h2>
-          <p>hej@itiden.se</p>
+          <ContactInfo>
+            <h2>Maila</h2>
+            <a href="mailto:hej@itiden.se">hej@itiden.se</a>
+          </ContactInfo>
         </ContactBox>
         <ContactBox>
           <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
             <img src="/static/find.svg" alt="Hitta" />
           </ContactLink>
-          <h2>Hitta hit</h2>
-          <p>
-            Kungstorget 11-12
-            <br />
-            411 41 Göteborg
-          </p>
+          <ContactInfo>
+            <h2>Hitta hit</h2>
+            <a href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
+              Kungstorget 11-12
+              <br />
+              411 41 Göteborg
+            </a>
+          </ContactInfo>
         </ContactBox>
       </ContactBoxWrapper>
       <ContactWrapper>
         <h2>Teamet</h2>
         <ProfileWrapper>
-          {employees
-            .sort((a, b) => (a.name < b.name ? -1 : 1))
-            .map(employee => (
-              <ProfileCard
-                key={employee.id}
-                name={employee.name}
-                title={employee.title}
-                email={employee.email}
-                phone={employee.phone}
-                avatarFileUrl={employee.avatar?.file.url}
-              />
-            ))}
+          {employees.map(employee => (
+            <ProfileCard
+              key={employee.id}
+              name={employee.name}
+              title={employee.title}
+              email={employee.email}
+              phone={employee.phone}
+              avatarFileUrl={employee.avatar?.file.url}
+            />
+          ))}
         </ProfileWrapper>
       </ContactWrapper>
     </Page>
@@ -117,7 +127,9 @@ IndexPage.getInitialProps = async () => {
   const employees = await import('../data/data/employee.json').then(
     m => m.default
   );
-  return { employees };
+  return {
+    employees: employees.sort((a: Employee, b: Employee) => a.order - b.order),
+  };
 };
 
 export default IndexPage;

@@ -3,23 +3,38 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import Link from 'next/link';
 import { Logo } from '../Logo';
+import { LogoFnutt } from '../LogoFnutt';
 import { NavLink } from '../Navigation/NavLink';
 // import { Search } from '../Search';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 const Content = styled.div`
-  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 md:px-16 mx-auto`};
+  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 mx-auto`};
   max-width: 1400px;
+  @media (max-width: 767px) {
+    height: 80px;
+  }
 `;
 
-const Menu = styled.nav``;
+const Menu = styled.nav`
+  @media (max-width: 767px) {
+    ${tw`bg-white justify-between`};
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+  }
+`;
 
 const HeaderLogo = styled(Logo)`
-  ${tw`sm:mx-auto h-8`};
+  ${tw`hidden md:block md:mx-auto h-10`};
+`;
 
-  @media (max-width: 768px) {
-    height: 32px;
-  }
+const HeaderLogoFnutt = styled(LogoFnutt)`
+  ${tw`block md:hidden h-8 absolute top-0`};
+  left: 24px;
 `;
 
 export const Header: React.FC<{}> = () => {
@@ -39,6 +54,7 @@ export const Header: React.FC<{}> = () => {
         <Link href="/">
           <a aria-label="itiden.se">
             <HeaderLogo />
+            <HeaderLogoFnutt />
           </a>
         </Link>
         <Menu>
