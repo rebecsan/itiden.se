@@ -12,11 +12,11 @@ interface IndexPageProps {
 }
 
 const ContactWrapper = styled(Content)`
-  ${tw`mx-auto px-4 flex justify-around flex-col md:flex-row`};
+  ${tw`mx-auto px-4 justify-around`};
 `;
 
 const ContactBoxWrapper = styled(ContactWrapper)`
-  ${tw`flex flex-wrap mb-8`};
+  ${tw`flex flex-wrap mb-8 flex-col md:flex-row`};
 `;
 
 const ContactBox = styled.div`
@@ -28,7 +28,7 @@ const ProfileWrapper = styled.div`
 `;
 
 const ContactLink = styled.a`
-  ${tw`rounded-full inline-block flex content-center items-center justify-center flex-wrap sm:mb-4 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64`}
+  ${tw`rounded-full inline-block flex content-center items-center justify-center flex-wrap sm:mb-4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64`}
   border: 1px solid rgba(77, 100, 210, 0.1);
   box-sizing: border-box;
   img {
