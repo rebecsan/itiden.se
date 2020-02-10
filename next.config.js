@@ -7,6 +7,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const cases = require('./data/data/case.json');
+
 module.exports = withBundleAnalyzer(
   withCSS(
     withOptimizedImages(withTM({
@@ -17,30 +19,19 @@ module.exports = withBundleAnalyzer(
         modern: true,
       },
       exportPathMap: async function() {
-        
         const paths = {
           '/': { page: '/' },
           '/case': { page: '/case' },
           '/labs': { page: '/labs' },
           '/kontakt': { page: '/kontakt' },
+          '/jobb-webbutvecklare': { page: '/jobb-webbutvecklare' },
         };
-        /*
-        pages
-          .filter(page => page.slug !== '/')
-          .forEach(page => {
-            paths[`/${page.slug}`] = {
-              page: '/page',
-              query: { slug: page.slug },
-            };
-          });
-        
         cases.forEach(c => {
           paths[`/case/${c.slug}`] = {
             page: '/case',
             query: { slug: c.slug },
           };
         });
-*/
         return paths;
       },
       webpack: config => {
