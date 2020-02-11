@@ -1,10 +1,10 @@
+import { NextComponentType } from 'next';
 import React from 'react';
-import Head from 'next/head';
-import { Page, Header, Content } from '../components/Layout';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { NextComponentType } from 'next';
 import { CaseGrid } from '../components/Case';
+import { IndexHeader } from '../components/IndexHeader';
+import { Content, Header, Page } from '../components/Layout';
 import { Case } from '../models';
 
 interface IndexPageProps {
@@ -14,7 +14,7 @@ interface IndexPageProps {
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
-      <IndexHeader />
+      <IndexHeader title="Labs" />
       <Header role="banner">
         <IntroText>
           <h3>Labs, itiden</h3>
@@ -54,19 +54,3 @@ const IntroText = styled(Content)`
     ${tw`text-2xl md:text-3xl text-secondary tracking-wide`}
   }
 `;
-
-const IndexHeader: React.FC<{}> = () => (
-  <Head>
-    <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
-    <meta
-      name="Description"
-      content="itiden är en digital produktionsbyrå specialiserade på webbutveckling och apputveckling i Göteborg som hjälper våra kunder utveckla webbplatser, webbapplikationer och mobilappar."
-    />
-    <meta
-      name="title"
-      property="og:title"
-      content="itiden - Webbutveckling | Apputveckling | Göteborg"
-    />
-    <meta name="image" property="og:image" content="/static/itiden-share.png" />
-  </Head>
-);

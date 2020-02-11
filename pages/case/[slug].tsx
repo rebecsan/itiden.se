@@ -4,7 +4,6 @@ import { NextPageContext } from 'next';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
-import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Header, Content, Page } from '../../components/Layout';
 import { Media } from '../../components/Media/Media';
@@ -15,12 +14,6 @@ interface CasePageProps {
   data?: Case;
   router: NextRouter;
 }
-
-const MediaContainer = styled.div`
-  @media (min-width: 768px) {
-    transform: translateY(-4rem);
-  }
-`;
 
 const CasePage = ({ data }: CasePageProps) => {
   if (!data) {
@@ -52,7 +45,7 @@ const CasePage = ({ data }: CasePageProps) => {
               Länk: <a href={url}>{url}</a>
             </p>
           )}
-          {partners && (
+          {partners.length > 0 && (
             <p>Partners: {partners.map(partner => partner.name).join(', ')}</p>
           )}
           <div
@@ -71,11 +64,11 @@ const CasePage = ({ data }: CasePageProps) => {
           </div>
         </Content>
       </Header>
-      <MediaContainer>
-        {media.splice(1).map(m => (
+      <Content>
+        {media.slice(1).map(m => (
           <Media key={m.id} media={m} />
         ))}
-      </MediaContainer>
+      </Content>
     </Page>
   );
 };

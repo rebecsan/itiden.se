@@ -51,6 +51,7 @@ const Title = styled(animated.div)`
 const Tags = styled.div`
   ${tw`hidden absolute bottom-0 left-0 p-4 md:flex flex-wrap items-end`}
   z-index: 10;
+  opacity: 0;
 `;
 
 const Box = styled.a`

@@ -50,7 +50,7 @@ const IndexHeader: React.FC<{}> = () => (
     <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
     <meta
       name="Description"
-      content="itiden är en digital produktionsbyrå specialiserade på webbutveckling och apputveckling i Göteborg som hjälper våra kunder utveckla webbplatser, webbapplikationer och mobilappar."
+      content="itiden är en digital produktionsbyrå med ett team av webbutvecklare och apputvecklare i Göteborg. Vi jobbar tillsammans med produktbolag, startups och byråer och hjälper med utveckling av webbsidor, webbapplikation och mobilappar."
     />
     <meta
       name="title"

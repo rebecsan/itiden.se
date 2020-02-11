@@ -1,11 +1,11 @@
+import { NextComponentType } from 'next';
 import React from 'react';
-import Head from 'next/head';
-import { Page, Header, Content } from '../components/Layout';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { NextComponentType } from 'next';
-import { Employee } from '../models/Employee';
+import { IndexHeader } from '../components/IndexHeader';
+import { Content, Header, Page } from '../components/Layout';
 import { ProfileCard } from '../components/ProfileCard';
+import { Employee } from '../models/Employee';
 
 interface IndexPageProps {
   employees: Employee[];
@@ -59,7 +59,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
 }) => {
   return (
     <Page>
-      <IndexHeader />
+      <IndexHeader title="Kontakt" />
       <Header role="banner">
         <Content>
           <h3>Vad kan vi hjälpa dig med?</h3>
@@ -133,19 +133,3 @@ IndexPage.getInitialProps = async () => {
 };
 
 export default IndexPage;
-
-const IndexHeader: React.FC<{}> = () => (
-  <Head>
-    <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
-    <meta
-      name="Description"
-      content="itiden är en digital produktionsbyrå specialiserade på webbutveckling och apputveckling i Göteborg som hjälper våra kunder utveckla webbplatser, webbapplikationer och mobilappar."
-    />
-    <meta
-      name="title"
-      property="og:title"
-      content="itiden - Webbutveckling | Apputveckling | Göteborg"
-    />
-    <meta name="image" property="og:image" content="/static/itiden-share.png" />
-  </Head>
-);
