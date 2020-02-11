@@ -107,7 +107,7 @@ const IndexPage: NextComponentType = () => {
             <p>
               <label>CV och bilagor</label>
               <br />
-              <input type="file" name="files" mulitple />
+              <input type="file" name="files" multiple />
             </p>
             <p>
               <Button type="submit">Skicka</Button>
