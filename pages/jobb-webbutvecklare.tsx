@@ -70,6 +70,7 @@ const IndexPage: NextComponentType = () => {
               <label>
                 <Checkbox type="checkbox" name="htmlcss" /> HTML/CSS
               </label>
+              <br />
               <label>
                 <Checkbox type="checkbox" name="javascript" /> JavaScript
               </label>
