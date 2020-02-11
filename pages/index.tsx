@@ -77,14 +77,14 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <>
             <h2>Teknisk kreativitet</h2>
             <p>
-              Vi har brinnande intresse för den senaste tekniken och lång
-              erfarenhet av utveckling av webbsidor, webbapplikationer och
-              mobilappar.
+              Vi har ett stort intresse för teknik och att använda den på bästa
+              möjliga sätt. Dessutom lång erfarenhet av utveckling av webbsidor,
+              webbapplikationer och mobilappar.
             </p>
             <p>
-              Dessutom är vi ofta delaktiga i tekniska beslut kring plattform,
-              teknikval och arkitektur. Vi använder oss av bland annat React,
-              React Native, Laravel, ASP.NET Core och Wordpress.
+              Vi är gärna delaktiga i tekniska beslut kring plattform, teknikval
+              och arkitektur. Vi använder oss av bland annat React, React
+              Native, Laravel, ASP.NET Core och Wordpress.
             </p>
           </>
         }
