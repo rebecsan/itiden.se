@@ -25,6 +25,7 @@ module.exports = withBundleAnalyzer(
           '/labs': { page: '/labs' },
           '/kontakt': { page: '/kontakt' },
           '/jobb-webbutvecklare': { page: '/jobb-webbutvecklare' },
+          '/jobb-tackar': { page: '/jobb-tackar' },
         };
         cases.forEach(c => {
           paths[`/case/${c.slug}`] = {
