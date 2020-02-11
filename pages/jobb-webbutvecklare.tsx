@@ -52,6 +52,7 @@ const IndexPage: NextComponentType = () => {
             data-netlify="true"
             action="/jobb-tackar"
           >
+            <input type="hidden" name="form-name" value="job-webdeveloper" />
             <HiddenParagraph>
               <label>
                 Don’t fill this out if you are a human:{' '}
@@ -59,17 +60,17 @@ const IndexPage: NextComponentType = () => {
               </label>
             </HiddenParagraph>
             <p>
-              <label>Namn</label>
+              <label>Namn *</label>
               <br />
               <Input required type="text" name="name" />
             </p>
             <p>
-              <label>Email</label>
+              <label>Email *</label>
               <br />
               <Input required type="email" name="email" />
             </p>
             <p>
-              <label>Information om dig</label>
+              <label>Information om dig *</label>
               <br />
               <Textarea required rows={4} name="message"></Textarea>
             </p>
