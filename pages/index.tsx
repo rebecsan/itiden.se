@@ -90,7 +90,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
         }
         right={<CreativeImage src="/static/creative.svg" alt="creative" />}
       />
-      <Content role="heading">
+      <Content>
         <h2>Se vad vi gör</h2>
       </Content>
       <CaseGrid cases={cases} />
