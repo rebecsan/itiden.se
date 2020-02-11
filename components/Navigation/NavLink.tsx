@@ -22,9 +22,6 @@ const Wrapper = styled.a<{ active: boolean }>`
 export const NavLink = withRouter<NavLinkProps, {}>(
   ({ children, router, ...rest }) => {
     const active: boolean = router ? router.route === rest.href : false;
-
-    console.log(router.route, rest.href);
-
     return (
       <Link {...rest}>
         <Wrapper active={active}>{children}</Wrapper>
