@@ -118,7 +118,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
       : {};
 
   return (
-    <Link href={`/case/${slug}`} as={`/case/${slug}`} passHref>
+    <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
       <Box tabIndex={0} {...bindings}>
         <ImageContainer>
           <MaybeLazyImage lazy={index > 5} media={img} />

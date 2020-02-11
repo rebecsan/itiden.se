@@ -58,10 +58,10 @@ export const Header: React.FC<{}> = () => {
           </a>
         </Link>
         <Menu>
-          <MenuItem key="home" label="Vad vi gör" slug="/" />
-          <MenuItem key="case" label="Case" slug="case" />
-          <MenuItem key="labs" label="Labs" slug="labs" />
-          <MenuItem key="kontakt" label="Kontakt" slug="kontakt" />
+          <MenuItem key="home" label="Vad vi gör" href="/" />
+          <MenuItem key="case" label="Case" href="/case" />
+          <MenuItem key="labs" label="Labs" href="/labs" />
+          <MenuItem key="kontakt" label="Kontakt" href="/kontakt" />
         </Menu>
       </Content>
       {/* <Search show={showSearch} onRequestClose={handleSearchCloseRequest} /> */}
@@ -69,16 +69,12 @@ export const Header: React.FC<{}> = () => {
   );
 };
 
-const MenuItem: React.FC<{ label: string; slug: string }> = ({
+const MenuItem: React.FC<{ label: string; href: string }> = ({
   label,
-  slug,
+  href,
 }) => {
-  const isRootLink: boolean = slug === '/';
-  const href: string = isRootLink ? slug : `/page?slug=${slug}`;
-  const as: string = isRootLink ? slug : `/${slug}`;
-
   return (
-    <NavLink href={href} as={as} passHref>
+    <NavLink href={href} passHref>
       {label}
     </NavLink>
   );
