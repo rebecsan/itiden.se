@@ -50,6 +50,7 @@ const IndexPage: NextComponentType = () => {
             netlify-honeypot="bot-field"
             method="POST"
             data-netlify="true"
+            action="/jobb-tackar"
           >
             <HiddenParagraph>
               <label>
