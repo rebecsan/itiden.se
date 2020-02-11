@@ -6,6 +6,9 @@ export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}
 
   body {
+    background: linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
     ${tw`font-body bg-default relative`}
   }
   h1 {
