@@ -61,9 +61,9 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <h2>Jobba hos oss</h2>
           <p>
             Vi söker för tillfället utvecklare. Är du en webbutvecklare med god
-            kunskap i HTML, CSS och JavaScript/TypeScript som dessutom har
-            kunskap i eller är sugen på att lära dig React, Laravel, ASP.NET
-            Core och/eller React Native?
+            kunskap i HTML, CSS och JavaScript som dessutom har kunskap i eller
+            är sugen på att lära dig React, Laravel, ASP.NET Core och/eller
+            React Native?
           </p>
           <p>
             <Link href="/jobb-webbutvecklare" passHref>

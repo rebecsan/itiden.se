@@ -30,9 +30,9 @@ const IndexPage: NextComponentType = () => {
           <h3>Jobba hos oss</h3>
           <h1>Vi söker webbutvecklare</h1>
           <p>
-            Är du en webbutvecklare med god kunskap i HTML, CSS och
-            JavaScript/TypeScript som dessutom har kunskap i eller är sugen på
-            att lära dig React, Laravel, ASP.NET Core och/eller React Native?
+            Är du en webbutvecklare med god kunskap i HTML, CSS och JavaScript
+            som dessutom har kunskap i eller är sugen på att lära dig React,
+            Laravel, ASP.NET Core och/eller React Native?
           </p>
           <p>
             itiden är ett litet företag med kontor i centrala Göteborg vid
@@ -68,7 +68,10 @@ const IndexPage: NextComponentType = () => {
             </p>
             <p>
               <label>
-                <Checkbox type="checkbox" name="typescript" /> TypeScript
+                <Checkbox type="checkbox" name="htmlcss" /> HTML/CSS
+              </label>
+              <label>
+                <Checkbox type="checkbox" name="javascript" /> JavaScript
               </label>
               <br />
               <label>
