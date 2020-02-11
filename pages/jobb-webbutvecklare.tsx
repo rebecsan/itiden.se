@@ -17,6 +17,10 @@ const Textarea = styled.textarea`
   ${tw`border border-solid border-gray-600 rounded-lg bg-brand-light py-2 px-4 block w-full focus:outline-none`}
 `;
 
+const HiddenParagraph = styled.p`
+  ${tw`hidden`}
+`;
+
 export const Button = styled.button`
   ${tw`inline-block bg-brand text-white py-2 px-8 rounded-full hover:shadow-md border-none	`}
 `;
@@ -47,6 +51,12 @@ const IndexPage: NextComponentType = () => {
             method="POST"
             data-netlify="true"
           >
+            <HiddenParagraph>
+              <label>
+                Don’t fill this out if you are a human:{' '}
+                <input name="bot-field" />
+              </label>
+            </HiddenParagraph>
             <p>
               <label>Namn</label>
               <br />
