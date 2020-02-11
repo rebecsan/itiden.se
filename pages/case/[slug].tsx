@@ -97,10 +97,10 @@ const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
       <meta name="twitter:image" content={imageUrl} />
       <meta property="og:title" content={`itiden - case - ${title}`} />
       <meta property="og:type" content="article" />
-      <meta property="og:url" content={`https://itiden.se/case/${slug}`} />
+      <meta property="og:url" content={`https://www.itiden.se/case/${slug}`} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:description" content={descriptionString} />
-      <meta property="og:site_name" content="https://itiden.se" />
+      <meta property="og:site_name" content="https://www.itiden.se" />
     </Head>
   );
 };

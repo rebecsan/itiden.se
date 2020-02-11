@@ -117,6 +117,5 @@ const IndexHeader: React.FC<{}> = () => (
       content="itiden - Webbutveckling | Apputveckling | Göteborg"
     />
     <meta name="image" property="og:image" content="/static/itiden-share.png" />
-    <link rel="canonical" href="https://itiden.se" />
   </Head>
 );
