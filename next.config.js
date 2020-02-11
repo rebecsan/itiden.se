@@ -29,7 +29,7 @@ module.exports = withBundleAnalyzer(
         };
         cases.forEach(c => {
           paths[`/case/${c.slug}`] = {
-            page: '/case',
+            page: '/case/[slug]',
             query: { slug: c.slug },
           };
         });

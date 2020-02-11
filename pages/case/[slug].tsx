@@ -9,17 +9,12 @@ import tw from 'tailwind.macro';
 import { Header, Content, Page } from '../../components/Layout';
 import { Media } from '../../components/Media/Media';
 import { Tags } from '../../components/Tag';
-import { Body, Title } from '../../components/Typography';
 import { Case } from '../../models/Case';
 
 interface CasePageProps {
   data?: Case;
   router: NextRouter;
 }
-
-const Url = styled.a`
-  ${tw`font-bold`}
-`;
 
 const MediaContainer = styled.div`
   @media (min-width: 768px) {
@@ -32,22 +27,27 @@ const CasePage = ({ data }: CasePageProps) => {
     return null;
   }
 
-  const { title, technologies, categories, description, url, media } = data;
+  const { title, technologies, categories, description, url, media, partners } = data;
 
   return (
     <Page>
       <CaseHeader {...data} />
       <Header>
         <Content role="main">
-          <Title>{title}</Title>
-          <Url href={url}>{url}</Url>
-          <Body
-            css={`
-              ${tw`mt-4`}
-            `}
-          >
-            {documentToReactComponents(description)}
-          </Body>
+          <Media media={
+            media[0]
+          } />
+          <h3>Case, itiden</h3>
+          <h1>{title}</h1>
+          {documentToReactComponents(description)}
+          {url &&
+            <p>Länk: <a href={url}>{url}</a></p>
+          }
+          {partners && (
+            <p>Partners:{' '}
+              {partners.map(partner => partner.name).join(', ')}
+            </p>
+          )}
           <div
             css={`
               ${tw`mt-8`}
@@ -65,7 +65,7 @@ const CasePage = ({ data }: CasePageProps) => {
         </Content>
       </Header>
       <MediaContainer>
-        {media.map(m => (
+        {media.splice(1).map(m => (
           <Media key={m.id} media={m} />
         ))}
       </MediaContainer>
