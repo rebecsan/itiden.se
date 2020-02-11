@@ -27,26 +27,33 @@ const CasePage = ({ data }: CasePageProps) => {
     return null;
   }
 
-  const { title, technologies, categories, description, url, media, partners } = data;
+  const {
+    title,
+    technologies,
+    categories,
+    description,
+    url,
+    media,
+    partners,
+    labs,
+  } = data;
 
   return (
     <Page>
       <CaseHeader {...data} />
       <Header>
         <Content role="main">
-          <Media media={
-            media[0]
-          } />
-          <h3>Case, itiden</h3>
+          <Media media={media[0]} />
+          <h3>{labs ? 'Labs' : 'Case'}, itiden</h3>
           <h1>{title}</h1>
           {documentToReactComponents(description)}
-          {url &&
-            <p>Länk: <a href={url}>{url}</a></p>
-          }
-          {partners && (
-            <p>Partners:{' '}
-              {partners.map(partner => partner.name).join(', ')}
+          {url && (
+            <p>
+              Länk: <a href={url}>{url}</a>
             </p>
+          )}
+          {partners && (
+            <p>Partners: {partners.map(partner => partner.name).join(', ')}</p>
           )}
           <div
             css={`
