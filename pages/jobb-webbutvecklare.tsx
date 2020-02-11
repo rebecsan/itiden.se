@@ -51,6 +51,7 @@ const IndexPage: NextComponentType = () => {
             method="POST"
             data-netlify="true"
             action="/jobb-tackar"
+            encType="multipart/form-data"
           >
             <input type="hidden" name="form-name" value="job-webdeveloper" />
             <HiddenParagraph>
