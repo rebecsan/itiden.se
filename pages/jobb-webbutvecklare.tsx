@@ -110,6 +110,12 @@ const IndexPage: NextComponentType = () => {
               <input type="file" name="files" multiple />
             </p>
             <p>
+              <label>
+                <Checkbox type="checkbox" name="terms" required /> Jag godkänner
+                att itiden sparar mina uppgifter.
+              </label>
+            </p>
+            <p>
               <Button type="submit">Skicka</Button>
             </p>
           </form>
