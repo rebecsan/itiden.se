@@ -30,6 +30,7 @@ const Menu = styled.nav`
 
 const HeaderLogo = styled(Logo)`
   ${tw`hidden md:block md:mx-auto h-10`};
+  fill: #242424;
 `;
 
 const HeaderLogoFnutt = styled(LogoFnutt)`
