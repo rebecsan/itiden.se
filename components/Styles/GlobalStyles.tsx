@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     background: linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%);
     background-repeat: no-repeat;
     background-size: 100% 100vh;
-    ${tw`font-body bg-default relative`}
+    ${tw`bg-gradient font-body relative`}
   }
   h1 {
     ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
@@ -21,6 +21,6 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`text-base mb-3 leading-tight font-normal uppercase`}
   }
   a {
-    ${tw`text-brand no-underline`}
+    ${tw`text-brand no-underline hover:text-brand`}
   }
 `;

@@ -12,10 +12,10 @@ interface ErrorPageProps {
 }
 
 const IntroText = styled(Content)`
-  ${tw`text-lg md:text-2xl text-primary tracking-wide`}
+  ${tw`text-lg md:text-2xl text-gray-24 tracking-wide`}
 
   & b {
-    ${tw`font-bold text-primary`}
+    ${tw`font-bold text-gray-24`}
   }
   & a {
     ${tw`font-bold`}

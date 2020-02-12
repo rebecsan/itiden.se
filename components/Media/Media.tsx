@@ -18,7 +18,7 @@ const Image = styled.img`
 `;
 
 const Caption = styled.figcaption`
-  ${tw`text-sm text-tertiary mx-auto block text-center p-2`}
+  ${tw`text-sm text-gray-24 mx-auto block text-center p-2`}
 `;
 
 function isImage(type: string): boolean {

@@ -1,36 +1,26 @@
-const brandColor = '#504DD2';
-const brandColorLight = '#F5F8FF';
-const defaultColors = {
-  gray: {
-    600: '#718096',
-    700: '#242424',
-    900: '#1a202c',
-  },
-};
-
 module.exports = {
   theme: {
     fontFamily: {
       body: '"Open Sans", sans-serif',
     },
+    boxShadow: {
+      md: '0px 4px 4px rgba(0, 0, 0, 0.2)',
+    },
     extend: {
       colors: {
-        brand: { default: brandColor, light: brandColorLight },
-        bg: { default: '#F0F0F0' },
-        dark: { default: '#4B4A4F' },
+        'brand': '#504DD2',
+        'gray-f0': '#F0F0F0',
+        'gray-74': '#747474',
+        'gray-4b': '#4b4a4f',
+        'gray-24': '#242424',
+        'blue-f5': '#F5F8FF',
       },
       fill: {
         logo: '#242424',
-        secondary: defaultColors.gray[700],
-        brand: brandColor,
       },
-      textColor: {
-        primary: defaultColors.gray[900],
-        secondary: defaultColors.gray[700],
-        tertiary: defaultColors.gray[600],
-      },
+      backgroundColor: {
+        gradient: 'linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%)',
+      }
     },
   },
-  variants: {},
-  plugins: [],
 };

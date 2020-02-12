@@ -46,8 +46,8 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
             och apputvecklare i Göteborg.
           </p>
           <p>
-            Vi jobbar tillsammans med produktbolag, startups och byråer och
-            hjälper med utveckling av webbsidor, webbapplikation och mobilappar.
+            Tillsammans med produktbolag, startups och byråer arbetar vi med
+            utveckling av webbsidor, webbapplikation och mobilappar.
           </p>
           <p>
             <Link href="/kontakt" passHref>
@@ -77,9 +77,9 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <>
             <h2>Teknisk kreativitet</h2>
             <p>
-              Vi har ett stort intresse för teknik och att använda den på bästa
-              möjliga sätt. Dessutom lång erfarenhet av utveckling av webbsidor,
-              webbapplikationer och mobilappar.
+              På itiden finns det ett stort intresse för teknik och att använda
+              den på bästa möjliga sätt. Dessutom har vi lång erfarenhet av
+              utveckling av webbsidor, webbapplikationer och mobilappar
             </p>
             <p>
               Vi är gärna delaktiga i tekniska beslut kring plattform, teknikval
