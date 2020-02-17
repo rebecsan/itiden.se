@@ -5,7 +5,7 @@ import tw from 'tailwind.macro';
 import { Analytics } from '../Analytics';
 
 const Wrapper = styled.div`
-  ${tw`mx-auto pb-32`}
+  ${tw`mx-auto pb-16`}
 `;
 
 const Content = styled.div``;
