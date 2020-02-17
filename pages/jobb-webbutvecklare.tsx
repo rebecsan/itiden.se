@@ -30,7 +30,7 @@ const IndexPage: NextComponentType = () => {
     <Page>
       <IndexHeader
         title="Vi söker webbutvecklare"
-        imageSrc="/static/itiden-share-developer.png"
+        imageSrc="https://www.itiden.se/static/itiden-share-developer.png"
       />
       <Header role="banner">
         <Content>
