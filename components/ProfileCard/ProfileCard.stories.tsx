@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ProfileCard, CardFront, CardBack } from './ProfileCard';
+import { ProfileCard } from './ProfileCard';
 
 const profile = {
   id: 'one',
@@ -10,7 +10,6 @@ const profile = {
   phone: '555-555 555',
 };
 
-storiesOf('ProfileCard', module)
-  .add('Default', () => <ProfileCard {...profile} />)
-  .add('Front', () => <CardFront {...profile} />)
-  .add('Back', () => <CardBack />);
+storiesOf('ProfileCard', module).add('Default', () => (
+  <ProfileCard {...profile} />
+));

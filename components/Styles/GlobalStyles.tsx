@@ -4,58 +4,23 @@ import tw from 'tailwind.macro';
 
 export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}
-  /*
-  :root {
-    --bg-color: #fff;
-    --header-color: #fcfcfc;
-    --logo-color: #000;
-    --primary-color: #e4570e;
-    --primary-color-light: #e4570e;
-    --text-color: #2d3748;
-    --text-color-secondary: #4a5568;
-    --text-color-tertiary: #4a5568;
-  }
-  
-  .dark-mode {
-    --bg-color: #181819;
-    --header-color: #161617;
-    --logo-color: #ea6912;
-    --primary-color: #ea6912;
-    --primary-color-light: #e4570e;
-    --text-color: #E0E0E0;
-    --text-color-secondary: #F2F2F2;
-    --text-color-tertiary: #4a5568;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-color: #181819;
-      --header-color: #161617;
-      --logo-color: #ea6912;
-      --primary-color: #ea6912;
-      --primary-color-light: #e4570e;
-      --text-color: #E0E0E0;
-      --text-color-secondary: #F2F2F2;
-      --text-color-tertiary: #4a5568;
-    }
-  }
-  */
 
   body {
-    ${tw`font-body`}
-    background: #fff;
-    position: relative;
+    background: linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    ${tw`bg-gradient font-body relative`}
+  }
+  h1 {
+    ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
   }
   h2 {
-    margin-bottom: 0.2rem;
+    ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
+  }
+  h3 {
+    ${tw`text-base mb-3 leading-tight font-normal uppercase`}
   }
   a {
-    ${tw`text-brand`}
-    text-decoration: none;
-
-    &:hover {
-      ${tw`text-brand-light`}
-      text-decoration: none;
-    }
+    ${tw`text-brand no-underline hover:text-brand`}
   }
 `;

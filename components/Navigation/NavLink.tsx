@@ -6,7 +6,6 @@ import tw from 'tailwind.macro';
 
 interface NavLinkProps {
   href: string;
-  as: string;
   children: string;
   prefetch?: boolean;
   passHref?: boolean;
@@ -14,7 +13,7 @@ interface NavLinkProps {
 }
 
 const Wrapper = styled.a<{ active: boolean }>`
-  ${tw`p-4 inline-block font-light text-secondary text-xl hover:text-brand-light outline-none focus:text-brand`};
+  ${tw`py-5 px-3 md:px-4 inline-block text-gray-24 text-base outline-none focus:text-brand uppercase hover:text-brand hover:no-underline`};
   ${({ active }) => active && tw`font-bold`};
   text-decoration: none;
   transition: color 0.2s;
@@ -22,13 +21,7 @@ const Wrapper = styled.a<{ active: boolean }>`
 
 export const NavLink = withRouter<NavLinkProps, {}>(
   ({ children, router, ...rest }) => {
-    const active: boolean = router
-      ? router.route === rest.as ||
-        router.asPath === rest.as ||
-        router.asPath === `${rest.as}/` ||
-        (router.route === '/case' && rest.as === '/')
-      : false;
-
+    const active: boolean = router ? router.route === rest.href : false;
     return (
       <Link {...rest}>
         <Wrapper active={active}>{children}</Wrapper>

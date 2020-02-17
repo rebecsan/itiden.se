@@ -1,11 +1,12 @@
+import { NextComponentType } from 'next';
+import Link from 'next/link';
 import React from 'react';
-import Head from 'next/head';
-import { Page, Header, HeaderContent } from '../components/Layout';
-import { CaseGrid } from '../components/Case';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { NextComponentType } from 'next';
+import { Button } from '../components/Button';
+import { CaseGrid } from '../components/Case';
+import { IndexHeader } from '../components/IndexHeader';
+import { Content, HeaderWide, Page, Section } from '../components/Layout';
 import { Case, Page as PageModel } from '../models';
 
 interface IndexPageProps {
@@ -13,71 +14,99 @@ interface IndexPageProps {
   page: PageModel | undefined;
 }
 
-const CaseWrapper = styled.div`
-  @media (min-width: 768px) {
-    transform: translateY(-4rem);
+const CreativeImage = styled.img`
+  max-width: 450px;
+  ${tw`m-auto inline-block`};
+  @media (min-width: 1024px) {
+    ${tw`w-full max-h-full`};
   }
 `;
 
-const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
-  cases,
-  page,
-}) => {
-  if (!page) {
-    return null;
-  }
+const ParagraphCentered = styled.p`
+  text-align: center;
+`;
 
+const JobPost = styled.div`
+  ${tw`mb-24`};
+  & p {
+    ${tw`w-full md:w-3/4 lg:w-3/5`}
+  }
+`;
+
+const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
       <IndexHeader />
-      <Header role="banner">
-        <IntroText>{documentToReactComponents(page.header)}</IntroText>
-      </Header>
-      <CaseWrapper role="main">
-        <CaseGrid cases={cases} />
-      </CaseWrapper>
+      <HeaderWide role="main">
+        <Content>
+          <h3>Göteborg, kungsportsplatsen</h3>
+          <h1>Webbutveckling och Apputveckling</h1>
+          <p>
+            itiden är en digital produktionsbyrå med ett team av webbutvecklare
+            och apputvecklare i Göteborg.
+          </p>
+          <p>
+            Tillsammans med produktbolag, startups och byråer arbetar vi med
+            utveckling av webbsidor, webbapplikation och mobilappar.
+          </p>
+          <p>
+            <Link href="/kontakt" passHref>
+              <Button>Kontakta oss</Button>
+            </Link>
+          </p>
+        </Content>
+      </HeaderWide>
+      <JobPost>
+        <Content>
+          <h2>Vi söker webbutvecklare</h2>
+          <p>
+            Är du en webbutvecklare med god kunskap i HTML, CSS och JavaScript
+            som dessutom har kunskap i eller är sugen på att lära dig React,
+            Laravel, .NET Core, WordPress och/eller React Native?
+          </p>
+          <p>
+            <Link href="/jobb-webbutvecklare" passHref>
+              <a>Läs mer om tjänsten</a>
+            </Link>
+          </p>
+        </Content>
+      </JobPost>
+      <Section
+        left={
+          <>
+            <h2>Teknisk kreativitet</h2>
+            <p>
+              På itiden finns det ett stort intresse för teknik och att använda
+              den på bästa möjliga sätt. Dessutom har vi lång erfarenhet av
+              utveckling av webbsidor, webbapplikationer och mobilappar
+            </p>
+            <p>
+              Vi är gärna delaktiga i tekniska beslut kring plattform, teknikval
+              och arkitektur. Vi använder oss av bland annat React, React
+              Native, Laravel, .NET Core och WordPress.
+            </p>
+          </>
+        }
+        right={<CreativeImage src="/static/creative.svg" alt="creative" />}
+      />
+      <Content>
+        <h2>Se vad vi gör</h2>
+      </Content>
+      <CaseGrid cases={cases} />
+      <Content>
+        <ParagraphCentered>
+          <Link href="/case" passHref>
+            <Button>Visa fler</Button>
+          </Link>
+        </ParagraphCentered>
+      </Content>
     </Page>
   );
 };
 
 IndexPage.getInitialProps = async () => {
   const cases = await import('../data/data/case.json').then(m => m.default);
-  const pages = await import('../data/data/page.json').then(m => m.default);
-  const page = pages.find(p => p.slug === '/');
-
-  return { cases, page };
+  return { cases: cases.filter(c => c.showOnStartpage) };
 };
 
 export default IndexPage;
-
-const IntroText = styled(HeaderContent)`
-  ${tw`text-lg md:text-2xl text-secondary font-light tracking-wide`}
-
-  & b {
-    ${tw`font-bold text-primary`}
-  }
-  & a {
-    ${tw`font-bold`}
-  }
-
-  & h1 {
-    ${tw`text-lg md:text-2xl text-secondary font-light tracking-wide`}
-  }
-`;
-
-const IndexHeader: React.FC<{}> = () => (
-  <Head>
-    <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
-    <meta
-      name="Description"
-      content="itiden är en digital produktionsbyrå specialiserade på webbutveckling och apputveckling i Göteborg som hjälper våra kunder utveckla webbplatser, webbapplikationer och mobilappar."
-    />
-    <meta
-      name="title"
-      property="og:title"
-      content="itiden - Webbutveckling | Apputveckling | Göteborg"
-    />
-    <meta name="image" property="og:image" content="/static/itiden-share.png" />
-    <link rel="canonical" href="https://itiden.se" />
-  </Head>
-);

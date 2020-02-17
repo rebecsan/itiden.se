@@ -9,8 +9,8 @@ interface CaseGridProps {
 }
 
 const Box = styled.div`
-  ${tw`w-full flex flex-wrap m-auto`}
-  max-width: 1200px;
+  ${tw`w-full flex flex-wrap m-auto mb-4 justify-between`}
+  max-width: 1400px;
 `;
 
 export const CaseGrid: React.FC<CaseGridProps> = ({ cases }) => {

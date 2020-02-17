@@ -10,7 +10,7 @@ async function generateSitemap() {
   }));
 
   const sitemap = sm.createSitemap({
-    hostname: 'https://itiden.se',
+    hostname: 'https://www.itiden.se',
     cacheTime: 60000,
     urls: urls,
   });

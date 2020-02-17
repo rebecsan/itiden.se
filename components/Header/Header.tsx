@@ -1,31 +1,41 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
-import { menu } from '../../data/menu';
 import Link from 'next/link';
 import { Logo } from '../Logo';
+import { LogoFnutt } from '../LogoFnutt';
 import { NavLink } from '../Navigation/NavLink';
 // import { Search } from '../Search';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
-const Wrapper = styled.div`
-  ${tw`bg-header`};
-`;
-
 const Content = styled.div`
-  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 md:px-16 mx-auto`};
+  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 mx-auto`};
   max-width: 1400px;
+  @media (max-width: 767px) {
+    height: 80px;
+  }
 `;
 
-const Menu = styled.nav``;
+const Menu = styled.nav`
+  @media (max-width: 767px) {
+    ${tw`bg-white justify-between`};
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+  }
+`;
 
 const HeaderLogo = styled(Logo)`
-  ${tw`fill-logo sm:mx-auto`};
-  height: 48px;
+  ${tw`hidden md:block md:mx-auto h-10`};
+  fill: #242424;
+`;
 
-  @media (max-width: 768px) {
-    height: 32px;
-  }
+const HeaderLogoFnutt = styled(LogoFnutt)`
+  ${tw`block md:hidden h-8 absolute top-0`};
+  left: 24px;
 `;
 
 export const Header: React.FC<{}> = () => {
@@ -41,36 +51,31 @@ export const Header: React.FC<{}> = () => {
 
   return (
     <>
-      <Wrapper>
-        <Content role="complementary">
-          <Link href="/">
-            <a aria-label="itiden.se">
-              <HeaderLogo />
-            </a>
-          </Link>
-          <Menu>
-            {menu.Main.map(item => (
-              <MenuItem key={item.label} {...item} />
-            ))}
-            {/* <SearchIcon onClick={handleSearchClick} /> */}
-          </Menu>
-        </Content>
-      </Wrapper>
+      <Content role="complementary">
+        <Link href="/">
+          <a aria-label="itiden.se">
+            <HeaderLogo />
+            <HeaderLogoFnutt />
+          </a>
+        </Link>
+        <Menu>
+          <MenuItem key="home" label="Vad vi gör" href="/" />
+          <MenuItem key="case" label="Case" href="/case" />
+          <MenuItem key="labs" label="Labs" href="/labs" />
+          <MenuItem key="kontakt" label="Kontakt" href="/kontakt" />
+        </Menu>
+      </Content>
       {/* <Search show={showSearch} onRequestClose={handleSearchCloseRequest} /> */}
     </>
   );
 };
 
-const MenuItem: React.FC<{ label: string; slug: string }> = ({
+const MenuItem: React.FC<{ label: string; href: string }> = ({
   label,
-  slug,
+  href,
 }) => {
-  const isRootLink: boolean = slug === '/';
-  const href: string = isRootLink ? slug : `/page?slug=${slug}`;
-  const as: string = isRootLink ? slug : `/${slug}`;
-
   return (
-    <NavLink href={href} as={as} passHref>
+    <NavLink href={href} passHref>
       {label}
     </NavLink>
   );

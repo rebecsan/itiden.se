@@ -1,46 +1,39 @@
+import { NextComponentType } from 'next';
+import Head from 'next/head';
 import React from 'react';
-import { Page, Header, HeaderContent } from '../components/Layout';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { CaseGrid } from '../components/Case';
-import { NextComponentType } from 'next';
+import { Content, Header, Page } from '../components/Layout';
 import { Case } from '../models';
 
 interface ErrorPageProps {
   cases: Case[];
 }
 
-const IntroText = styled(HeaderContent)`
-  ${tw`text-lg md:text-2xl text-primary font-light tracking-wide`}
+const IntroText = styled(Content)`
+  ${tw`text-lg md:text-2xl text-gray-24 tracking-wide`}
 
   & b {
-    ${tw`font-bold text-primary`}
+    ${tw`font-bold text-gray-24`}
   }
   & a {
     ${tw`font-bold`}
   }
 `;
 
-const CaseWrapper = styled.div`
-  @media (min-width: 768px) {
-    transform: translateY(-4rem);
-  }
-`;
-
 const ErrorPage: NextComponentType<{}, {}, ErrorPageProps> = ({ cases }) => {
   return (
     <Page>
-      <Header>
+      <IndexHeader />
+      <Header role="banner">
         <IntroText>
-          <b>Ooops</b>, sidan du letade efter <b>hittades inte</b>!
-        </IntroText>
-        <IntroText>
-          Du kanske letade efter något av våra <b>case</b>?
+          <h3>Oooops!</h3>
+          <h1>Sidan hittades inte</h1>
+          <p>Du kanske letade efter något av våra case?</p>
         </IntroText>
       </Header>
-      <CaseWrapper role="main">
-        <CaseGrid cases={cases} />
-      </CaseWrapper>
+      <CaseGrid cases={cases} />
     </Page>
   );
 };
@@ -51,3 +44,19 @@ ErrorPage.getInitialProps = async () => {
 };
 
 export default ErrorPage;
+
+const IndexHeader: React.FC<{}> = () => (
+  <Head>
+    <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
+    <meta
+      name="Description"
+      content="itiden är en digital produktionsbyrå med ett team av webbutvecklare och apputvecklare i Göteborg. Vi jobbar tillsammans med produktbolag, startups och byråer och hjälper med utveckling av webbsidor, webbapplikation och mobilappar."
+    />
+    <meta
+      name="title"
+      property="og:title"
+      content="itiden - Webbutveckling | Apputveckling | Göteborg"
+    />
+    <meta name="image" property="og:image" content="/static/itiden-share.png" />
+  </Head>
+);

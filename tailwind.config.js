@@ -1,38 +1,26 @@
-const brandColor = '#CC4A02';
-const brandColorLight = '#C94D06';
-const defaultColors = {
-  gray: {
-    600: '#718096',
-    700: '#4a5568',
-    900: '#1a202c',
-  },
-};
-
 module.exports = {
   theme: {
     fontFamily: {
-      body:
-        '"Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial',
-      mono: '"Ubuntu Mono", monospace',
+      body: '"Open Sans", sans-serif',
+    },
+    boxShadow: {
+      md: '0px 4px 4px rgba(0, 0, 0, 0.2)',
     },
     extend: {
       colors: {
-        brand: { default: brandColor, light: brandColorLight },
-        header: '#fcfcfc',
-        bg: { default: '#fff', light: '#fff', dark: '#1A1A1A' },
+        'brand': '#504DD2',
+        'gray-f0': '#F0F0F0',
+        'gray-74': '#747474',
+        'gray-4b': '#4b4a4f',
+        'gray-24': '#242424',
+        'blue-f5': '#F5F8FF',
       },
       fill: {
-        logo: '#000',
-        secondary: defaultColors.gray[700],
-        brand: brandColor,
+        logo: '#242424',
       },
-      textColor: {
-        primary: defaultColors.gray[900],
-        secondary: defaultColors.gray[700],
-        tertiary: defaultColors.gray[600],
-      },
+      backgroundColor: {
+        gradient: 'linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%)',
+      }
     },
   },
-  variants: {},
-  plugins: [],
 };

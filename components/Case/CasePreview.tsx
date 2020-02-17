@@ -22,7 +22,7 @@ const ImageContainer = styled(animated.div)`
   @media (min-width: 768px) {
     &:hover {
       z-index: 1;
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 `;
@@ -35,7 +35,7 @@ const Image = styled.img`
 
 const TitleBox = styled.div`
   @media (min-width: 768px) {
-    ${tw`absolute rounded-sm bg-black flex items-center inset-0 pointer-events-none`};
+    ${tw`absolute rounded-sm bg-white flex items-center inset-0 pointer-events-none`};
     mix-blend-mode: multiply;
     opacity: 0;
     transform: translate3d(-100px, 0, 0);
@@ -45,26 +45,26 @@ const TitleBox = styled.div`
 `;
 
 const Title = styled(animated.div)`
-  ${tw`font-mono font-bold text-lg md:text-2xl lg:text-2xl xl:text-4xl font-semiBold text-primary md:text-white relative md:px-20 w-full`}
+  ${tw`text-lg md:text-2xl lg:text-2xl xl:text-4xl md:font-bold text-gray-24 relative px-4 py-2 md:px-20 w-full`}
 `;
 
 const Tags = styled.div`
-  ${tw`absolute bottom-0 right-0 p-4 hidden md:flex flex-wrap flex-row-reverse items-end`}
-  opacity: 0;
+  ${tw`hidden absolute bottom-0 left-0 p-4 md:flex flex-wrap items-end`}
   z-index: 10;
-  width: 50%;
+  opacity: 0;
 `;
 
 const Box = styled.a`
-  ${tw`relative overflow-hidden w-full md:w-1/2 p-2 outline-none`}
+  ${tw`relative overflow-hidden w-full outline-none mb-4`}
   box-sizing: border-box;
   cursor: pointer;
 
   &:focus {
-    outline: 2px solid #e4570e;
+    outline: 2px solid #504dd2;
   }
 
   @media (min-width: 768px) {
+    width: calc(50% - 0.5rem);
     &:hover {
       z-index: 1;
       ${TitleBox}, ${Tags} {
@@ -73,7 +73,7 @@ const Box = styled.a`
       }
 
       ${Image} {
-        opacity: 0.5;
+        opacity: 0.2;
       }
     }
   }
@@ -119,7 +119,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
       : {};
 
   return (
-    <Link href={`/case?slug=${slug}`} as={`/case/${slug}`} passHref>
+    <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
       <Box tabIndex={0} {...bindings}>
         <ImageContainer>
           <MaybeLazyImage lazy={index > 5} media={img} />
@@ -139,7 +139,6 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
               css={`
                 ${tw`ml-1 mt-1`}
               `}
-              inverted
             >
               {tech}
             </Tag>

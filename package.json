@@ -29,8 +29,9 @@
     "algoliasearch": "^3.33.0",
     "contentful": "^7.9.1",
     "dotenv": "^8.0.0",
+    "fathom-client": "^2.0.2",
     "lazysizes": "^5.1.1",
-    "next": "^9.1.4",
+    "next": "^9.2.1",
     "next-transpile-modules": "^2.3.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -40,7 +41,7 @@
     "react-spring": "^8.0.27",
     "react-use-gesture": "^5.2.4",
     "sitemap": "^5.1.0",
-    "styled-components": "^5.0.0-rc.2",
+    "styled-components": "^5.0.0",
     "styled-reboot": "3.0.1",
     "tailwind.macro": "^1.0.0-alpha.10"
   },
@@ -79,7 +80,7 @@
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.18.2",
     "tailwindcss": "^1.1.1",
-    "typescript": "^3.5.3"
+    "typescript": "^3.7.5"
   },
   "browserslist": [
     "last 2 versions",

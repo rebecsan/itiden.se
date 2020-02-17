@@ -23,7 +23,7 @@ declare module 'menu.json' {
 
 declare global {
   interface Window {
-    GA_INITIALIZED: boolean;
+    ANALYTICS_INITIALIZED: boolean;
   }
 
   namespace NodeJS {

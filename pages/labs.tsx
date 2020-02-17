@@ -12,25 +12,27 @@ interface IndexPageProps {
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
-      <IndexHeader title="Case" />
+      <IndexHeader title="Labs" />
       <Header role="banner">
         <Content>
-          <h3>Case, itiden</h3>
-          <h1>Vad vi gör</h1>
+          <h3>Labs, itiden</h3>
+          <h1>Utveckling + nöje</h1>
           <p>
-            Tillsammans med IT-bolag, reklambyråer, start-ups och produktbolag
-            hjälper vi att utveckla hemsidor, webbapplikationer och mobilappar.
+            Det händer ibland att vi bygger egna produkter eller tjänster på
+            itiden. Det kan vara för att utmana oss, lära oss nya tekniker eller
+            helt enkelt för att vi tycker produkten behövs. Denna utveckling
+            samlar vi under vad vi kallar Itiden Labs.
           </p>
         </Content>
       </Header>
-      <CaseGrid cases={cases.filter(c => !c.labs)} />
+      <CaseGrid cases={cases.filter(c => c.labs)} />
     </Page>
   );
 };
 
 IndexPage.getInitialProps = async () => {
   const cases = await import('../data/data/case.json').then(m => m.default);
-  return { cases: cases.filter(c => !c.labs) };
+  return { cases: cases.filter(c => c.labs) };
 };
 
 export default IndexPage;

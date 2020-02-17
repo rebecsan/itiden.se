@@ -36,12 +36,9 @@ const documentOptions: Options = {
     },
   },
   renderText: text => {
-    return text.split('\n').reduce(
-      (children, textSegment, index) => {
-        return [...children, index > 0 && <br key={index} />, textSegment];
-      },
-      [] as React.ReactNode[]
-    );
+    return text.split('\n').reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment];
+    }, [] as React.ReactNode[]);
   },
 };
 

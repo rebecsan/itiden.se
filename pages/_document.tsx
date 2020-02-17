@@ -64,7 +64,7 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href={`https://fonts.googleapis.com/css?family=Nunito:400,600,700%7CUbuntu+Mono:400,700&display=swap&text=${fontChars}`}
+            href={`https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&text=${fontChars}`}
             rel="stylesheet"
           />
         </Head>
