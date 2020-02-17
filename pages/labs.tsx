@@ -1,10 +1,8 @@
 import { NextComponentType } from 'next';
 import React from 'react';
-import styled from 'styled-components';
-import tw from 'tailwind.macro';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
-import { Content, Header, Page } from '../components/Layout';
+import { Header, Page, Content } from '../components/Layout';
 import { Case } from '../models';
 
 interface IndexPageProps {
@@ -16,7 +14,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
     <Page>
       <IndexHeader title="Labs" />
       <Header role="banner">
-        <IntroText>
+        <Content>
           <h3>Labs, itiden</h3>
           <h1>Utveckling + nöje</h1>
           <p>
@@ -25,7 +23,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
             helt enkelt för att vi tycker produkten behövs. Denna utveckling
             samlar vi under vad vi kallar Itiden Labs.
           </p>
-        </IntroText>
+        </Content>
       </Header>
       <CaseGrid cases={cases.filter(c => c.labs)} />
     </Page>
@@ -38,19 +36,3 @@ IndexPage.getInitialProps = async () => {
 };
 
 export default IndexPage;
-
-const IntroText = styled(Content)`
-  ${tw`text-secondary tracking-wide`}
-  & p {
-    ${tw`md:mr-24 clearfix`}
-  }
-  & b {
-    ${tw`font-bold text-primary`}
-  }
-  & a {
-    ${tw`inline-block bg-brand text-white py-2 px-8 rounded-full`}
-  }
-  & h1 {
-    ${tw`text-2xl md:text-3xl text-secondary tracking-wide`}
-  }
-`;

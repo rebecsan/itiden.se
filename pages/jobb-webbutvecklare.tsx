@@ -6,15 +6,15 @@ import { IndexHeader } from '../components/IndexHeader';
 import { Content, Header, Page } from '../components/Layout';
 
 const Input = styled.input`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-brand-light py-2 px-4 block w-full focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 py-2 px-4 block w-full focus:outline-none`}
 `;
 
 const Checkbox = styled.input`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-brand-light focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 focus:outline-none`}
 `;
 
 const Textarea = styled.textarea`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-brand-light py-2 px-4 block w-full focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 py-2 px-4 block w-full focus:outline-none`}
 `;
 
 const HiddenParagraph = styled.p`

@@ -55,7 +55,7 @@ const Section = styled.section`
   flex-basis: 33%;
 `;
 const SectionTitle = styled.h3`
-  ${tw`text-secondary text-sm uppercase`}
+  ${tw`text-gray-24 text-sm uppercase`}
 `;
 const SectionList = styled.ul`
   ${tw`list-none m-0 p-0`}
@@ -67,7 +67,7 @@ const SectionListItem = styled.li`
 const Input = styled.input.attrs({
   type: 'search',
 })`
-  ${tw`border border-transparent shadow focus:shadow-lg focus:bg-gray-100 focus:text-primary text-white rounded bg-gray-800 py-2 pr-4 pl-10 block max-w-xl appearance-none leading-normal w-full mb-12 mx-auto`}
+  ${tw`border border-transparent shadow focus:shadow-lg focus:bg-gray-100 focus:text-gray-24 text-white rounded bg-gray-800 py-2 pr-4 pl-10 block max-w-xl appearance-none leading-normal w-full mb-12 mx-auto`}
   transition: all .2s;
   &:focus {
     outline: 0;

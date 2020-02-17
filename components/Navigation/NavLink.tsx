@@ -13,7 +13,7 @@ interface NavLinkProps {
 }
 
 const Wrapper = styled.a<{ active: boolean }>`
-  ${tw`py-5 px-3 md:px-4 inline-block text-secondary text-base outline-none focus:text-brand uppercase hover:text-brand hover:no-underline`};
+  ${tw`py-5 px-3 md:px-4 inline-block text-gray-24 text-base outline-none focus:text-brand uppercase hover:text-brand hover:no-underline`};
   ${({ active }) => active && tw`font-bold`};
   text-decoration: none;
   transition: color 0.2s;

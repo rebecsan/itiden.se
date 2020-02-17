@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { Line } from './Line';
 
 const Container = styled.div`
-  ${tw`bg-dark flex flex-col-reverse relative lg:flex-row mb-12 md:mb-16`};
+  ${tw`bg-gray-4b text-gray-f0 flex flex-col-reverse relative lg:flex-row mb-12 md:mb-16`};
   @media (min-width: 1024px) {
     height: 424px;
   }
@@ -19,7 +19,7 @@ const HalfContent = styled.div`
 `;
 
 const Half = styled.div`
-  ${tw`flex flex-1 h-full justify-end items-center relative text-bg`};
+  ${tw`flex flex-1 h-full justify-end items-center relative`};
 
   ${HalfContent} {
     ${tw`pr-12`};
@@ -27,7 +27,7 @@ const Half = styled.div`
 `;
 
 const HalfRight = styled(Half)`
-  ${tw`flex flex-1 h-full justify-start items-center relative text-bg`};
+  ${tw`flex flex-1 h-full justify-start items-center relative`};
 
   ${HalfContent} {
     ${tw`pl-12 pb-0`};

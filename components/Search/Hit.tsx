@@ -59,7 +59,7 @@ const EmployeeHit: React.FC<EmployeeHitData> = ({
 }) => {
   return (
     <div css={tw`mb-4`}>
-      <div css={tw`font-bold text-primary`}>{name}</div>
+      <div css={tw`font-bold text-gray-24`}>{name}</div>
       <div css={tw`text-tertiary text-sm`}>{title}</div>
       {email && (
         <a href={`mailto:${email}`} css={tw`block text-sm`}>
