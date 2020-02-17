@@ -28,7 +28,10 @@ export const Button = styled.button`
 const IndexPage: NextComponentType = () => {
   return (
     <Page>
-      <IndexHeader title="Vi söker webbutvecklare" />
+      <IndexHeader
+        title="Vi söker webbutvecklare"
+        imageSrc="/static/itiden-share-developer.png"
+      />
       <Header role="banner">
         <Content>
           <h3>Jobba hos oss</h3>
