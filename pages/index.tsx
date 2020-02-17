@@ -62,8 +62,8 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <p>
             Vi söker för tillfället utvecklare. Är du en webbutvecklare med god
             kunskap i HTML, CSS och JavaScript som dessutom har kunskap i eller
-            är sugen på att lära dig React, Laravel, ASP.NET Core och/eller
-            React Native?
+            är sugen på att lära dig React, Laravel, .NET Core och/eller React
+            Native?
           </p>
           <p>
             <Link href="/jobb-webbutvecklare" passHref>
@@ -84,7 +84,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
             <p>
               Vi är gärna delaktiga i tekniska beslut kring plattform, teknikval
               och arkitektur. Vi använder oss av bland annat React, React
-              Native, Laravel, ASP.NET Core och Wordpress.
+              Native, Laravel, .NET Core och WordPress.
             </p>
           </>
         }
