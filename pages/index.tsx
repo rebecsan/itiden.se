@@ -58,12 +58,11 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       </HeaderWide>
       <JobPost>
         <Content>
-          <h2>Jobba hos oss</h2>
+          <h2>Vi söker webbutvecklare</h2>
           <p>
-            Vi söker för tillfället utvecklare. Är du en webbutvecklare med god
-            kunskap i HTML, CSS och JavaScript som dessutom har kunskap i eller
-            är sugen på att lära dig React, Laravel, .NET Core och/eller React
-            Native?
+            Är du en webbutvecklare med god kunskap i HTML, CSS och JavaScript
+            som dessutom har kunskap i eller är sugen på att lära dig React,
+            Laravel, .NET Core, WordPress och/eller React Native?
           </p>
           <p>
             <Link href="/jobb-webbutvecklare" passHref>

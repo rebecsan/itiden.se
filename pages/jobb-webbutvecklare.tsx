@@ -36,7 +36,7 @@ const IndexPage: NextComponentType = () => {
           <p>
             Är du en webbutvecklare med god kunskap i HTML, CSS och JavaScript
             som dessutom har kunskap i eller är sugen på att lära dig React,
-            Laravel, .NET Core och/eller React Native?
+            Laravel, .NET Core, WordPress och/eller React Native?
           </p>
           <p>
             itiden är ett litet företag med kontor i centrala Göteborg vid
@@ -94,6 +94,10 @@ const IndexPage: NextComponentType = () => {
               <br />
               <label>
                 <Checkbox type="checkbox" name="aspnet" /> .NET Core
+              </label>
+              <br />
+              <label>
+                <Checkbox type="checkbox" name="wordpress" /> WordPress
               </label>
               <br />
               <label>
