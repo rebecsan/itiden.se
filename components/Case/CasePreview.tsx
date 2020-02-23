@@ -15,7 +15,7 @@ interface CasePreviewProps extends Case {
 }
 
 const ImageContainer = styled(animated.div)`
-  ${tw`rounded-sm overflow-hidden relative bg-white hover:shadow-xl`}
+  ${tw`rounded-sm overflow-hidden relative bg-white`}
   transform: scale(1);
   transition: all 0.2s;
 
