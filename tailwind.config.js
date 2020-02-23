@@ -18,9 +18,6 @@ module.exports = {
       fill: {
         logo: '#242424',
       },
-      backgroundColor: {
-        gradient: 'linear-gradient(180deg, #F5F8FF 0%, rgba(239, 243, 243, 0) 100%)',
-      }
     },
   },
 };
