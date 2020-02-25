@@ -3,6 +3,7 @@ import { Header } from '../Header';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import { Analytics } from '../Analytics';
+import { Footer } from './Footer';
 
 const Wrapper = styled.div`
   ${tw`mx-auto pb-16`}
@@ -17,6 +18,7 @@ export const Page: React.FC<{}> = props => {
       <Analytics />
       <Wrapper>
         <Content>{props.children}</Content>
+        <Footer />
       </Wrapper>
     </>
   );
