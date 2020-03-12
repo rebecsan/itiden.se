@@ -62,6 +62,7 @@ export default class MyDocument extends Document {
             href={`https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&text=${fontChars}`}
             rel="stylesheet"
           />
+          <link rel="preconnect" href="https://img3.usefathom.com" />
         </Head>
         <body>
           <Main />
