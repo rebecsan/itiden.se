@@ -88,7 +88,6 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
   media,
   slug,
   technologies,
-  index,
 }) => {
   const [anim, setAnim] = useSpring(() => ({
     xyz: [0, 0, 1],
@@ -122,7 +121,7 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
     <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
       <Box tabIndex={0} {...bindings}>
         <ImageContainer>
-          <MaybeLazyImage lazy={index > 5} media={img} />
+          <MaybeLazyImage lazy={true} media={img} />
         </ImageContainer>
         <TitleBox>
           <Title
