@@ -154,15 +154,15 @@ const MaybeLazyImage: React.FC<{
   media: Media;
 }> = ({ lazy, media }) => {
   const url = media.file.url;
-  const src = `${url}?q=90&w=600`;
+  const src = `${url}?q=95&w=600`;
   const imgSizes = [600, 500, 400, 300];
   const sizes =
     '(min-width: 768px) calc(100vw / 2), (min-width: 1200px) calc(1200px / 2), 100vw';
   const srcsetWebp = imgSizes
-    .map(size => `${url}?q=90&fm=webp&w=${size} ${size}w`)
+    .map(size => `${url}?q=95&fm=webp&w=${size} ${size}w`)
     .join(',');
   const srcset = imgSizes
-    .map(size => `${url}?q=90&w=${size} ${size}w`)
+    .map(size => `${url}?q=95&w=${size} ${size}w`)
     .join(',');
 
   if (lazy) {
