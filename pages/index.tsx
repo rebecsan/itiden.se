@@ -26,13 +26,6 @@ const ParagraphCentered = styled.p`
   text-align: center;
 `;
 
-const JobPost = styled.div`
-  ${tw`mb-24`};
-  & p {
-    ${tw`w-full md:w-3/4 lg:w-3/5`}
-  }
-`;
-
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
@@ -56,21 +49,6 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           </p>
         </Content>
       </HeaderWide>
-      <JobPost>
-        <Content>
-          <h2>Vi söker webbutvecklare</h2>
-          <p>
-            Är du en webbutvecklare med god kunskap i HTML, CSS och JavaScript
-            som dessutom har kunskap i eller är sugen på att lära dig React,
-            Laravel, .NET Core, WordPress och/eller React Native?
-          </p>
-          <p>
-            <Link href="/jobb-webbutvecklare" passHref>
-              <a>Läs mer om tjänsten</a>
-            </Link>
-          </p>
-        </Content>
-      </JobPost>
       <Section
         left={
           <>
