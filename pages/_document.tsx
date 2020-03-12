@@ -59,11 +59,6 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            rel="preconnect dns-prefetch"
-            href="https://www.google-analytics.com"
-            crossOrigin="anonymous"
-          />
-          <link
             href={`https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap&text=${fontChars}`}
             rel="stylesheet"
           />

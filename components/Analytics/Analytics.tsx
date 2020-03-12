@@ -1,12 +1,8 @@
 import React from 'react';
-import ReactGA from 'react-ga';
 import Router from 'next/router';
 import * as Fathom from 'fathom-client';
 
 function initAnalytics() {
-  if (process.env.GA) {
-    ReactGA.initialize(process.env.GA);
-  }
   if (process.env.FATHOM) {
     Fathom.load();
     Fathom.setSiteId(process.env.FATHOM);
@@ -14,10 +10,6 @@ function initAnalytics() {
 }
 
 function logPageView() {
-  if (process.env.GA) {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
-  }
   if (process.env.FATHOM) {
     Fathom.trackPageview();
   }
