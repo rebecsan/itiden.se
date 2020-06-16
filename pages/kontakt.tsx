@@ -54,6 +54,10 @@ const ContactInfo = styled.div`
   text-align: left;
 `;
 
+const ContactInfoTitle = styled.h2`
+  ${tw`whitespace-no-wrap`};
+`;
+
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
   employees,
 }) => {
@@ -77,8 +81,8 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
             <img src="/static/call.svg" alt="Ring" />
           </ContactLink>
           <ContactInfo>
-            <h2>Ring</h2>
-            <a href="tel:031-7740950">031-774 09 50</a>
+            <ContactInfoTitle>Ring</ContactInfoTitle>
+            <a href="tel:0709-597008">0709-597008</a>
           </ContactInfo>
         </ContactBox>
         <ContactBox>
@@ -86,7 +90,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
             <img src="/static/mail.svg" alt="Maila" />
           </ContactLink>
           <ContactInfo>
-            <h2>Maila</h2>
+            <ContactInfoTitle>Maila</ContactInfoTitle>
             <a href="mailto:hej@itiden.se">hej@itiden.se</a>
           </ContactInfo>
         </ContactBox>
@@ -95,7 +99,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
             <img src="/static/find.svg" alt="Hitta" />
           </ContactLink>
           <ContactInfo>
-            <h2>Hitta hit</h2>
+            <ContactInfoTitle>Hitta hit</ContactInfoTitle>
             <a href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
               Kungstorget 11-12
               <br />
