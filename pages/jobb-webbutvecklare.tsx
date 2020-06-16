@@ -42,7 +42,7 @@ const IndexPage: NextComponentType = () => {
             Laravel, .NET Core, WordPress och/eller React Native?
           </p>
           <p>
-            itiden är ett litet företag med kontor i centrala Göteborg vid
+            Itiden är ett litet företag med kontor i centrala Göteborg vid
             Kungsportsplatsen. Vi sitter in-house och utvecklar spännande
             projekt ihop med våra kunder. Detta gör att vi kan bygga ett starkt
             utvecklar-team där mycket kunskap kan delas emellan varandra.
@@ -119,7 +119,7 @@ const IndexPage: NextComponentType = () => {
             <p>
               <label>
                 <Checkbox type="checkbox" name="terms" required /> Jag godkänner
-                att itiden sparar mina uppgifter.
+                att Itiden sparar mina uppgifter.
               </label>
             </p>
             <p>

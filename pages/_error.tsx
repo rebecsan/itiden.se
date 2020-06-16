@@ -47,15 +47,15 @@ export default ErrorPage;
 
 const IndexHeader: React.FC<{}> = () => (
   <Head>
-    <title>itiden - Webbutveckling | Apputveckling | Göteborg</title>
+    <title>Itiden - Webbutveckling | Apputveckling | Göteborg</title>
     <meta
       name="Description"
-      content="itiden är en digital produktionsbyrå med ett team av webbutvecklare och apputvecklare i Göteborg. Vi jobbar tillsammans med produktbolag, startups och byråer och hjälper med utveckling av webbsidor, webbapplikation och mobilappar."
+      content="Itiden är en digital produktionsbyrå med ett team av webbutvecklare och apputvecklare i Göteborg. Vi jobbar tillsammans med produktbolag, startups och byråer och hjälper med utveckling av webbsidor, webbapplikation och mobilappar."
     />
     <meta
       name="title"
       property="og:title"
-      content="itiden - Webbutveckling | Apputveckling | Göteborg"
+      content="Itiden - Webbutveckling | Apputveckling | Göteborg"
     />
     <meta name="image" property="og:image" content="/static/itiden-share.png" />
   </Head>

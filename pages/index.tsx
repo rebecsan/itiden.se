@@ -35,7 +35,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <h3>Göteborg, kungsportsplatsen</h3>
           <h1>Webbutveckling och Apputveckling</h1>
           <p>
-            itiden är en digital produktionsbyrå med ett team av webbutvecklare
+            Itiden är en digital produktionsbyrå med ett team av webbutvecklare
             och apputvecklare i Göteborg.
           </p>
           <p>
@@ -54,7 +54,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <>
             <h2>Teknisk kreativitet</h2>
             <p>
-              På itiden finns det ett stort intresse för teknik och att använda
+              På Itiden finns det ett stort intresse för teknik och att använda
               den på bästa möjliga sätt. Dessutom har vi lång erfarenhet av
               utveckling av webbsidor, webbapplikationer och mobilappar
             </p>

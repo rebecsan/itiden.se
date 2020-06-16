@@ -37,7 +37,7 @@ const CasePage = ({ data }: CasePageProps) => {
       <Header>
         <Content role="main">
           <Media media={media[0]} />
-          <h3>{labs ? 'Labs' : 'Case'}, itiden</h3>
+          <h3>{labs ? 'Labs' : 'Case'}, Itiden</h3>
           <h1>{title}</h1>
           {documentToReactComponents(description)}
           {url && (
@@ -87,15 +87,15 @@ const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
 
   return (
     <Head>
-      <title>itiden - case - {title}</title>
+      <title>Itiden - case - {title}</title>
       <meta name="Description" content={descriptionString} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@itidengbg" />
-      <meta name="twitter:title" content={`itiden - case - ${title}`} />
+      <meta name="twitter:title" content={`Itiden - case - ${title}`} />
       <meta name="twitter:description" content={descriptionString} />
       <meta name="twitter:creator" content="@itidengbg" />
       <meta name="twitter:image" content={imageUrl} />
-      <meta property="og:title" content={`itiden - case - ${title}`} />
+      <meta property="og:title" content={`Itiden - case - ${title}`} />
       <meta property="og:type" content="article" />
       <meta property="og:url" content={`https://www.itiden.se/case/${slug}`} />
       <meta property="og:image" content={imageUrl} />

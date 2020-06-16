@@ -59,7 +59,7 @@ export const Header: React.FC<{}> = () => {
           </a>
         </Link>
         <Menu>
-          <MenuItem key="home" label="Vad vi gör" href="/" />
+          <MenuItem key="home" label="Hem" href="/" />
           <MenuItem key="case" label="Case" href="/case" />
           <MenuItem key="labs" label="Labs" href="/labs" />
           <MenuItem key="kontakt" label="Kontakt" href="/kontakt" />

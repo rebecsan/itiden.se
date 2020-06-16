@@ -15,7 +15,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader title="Case" />
       <Header role="banner">
         <Content>
-          <h3>Case, itiden</h3>
+          <h3>Case, Itiden</h3>
           <h1>Vad vi gör</h1>
           <p>
             Tillsammans med IT-bolag, reklambyråer, start-ups och produktbolag

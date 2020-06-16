@@ -15,11 +15,11 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader title="Labs" />
       <Header role="banner">
         <Content>
-          <h3>Labs, itiden</h3>
+          <h3>Labs, Itiden</h3>
           <h1>Utveckling + nöje</h1>
           <p>
             Det händer ibland att vi bygger egna produkter eller tjänster på
-            itiden. Det kan vara för att utmana oss, lära oss nya tekniker eller
+            Itiden. Det kan vara för att utmana oss, lära oss nya tekniker eller
             helt enkelt för att vi tycker produkten behövs. Denna utveckling
             samlar vi under vad vi kallar Itiden Labs.
           </p>

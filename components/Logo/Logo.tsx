@@ -12,7 +12,7 @@ export const Logo: React.FC<LogoProps> = props => {
         viewBox="0 0 258.6 77.3"
         {...props}
       >
-        <title>itiden - webbutveckling och apputveckling i Göteborg</title>
+        <title>Itiden - webbutveckling och apputveckling i Göteborg</title>
         <path
           className="st0"
           d="M10.3,16.8h2.4l5.8-15.1h-14L10.3,16.8L10.3,16.8z M-0.1,70.8v5.5h23v-5.5h-4.4V21.7h-14v49.1H-0.1L-0.1,70.8z"
