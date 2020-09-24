@@ -14,7 +14,7 @@ interface NavLinkProps {
 
 const Wrapper = styled.a<{ active: boolean }>`
   ${tw`whitespace-no-wrap py-5 px-3 md:px-4 inline-block text-gray-24 text-base outline-none focus:text-brand uppercase hover:text-brand hover:no-underline`};
-  ${({ active }) => active && tw`font-bold`};
+  ${({ active }) => active && tw`font-bold` && tw`lowercase`};
   text-decoration: none;
   transition: color 0.2s;
 `;
@@ -24,7 +24,10 @@ export const NavLink = withRouter<NavLinkProps, {}>(
     const active: boolean = router ? router.route === rest.href : false;
     return (
       <Link {...rest}>
-        <Wrapper active={active}>{children}</Wrapper>
+        <Wrapper active={active}>
+          {active && '/'}
+          {children}
+        </Wrapper>
       </Link>
     );
   }
