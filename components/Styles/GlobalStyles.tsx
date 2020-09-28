@@ -9,10 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     background-image: linear-gradient(180deg, #F5F8FF, #FFFFFF);
     background-repeat: no-repeat;
     background-size: 100% 100vh;
-    ${tw`bg-gradient font-body relative`}
+    ${tw`bg-gray-800 font-body relative`}
   }
   h1 {
-    ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
+    ${tw`text-3xl mb-3 leading-tight sm:text-4xl`}
   }
   h2 {
     ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
@@ -21,6 +21,6 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`text-base mb-3 leading-tight font-normal uppercase`}
   }
   a {
-    ${tw`text-brand no-underline hover:text-brand`}
+    ${tw`text-brand no-underline hover:text-brand text-white`}
   }
 `;
