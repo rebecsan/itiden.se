@@ -11,26 +11,22 @@ const cases = require('./data/data/case.json');
 
 module.exports = withBundleAnalyzer(
   withCSS(
-    withOptimizedImages(withTM({
-      transpileModules: ['tailwindcss'],
-      exportTrailingSlash: true,
-      optimizeImages: false,
-      experimental: {
-        modern: true,
-      },
-      exportPathMap: async function() {
-        const paths = {
-          '/': { page: '/' },
-          '/case': { page: '/case' },
-          '/om': { page: '/om' },
-          '/kontakt': { page: '/kontakt' },
-          // '/jobb-webbutvecklare': { page: '/jobb-webbutvecklare' },
-          '/jobb-tackar': { page: '/jobb-tackar' },
-        };
-        cases.forEach(c => {
-          paths[`/case/${c.slug}`] = {
-            page: '/case/[slug]',
-            query: { slug: c.slug },
+    withOptimizedImages(
+      withTM({
+        transpileModules: ['tailwindcss'],
+        exportTrailingSlash: true,
+        optimizeImages: false,
+        experimental: {
+          modern: true,
+        },
+        exportPathMap: async function() {
+          const paths = {
+            '/': { page: '/' },
+            '/case': { page: '/case' },
+            '/om': { page: '/om' },
+            '/kontakt': { page: '/kontakt' },
+            // '/jobb-webbutvecklare': { page: '/jobb-webbutvecklare' },
+            '/jobb-tackar': { page: '/jobb-tackar' },
           };
           cases.forEach(c => {
             paths[`/case/${c.slug}`] = {
