@@ -6,7 +6,7 @@ import { Analytics } from '../Analytics';
 import { Footer } from './Footer';
 
 const Wrapper = styled.div`
-  ${tw`mx-auto pb-16`}
+  ${tw`mx-auto`}
 `;
 
 const Content = styled.div``;
