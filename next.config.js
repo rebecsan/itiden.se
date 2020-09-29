@@ -14,7 +14,7 @@ module.exports = withBundleAnalyzer(
     withOptimizedImages(
       withTM({
         transpileModules: ['tailwindcss'],
-        exportTrailingSlash: true,
+        trailingSlash: true,
         optimizeImages: false,
         experimental: {
           modern: true,

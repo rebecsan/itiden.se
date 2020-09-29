@@ -43,6 +43,7 @@
     "styled-components": "^5.0.0",
     "styled-jsx": "^3.3.0",
     "styled-reboot": "3.0.1",
+    "tailwindcss": "^1.8.10",
     "tailwind.macro": "^1.0.0-alpha.10"
   },
   "devDependencies": {
@@ -79,7 +80,6 @@
     "next-optimized-images": "^2.5.3",
     "postcss-easy-import": "^3.0.0",
     "prettier": "^1.18.2",
-    "tailwindcss": "^1.1.1",
     "typescript": "^3.7.5"
   },
   "browserslist": [
@@ -88,7 +88,8 @@
     "not dead"
   ],
   "resolutions": {
-    "styled-jsx": "3.2.1"
+    "styled-components": "^5",
+    "styled-jsx": "3.3.0"
   },
   "babelMacros": {
     "tailwind": {
