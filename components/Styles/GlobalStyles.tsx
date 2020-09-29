@@ -6,18 +6,21 @@ export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}
 
   body {
-    ${tw`bg-gray-800 font-body relative`}
+    ${tw`bg-gray-800 text-gray-300 font-body relative`}
   }
   h1 {
-    ${tw`text-3xl mb-3 leading-tight sm:text-4xl`}
+    ${tw`text-5xl`}
   }
   h2 {
-    ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}
+    ${tw`text-h2 text-gray-200 font-bold`}
   }
   h3 {
-    ${tw`text-base mb-3 leading-tight font-normal uppercase`}
+    ${tw`text-h3 text-gray-200 font-bold`}
+  }
+  h4 {
+    ${tw`text-h4 text-gray-200 font-semibold underline`}
   }
   a {
-    ${tw`text-brand no-underline hover:text-brand text-white`}
+    ${tw`underline`}
   }
 `;

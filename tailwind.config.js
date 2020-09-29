@@ -3,6 +3,24 @@ module.exports = {
     fontFamily: {
       body: '"Open Sans", sans-serif',
     },
+    fontSize: {
+      xs: ['13px', { lineHeight: '137.5%' }],
+      'xs-footer': ['13px', { lineHeight: '162.5%' }], // + underline
+      base: ['16px', { letterSpacing: '0.01em', lineHeight: '162.5%' }],
+      'base-links': ['16px', { lineHeight: '162.5%' }], // + underline
+      lg: ['18px', { letterSpacing: '0.01em', lineHeight: '162.5%' }],
+      // 'lg-links': Samma som lg + underline
+      xl: ['20px', { letterSpacing: '0.01em', lineHeight: '150%' }],
+      // 'xl-links': : Samma som xl + underline
+      // 'xl-links-sb': Samma som xl + underline + font-semibold,
+      '2xl': ['24px', { letterSpacing: '0.01em', lineHeight: '162,5%' }],
+      '5xl': ['48px', { letterSpacing: '0.01em', lineHeight: '150%' }],
+      h2: ['32px', { letterSpacing: '0.02em', lineHeight: '137,5%' }],
+      h3: ['24px', { letterSpacing: '0.02em', lineHeight: '137,5%' }],
+      // h3-links: Samma som h3 + underline
+      'h3-links-light-bg': ['24px', { lineHeight: '137,5%' }], // + underline + font-bold
+      h4: ['16px', { letterSpacing: '0.01em', lineHeight: '137,5%' }],
+    },
     screens: {
       sm: '640px',
       md: '768px',
