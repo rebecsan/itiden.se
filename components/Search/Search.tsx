@@ -145,7 +145,9 @@ const SearchBox = connectSearchBox(({ currentRefinement, refine }) => {
       autoFocus
       placeholder="Sök..."
       value={currentRefinement}
-      onChange={e => refine(e.currentTarget.value)}
+      onChange={(e: { currentTarget: { value: any } }) =>
+        refine(e.currentTarget.value)
+      }
     />
   );
 });
