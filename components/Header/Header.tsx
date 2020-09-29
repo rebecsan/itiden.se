@@ -9,28 +9,31 @@ import { NavLink } from '../Navigation/NavLink';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 const Content = styled.div`
-  ${tw`flex items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6 px-4 mx-auto`};
-  max-width: 1400px;
+  ${tw`flex bg-gray-800 mx-6 md:mx-5 lg:mx-auto items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6`};
+  max-width: 1080px;
   @media (max-width: 767px) {
     height: 80px;
   }
 `;
 
 const Menu = styled.nav`
+  width: 33%;
+  display: flex;
+  justify-content: space-between;
+
   @media (max-width: 767px) {
-    ${tw`bg-white justify-between`};
+    ${tw`bg-gray-900 px-6 border-solid border-0 border-t border-purple-700`};
+    justify-content: space-evenly;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
     z-index: 999;
-    display: flex;
   }
 `;
 
 const HeaderLogo = styled(Logo)`
-  ${tw`hidden md:block md:mx-auto h-10`};
-  fill: #242424;
+  ${tw`hidden md:block md:mx-auto h-8 fill-current text-gray-200`};
 `;
 
 const HeaderLogoFnutt = styled(LogoFnutt)`
@@ -61,7 +64,7 @@ export const Header: React.FC<{}> = () => {
         <Menu>
           <MenuItem key="home" label="Hem" href="/" />
           <MenuItem key="case" label="Case" href="/case" />
-          <MenuItem key="labs" label="Labs" href="/labs" />
+          <MenuItem key="om" label="Om" href="/om" />
           <MenuItem key="kontakt" label="Kontakt" href="/kontakt" />
         </Menu>
       </Content>
