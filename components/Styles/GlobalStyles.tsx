@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`bg-gray-800 font-body relative`}
   }
   h1 {
-    ${tw`text-3xl mb-3 leading-tight sm:text-4xl`}
+    ${tw`mb-3 leading-tight sm:text-4xl lg:text-5xl text-gray-300 font-normal leading-relaxed`}
   }
   h2 {
     ${tw`text-3xl mb-3 leading-tight uppercase sm:text-4xl`}

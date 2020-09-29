@@ -22,7 +22,7 @@ module.exports = withBundleAnalyzer(
         const paths = {
           '/': { page: '/' },
           '/case': { page: '/case' },
-          '/labs': { page: '/labs' },
+          '/om': { page: '/om' },
           '/kontakt': { page: '/kontakt' },
           // '/jobb-webbutvecklare': { page: '/jobb-webbutvecklare' },
           '/jobb-tackar': { page: '/jobb-tackar' },
