@@ -37,7 +37,7 @@ const HeaderLogo = styled(Logo)`
 `;
 
 const HeaderLogoFnutt = styled(LogoFnutt)`
-  ${tw`block md:hidden h-8 absolute top-0`};
+  ${tw`block md:hidden h-20 absolute top-0`};
   left: 24px;
 `;
 
