@@ -1,20 +1,20 @@
 import { NextComponentType } from 'next';
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { IndexHeader } from '../components/IndexHeader';
 import { Content, Header, Page } from '../components/Layout';
 
 const Input = styled.input`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 py-2 px-4 block w-full focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg  py-2 px-4 block w-full focus:outline-none`}
 `;
 
 const Checkbox = styled.input`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg  focus:outline-none`}
 `;
 
 const Textarea = styled.textarea`
-  ${tw`border border-solid border-gray-600 rounded-lg bg-blue-f5 py-2 px-4 block w-full focus:outline-none`}
+  ${tw`border border-solid border-gray-600 rounded-lg  py-2 px-4 block w-full focus:outline-none`}
 `;
 
 const HiddenParagraph = styled.p`
@@ -22,7 +22,7 @@ const HiddenParagraph = styled.p`
 `;
 
 export const Button = styled.button`
-  ${tw`inline-block bg-brand text-white py-2 px-8 rounded-full hover:shadow-md border-none	`}
+  ${tw`inline-block text-white py-2 px-8 rounded-full hover:shadow-md border-none	`}
 `;
 
 const IndexPage: NextComponentType = () => {

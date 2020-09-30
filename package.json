@@ -43,8 +43,8 @@
     "styled-components": "^5.0.0",
     "styled-jsx": "^3.3.0",
     "styled-reboot": "3.0.1",
-    "tailwind.macro": "^1.0.0-alpha.10",
-    "tailwindcss": "^1.8.10"
+    "tailwindcss": "^1.8.10",
+    "twin.macro": "^1.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

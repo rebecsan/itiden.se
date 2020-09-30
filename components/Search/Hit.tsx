@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { SearchContext } from './Search';
 
 interface PageHitData {
@@ -59,7 +59,7 @@ const EmployeeHit: React.FC<EmployeeHitData> = ({
 }) => {
   return (
     <div css={tw`mb-4`}>
-      <div css={tw`font-bold text-gray-24`}>{name}</div>
+      <div css={tw`font-bold text-gray-500`}>{name}</div>
       <div css={tw`text-tertiary text-sm`}>{title}</div>
       {email && (
         <a href={`mailto:${email}`} css={tw`block text-sm`}>

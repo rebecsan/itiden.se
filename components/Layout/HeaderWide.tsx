@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 
 export const HeaderWide = styled.div`
   ${tw`pt-6 pb-12 md:pb-32 md:pt-56`}

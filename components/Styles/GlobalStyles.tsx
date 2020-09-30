@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reboot from 'styled-reboot';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 
 export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}

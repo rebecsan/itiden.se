@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
@@ -45,7 +45,7 @@ const TitleBox = styled.div`
 `;
 
 const Title = styled(animated.div)`
-  ${tw`text-lg md:text-2xl lg:text-2xl xl:text-4xl md:font-bold text-gray-24 relative px-4 py-2 md:px-20 w-full`}
+  ${tw`text-lg md:text-2xl lg:text-2xl xl:text-4xl md:font-bold text-gray-500 relative px-4 py-2 md:px-20 w-full`}
 `;
 
 const Tags = styled.div`

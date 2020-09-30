@@ -1,7 +1,7 @@
 import { NextComponentType } from 'next';
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { IndexHeader } from '../components/IndexHeader';
 import { Content, Header, Page } from '../components/Layout';
 import { ProfileCard } from '../components/ProfileCard';

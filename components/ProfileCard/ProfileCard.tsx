@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 
 const Wrapper = styled.div`
   ${tw`w-full sm:w-1/2 md:w-1/3 mb-6 flex`}
@@ -15,7 +15,7 @@ const Info = styled.div`
 `;
 
 const Link = styled.a`
-  ${tw`outline-none focus:text-brand`}
+  ${tw`outline-none`}
 `;
 
 interface ProfileCardProps {

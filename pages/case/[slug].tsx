@@ -4,7 +4,7 @@ import { NextPageContext } from 'next';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { Header, Content, Page } from '../../components/Layout';
 import { Media } from '../../components/Media/Media';
 import { Tags } from '../../components/Tag';

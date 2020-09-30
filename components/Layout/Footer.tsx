@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { Logo } from '../Logo';
 import { Facebook, LinkedIn, Instagram } from '../SocialMediaIcons';
 
@@ -29,10 +29,8 @@ const FooterLogo = styled(Logo)`
   ${tw`h-8 mb-10 fill-current text-gray-600 md:hidden`};
 `;
 
-const FooterContent = styled.div.attrs({
-  className: 'text-3xl text-teal-400',
-})`
-  ${tw`mb-3`};
+const FooterContent = styled.div`
+  ${tw`text-lg mb-3`};
 `;
 
 const ContactLink = styled.a`
@@ -53,7 +51,7 @@ const Wrapper = styled.div`
 `;
 
 const Address = styled.div`
-  ${tw`text-xsfooter text-gray-600 md:text-gray-350 hover:text-purple-700 hover:md:text-teal-400`};
+  ${tw`text-xs-footer text-gray-600 md:text-gray-350 hover:text-purple-700 hover:md:text-teal-400`};
 `;
 
 const FacebookLogo = styled(Facebook)`

@@ -1,4 +1,4 @@
-declare module 'tailwind.macro' {
+declare module 'twin.macro' {
   type TailwindComponentFactories<T extends object> = {
     [TTag in keyof JSX.IntrinsicElements]: ThemedStyledFunction<TTag, T>;
   };

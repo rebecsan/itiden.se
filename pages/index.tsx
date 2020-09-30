@@ -2,7 +2,7 @@ import { NextComponentType } from 'next';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { Button } from '../components/Button';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { ReactNode } from 'react';
 import { Line } from './Line';
 
 const Container = styled.div`
-  ${tw`bg-gray-4b text-gray-f0 flex flex-col-reverse relative lg:flex-row mb-12 md:mb-16`};
+  ${tw`bg-gray-200 text-gray-700 flex flex-col-reverse relative lg:flex-row mb-12 md:mb-16`};
   @media (min-width: 1024px) {
     height: 424px;
   }

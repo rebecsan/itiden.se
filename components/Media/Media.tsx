@@ -1,7 +1,7 @@
 import React from 'react';
 import { Media as MediaInterface } from '../../models/Media';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 
 interface MediaProps {
   media: MediaInterface;
@@ -18,7 +18,7 @@ const Image = styled.img`
 `;
 
 const Caption = styled.figcaption`
-  ${tw`text-sm text-gray-24 mx-auto block text-center p-2`}
+  ${tw`text-sm text-gray-500 mx-auto block text-center p-2`}
 `;
 
 function isImage(type: string): boolean {

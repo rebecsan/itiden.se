@@ -2,7 +2,7 @@ import { NextComponentType } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import styled from 'styled-components';
-import tw from 'tailwind.macro';
+import tw from 'twin.macro';
 import { CaseGrid } from '../components/Case';
 import { Content, Header, Page } from '../components/Layout';
 import { Case } from '../models';
@@ -12,10 +12,10 @@ interface ErrorPageProps {
 }
 
 const IntroText = styled(Content)`
-  ${tw`text-lg md:text-2xl text-gray-24 tracking-wide`}
+  ${tw`text-lg md:text-2xl text-gray-500 tracking-wide`}
 
   & b {
-    ${tw`font-bold text-gray-24`}
+    ${tw`font-bold text-gray-500`}
   }
   & a {
     ${tw`font-bold`}
