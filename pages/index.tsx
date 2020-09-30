@@ -15,11 +15,15 @@ interface IndexPageProps {
   page: PageModel | undefined;
 }
 
-const CreativeImage = styled.img`
-  max-width: 450px;
-  ${tw`m-auto inline-block`};
-  @media (min-width: 1024px) {
-    ${tw`w-full max-h-full`};
+const ContentWrapper = styled.div`
+  ${tw`bg-gray-600`}
+`;
+
+const ContentCentered = styled.div`
+  text-align: center;
+  ${tw`pt-24 pb-16 md:py-24 lg:mx-48`}
+  & p {
+    ${tw`text-lg text-gray-300 mt-6 sm:text-2xl`}
   }
 `;
 
@@ -53,24 +57,16 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
         </Arrow>
         </Content>
       </HeaderWide>
-      <Section
-        left={
-          <>
-            <h2>Teknisk kreativitet</h2>
+      <ContentWrapper>
+        <Content>
+          <ContentCentered>
+            <h3>Teknisk kreativitet</h3>
             <p>
-              På Itiden finns det ett stort intresse för teknik och att använda
-              den på bästa möjliga sätt. Dessutom har vi lång erfarenhet av
-              utveckling av webbsidor, webbapplikationer och mobilappar
+              Kärnan i vår verksamhet kommer från vårt stora intresse för teknik och innovation. Vi jobbar med många olika språk och ramverk och håller oss ständigt uppdaterade i detta snabbt utvecklande landskap. För dig som kund innebär det att vi har insikten och kunskapen som krävs för att kunna välja rätt väg framåt för varje enskilt projekt.
             </p>
-            <p>
-              Vi är gärna delaktiga i tekniska beslut kring plattform, teknikval
-              och arkitektur. Vi använder oss av bland annat React, React
-              Native, Laravel, .NET Core och WordPress.
-            </p>
-          </>
-        }
-        right={<CreativeImage src="/static/creative.svg" alt="creative" />}
-      />
+          </ContentCentered>
+        </Content>
+      </ContentWrapper>
       <Content>
         <h2>Se vad vi gör</h2>
       </Content>
