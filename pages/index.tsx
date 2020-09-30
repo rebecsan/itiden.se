@@ -7,6 +7,7 @@ import { Button } from '../components/Button';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
 import { Content, HeaderWide, Page, Section } from '../components/Layout';
+import { Tags } from '../components/Tag';
 import { Case, Page as PageModel } from '../models';
 
 interface IndexPageProps {
@@ -26,27 +27,30 @@ const ParagraphCentered = styled.p`
   text-align: center;
 `;
 
+const TagsWrapper = styled.div`
+  ${tw`w-full my-10 hidden sm:block`};
+`;
+
+const Arrow = styled.div`
+  ${tw`sm:hidden flex justify-center mb-6`}
+`;
+
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
       <IndexHeader />
       <HeaderWide role="main">
         <Content>
-          <h3>Göteborg, kungsportsplatsen</h3>
-          <h1>Webbutveckling och Apputveckling</h1>
-          <p>
-            Itiden är en digital produktionsbyrå med ett team av webbutvecklare
-            och apputvecklare i Göteborg.
-          </p>
-          <p>
-            Tillsammans med produktbolag, startups och byråer arbetar vi med
-            utveckling av webbsidor, webbapplikation och mobilappar.
-          </p>
-          <p>
-            <Link href="/kontakt" passHref>
-              <Button>Kontakta oss</Button>
-            </Link>
-          </p>
+          <h1>Vi kan kod. Vi kan också så mycket annat. Med över 20 års erfarenhet av strategi, ux och teknik hjälper vi på Itiden dig nå rätt lösning.</h1>
+          <TagsWrapper>
+            <Tags tags={["Digital byrå", "Webb", "App", "Utveckling", "Produktion", "Centrala Göteborg"]} />
+          </TagsWrapper>
+          <Link href="/kontakt" passHref>
+            <Button>Kontakta oss</Button>
+          </Link>
+        <Arrow>
+          <img src="/static/arrow.svg" alt="Pil" />
+        </Arrow>
         </Content>
       </HeaderWide>
       <Section
