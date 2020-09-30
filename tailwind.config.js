@@ -14,7 +14,7 @@ module.exports = {
       // 'xl-links': : Samma som xl + underline
       // 'xl-links-sb': Samma som xl + underline + font-semibold,
       '2xl': ['24px', { letterSpacing: '0.01em', lineHeight: '162,5%' }],
-      '5xl': ['48px', { letterSpacing: '0.01em', lineHeight: '150%' }],
+      '5xl': ['48px', { letterSpacing: '0.01em', lineHeight: '162,5%' }],
       h2: ['32px', { letterSpacing: '0.02em', lineHeight: '137,5%' }],
       h3: ['24px', { letterSpacing: '0.02em', lineHeight: '137,5%' }],
       // h3-links: Samma som h3 + underline
