@@ -5,7 +5,7 @@ import tw from 'tailwind.macro';
 import { Analytics } from '../Analytics';
 import { Footer } from './Footer';
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   ${tw`mx-auto`}
 `;
 
@@ -18,8 +18,8 @@ export const Page: React.FC<{}> = props => {
       <Analytics />
       <Wrapper>
         <Content>{props.children}</Content>
-        <Footer />
       </Wrapper>
+      <Footer />
     </>
   );
 };
