@@ -75,7 +75,7 @@ const Input = styled.input.attrs({
 `;
 
 const Close = styled.button`
-  ${tw`absolute bg-transparent border-0 p-0 text-4xl`}
+  ${tw`absolute bg-transparent border-0 p-0 text-5xl`}
   top: 20px;
   right: 20px;
   width: 32px;
