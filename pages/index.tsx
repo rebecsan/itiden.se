@@ -6,7 +6,7 @@ import tw from 'twin.macro';
 import { Button } from '../components/Button';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
-import { Content, HeaderWide, Page, Section } from '../components/Layout';
+import { Content, HeaderWide, Page } from '../components/Layout';
 import { Tags } from '../components/Tag';
 import { Case, Page as PageModel } from '../models';
 
@@ -45,16 +45,28 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader />
       <HeaderWide role="main">
         <Content>
-          <h1>Vi kan kod. Vi kan också så mycket annat. Med över 20 års erfarenhet av strategi, ux och teknik hjälper vi på Itiden dig nå rätt lösning.</h1>
+          <h1>
+            Vi kan kod. Vi kan också så mycket annat. Med över 20 års erfarenhet
+            av strategi, ux och teknik hjälper vi på Itiden dig nå rätt lösning.
+          </h1>
           <TagsWrapper>
-            <Tags tags={["Digital byrå", "Webb", "App", "Utveckling", "Produktion", "Centrala Göteborg"]} />
+            <Tags
+              tags={[
+                'Digital byrå',
+                'Webb',
+                'App',
+                'Utveckling',
+                'Produktion',
+                'Centrala Göteborg',
+              ]}
+            />
           </TagsWrapper>
           <Link href="/kontakt" passHref>
             <Button>Kontakta oss</Button>
           </Link>
-        <Arrow>
-          <img src="/static/arrow.svg" alt="Pil" />
-        </Arrow>
+          <Arrow>
+            <img src="/static/arrow.svg" alt="Pil" />
+          </Arrow>
         </Content>
       </HeaderWide>
       <ContentWrapper>
@@ -62,7 +74,12 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           <ContentCentered>
             <h3>Teknisk kreativitet</h3>
             <p>
-              Kärnan i vår verksamhet kommer från vårt stora intresse för teknik och innovation. Vi jobbar med många olika språk och ramverk och håller oss ständigt uppdaterade i detta snabbt utvecklande landskap. För dig som kund innebär det att vi har insikten och kunskapen som krävs för att kunna välja rätt väg framåt för varje enskilt projekt.
+              Kärnan i vår verksamhet kommer från vårt stora intresse för teknik
+              och innovation. Vi jobbar med många olika språk och ramverk och
+              håller oss ständigt uppdaterade i detta snabbt utvecklande
+              landskap. För dig som kund innebär det att vi har insikten och
+              kunskapen som krävs för att kunna välja rätt väg framåt för varje
+              enskilt projekt.
             </p>
           </ContentCentered>
         </Content>
