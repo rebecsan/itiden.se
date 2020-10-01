@@ -6,9 +6,9 @@ import { Analytics } from '../Analytics';
 import { Footer } from './Footer';
 
 const Wrapper = styled.main`
-  ${tw`mx-auto flex-grow`}
+  ${tw`flex-grow`}
 `;
-const OuterWrapper = styled.main`
+const OuterWrapper = styled.div`
   ${tw`flex flex-col min-h-screen`}
 `;
 
