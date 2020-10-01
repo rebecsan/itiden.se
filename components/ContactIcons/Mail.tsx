@@ -23,12 +23,12 @@ export const Mail: React.FC<LogoProps> = props => {
           height="27"
           rx="2.5"
           stroke="#EBEBEB"
-          stroke-width="3"
+          strokeWidth="3"
         />
         <path
           d="M2 4L21.0362 14.4699C21.6363 14.8 22.3637 14.8 22.9638 14.4699L42 4"
           stroke="#EBEBEB"
-          stroke-width="3"
+          strokeWidth="3"
         />
       </svg>
     </>

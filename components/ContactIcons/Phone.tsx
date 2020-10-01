@@ -24,7 +24,7 @@ export const Phone: React.FC<LogoProps> = props => {
           rx="2.5"
           transform="rotate(-60 2.04904 38.2536)"
           stroke="#EBEBEB"
-          stroke-width="3"
+          strokeWidth="3"
         />
         <rect
           x="4.59802"

@@ -6,7 +6,7 @@
 	.st0{fill:#555555;}
 	.st1{fill:#49D8CF;}
 	.st2{fill:#5CFFF5;}
-	.st3{fill:none;stroke:#5CFFF5;stroke-width:2;}
+	.st3{fill:none;stroke:#5CFFF5;strokeWidth:2;}
 	.st4{fill:#4B4B4B;}
 	.st5{fill:#282828;}
 	.st6{fill-rule:evenodd;clip-rule:evenodd;fill:#5CFFF5;}
