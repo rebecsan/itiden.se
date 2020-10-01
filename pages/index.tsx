@@ -55,6 +55,14 @@ const Arrow = styled.div`
   ${tw`sm:hidden flex justify-center mb-6`}
 `;
 
+const CaseWrapper = styled.div`
+  ${tw`mt-24 md:mt-20`}
+
+  & p {
+    ${tw`mb-32`}
+  }
+`;
+
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
   return (
     <Page>
@@ -109,17 +117,17 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           </ContentCentered>
         </Content>
       </ContentWrapperPurple>
+      <CaseWrapper>
       <Content>
-        <h2>Se vad vi gör</h2>
-      </Content>
+      <H3>Case</H3>
       <CaseGrid cases={cases} />
-      <Content>
         <ParagraphCentered>
           <Link href="/case" passHref>
-            <Button>Visa fler</Button>
+            <Button>Gå till Case</Button>
           </Link>
         </ParagraphCentered>
       </Content>
+      </CaseWrapper>
     </Page>
   );
 };

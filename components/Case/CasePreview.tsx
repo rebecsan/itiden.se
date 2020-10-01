@@ -8,20 +8,18 @@ import { Case } from '../../models/Case';
 import { Tag } from '../Tag';
 import 'lazysizes';
 import { Media } from '../../models';
-import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 interface CasePreviewProps extends Case {
   index: number;
 }
 
 const ImageContainer = styled(animated.div)`
-  ${tw`rounded-sm overflow-hidden relative bg-white`}
+  ${tw`rounded-sm overflow-hidden relative`}
   transform: scale(1);
   transition: all 0.2s;
 
   @media (min-width: 768px) {
     &:hover {
-      z-index: 1;
       transform: scale(1.05);
     }
   }
@@ -54,6 +52,17 @@ const Tags = styled.div`
   opacity: 0;
 `;
 
+const CaseWrapper = styled.div`
+  ${tw`mb-16`}
+  @media (min-width: 768px) {
+    width: calc(50% - 0.5rem);
+  }
+`;
+
+const TagsWrapper = styled.div`
+  ${tw`py-4 md:flex flex-wrap items-end`}
+`;
+
 const Box = styled.a`
   ${tw`relative overflow-hidden w-full outline-none mb-4`}
   box-sizing: border-box;
@@ -71,13 +80,17 @@ const Box = styled.a`
         opacity: 1;
         transform: translate3d(0px, 0, 0);
       }
-
-      ${Image} {
-        opacity: 0.2;
-      }
     }
   }
 `;
+
+const H4 = styled.h4`
+  ${tw`text-teal-400 mt-4 mb-0 hover:text-gray-100`}
+`;
+
+const A = styled.a`
+`;
+
 // react spring types are wrong. Apparently fixed in 9.x
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const trans1: any = (x: number, y: number, z: number) =>
@@ -118,34 +131,32 @@ export const CasePreview: React.FC<CasePreviewProps> = ({
       : {};
 
   return (
-    <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
-      <Box tabIndex={0} {...bindings}>
+      <CaseWrapper>
         <ImageContainer>
-          <MaybeLazyImage lazy={true} media={img} />
+          <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
+            <A>
+              <MaybeLazyImage lazy={true} media={img} />
+            </A>
+          </Link>
         </ImageContainer>
-        <TitleBox>
-          <Title
-            aria-hidden="true"
-            style={{ transform: anim.xyz.interpolate(trans1) }}
-          >
-            {title}
-          </Title>
-        </TitleBox>
-        <Tags>
+        <Link href={`/case/[slug]`} as={`/case/${slug}`} passHref>
+          <A>
+            <H4>{title}</H4>
+          </A>
+        </Link>
+        <TagsWrapper>
           {technologies.map(tech => (
             <Tag
               key={tech}
               css={`
-                ${tw`ml-1 mt-1 whitespace-no-wrap`}
+                ${tw`mr-4 whitespace-no-wrap text-gray-100`}
               `}
             >
               {tech}
             </Tag>
           ))}
-        </Tags>
-        <VisuallyHidden>{title}</VisuallyHidden>
-      </Box>
-    </Link>
+        </TagsWrapper>
+    </CaseWrapper>
   );
 };
 
