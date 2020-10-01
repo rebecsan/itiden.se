@@ -3,59 +3,35 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IndexHeader } from '../components/IndexHeader';
-import { Content, Header, Page } from '../components/Layout';
+import { Page } from '../components/Layout';
 import { ProfileCard } from '../components/ProfileCard';
 import { Employee } from '../models/Employee';
+import { SocialmediaGroupLarge } from '../components/SocialMediaIcons/SocialmediaGroupLarge';
+import { ContactsGroup } from '../components/ContactIcons/ContactsGroup';
 
 interface IndexPageProps {
   employees: Employee[];
 }
 
-const ContactWrapper = styled(Content)`
-  ${tw`mx-auto px-4 justify-around`};
-`;
-
-const ContactBoxWrapper = styled(ContactWrapper)`
-  ${tw`flex flex-wrap mb-8 flex-col md:flex-row`};
-`;
-
-const ContactBox = styled.div`
-  ${tw`mb-4 md:mb-8 text-center content-center items-center flex flex-wrap flex-row md:flex-col`}
-`;
-
 const ProfileWrapper = styled.div`
-  ${tw`flex flex-wrap`};
+  ${tw`flex flex-col`};
 `;
 
-const ContactLink = styled.a`
-  ${tw`rounded-full inline-block flex content-center items-center justify-center flex-wrap sm:mb-4 w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64`}
-  border: 1px solid rgba(77, 100, 210, 0.1);
-  box-sizing: border-box;
-  img {
-    transition: all 0.2s ease-in-out;
-  }
-  &:hover img {
-    transform: scale(1.1);
-  }
-  @media (max-width: 1024px) {
-    img {
-      height: 120px;
-    }
-  }
-  @media (max-width: 767px) {
-    border: none;
-    img {
-      height: 100px;
-    }
-  }
+export const TopContentWrapper = styled.div`
+  ${tw`flex -mt-20 md:(min-h-screen mt-0 ) items-center max-w-screen-lg mx-auto`}
 `;
-
-const ContactInfo = styled.div`
-  text-align: left;
+export const ContentWrapper = styled.div`
+  ${tw`flex max-w-screen-lg mx-auto`}
 `;
-
-const ContactInfoTitle = styled.h2`
-  ${tw`whitespace-no-wrap`};
+export const QuarteredContent = styled.div`
+  ${tw`flex flex-col mx-6 md:(mx-5 w-3/4) lg:(mx-0)`}
+`;
+export const GrayBanner = styled.div`
+  ${tw`flex justify-center mt-16 w-full py-10 bg-gray-600`}
+`;
+export const Filler = styled.div`
+  ${tw`md:hidden`}
+  height: 35vh;
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
@@ -64,53 +40,20 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
   return (
     <Page>
       <IndexHeader title="Kontakt" />
-      <Header role="banner">
-        <Content>
-          <h3>Vad kan vi hjälpa dig med?</h3>
-          <h1>Kontakta oss</h1>
-          <p>
-            Vi på Itiden ser fram emot att höra från dig.
-            <br />
-            Tveka inte att kontakta oss!
-          </p>
-        </Content>
-      </Header>
-      <ContactBoxWrapper>
-        <ContactBox>
-          <ContactLink href="tel:031-7740950">
-            <img src="/static/call.svg" alt="Ring" />
-          </ContactLink>
-          <ContactInfo>
-            <ContactInfoTitle>Ring</ContactInfoTitle>
-            <a href="tel:0709-597008">0709-597008</a>
-          </ContactInfo>
-        </ContactBox>
-        <ContactBox>
-          <ContactLink href="mailto:hej@itiden.se">
-            <img src="/static/mail.svg" alt="Maila" />
-          </ContactLink>
-          <ContactInfo>
-            <ContactInfoTitle>Maila</ContactInfoTitle>
-            <a href="mailto:hej@itiden.se">hej@itiden.se</a>
-          </ContactInfo>
-        </ContactBox>
-        <ContactBox>
-          <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
-            <img src="/static/find.svg" alt="Hitta" />
-          </ContactLink>
-          <ContactInfo>
-            <ContactInfoTitle>Hitta hit</ContactInfoTitle>
-            <a href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
-              Kungstorget 11-12
-              <br />
-              411 41 Göteborg
-            </a>
-          </ContactInfo>
-        </ContactBox>
-      </ContactBoxWrapper>
-      <ContactWrapper>
-        <h2>Teamet</h2>
+      <Filler />
+      <TopContentWrapper>
+        <QuarteredContent>
+          <h1>Vi ser fram emot att höra från dig.</h1>
+          <ContactsGroup />
+        </QuarteredContent>
+      </TopContentWrapper>
+      <GrayBanner>
+        <SocialmediaGroupLarge />
+      </GrayBanner>
+      <ContentWrapper>
+        {/* <EmployeeWrapper> */}
         <ProfileWrapper>
+          <h2>Medarbetare</h2>
           {employees.map(employee => (
             <ProfileCard
               key={employee.id}
@@ -122,7 +65,8 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
             />
           ))}
         </ProfileWrapper>
-      </ContactWrapper>
+        {/* </EmployeeWrapper> */}
+      </ContentWrapper>
     </Page>
   );
 };
