@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`bg-gray-800 text-gray-300 font-body relative`}
   }
   h1 {
-    ${tw`mb-3 leading-tight sm:text-5xl text-gray-300 font-normal leading-relaxed`}
+    ${tw`mb-3 text-2xl md:text-5xl text-gray-300 font-normal`}
   }
   h2 {
     ${tw`text-h2 text-gray-200 font-bold`}
