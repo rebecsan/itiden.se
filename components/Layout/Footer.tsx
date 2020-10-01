@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Logo } from '../Logo';
-import { Facebook, LinkedIn, Instagram } from '../SocialMediaIcons';
+import { SocialmediaGroupFooter } from '../SocialMediaIcons';
 
 const FooterContainer = styled.footer`
-  ${tw`w-full bottom-0 mb-16 md:mb-0 bg-gray-200 md:bg-gray-900`}
+  ${tw`w-full bottom-0 mb-16 bg-gray-200 md:(mb-0 bg-gray-900)`}
 `;
 
 const Container = styled.div`
@@ -21,14 +21,6 @@ const ItidenContainer = styled.div`
   ${tw``}
 `;
 
-const SocialMediaContainer = styled.div`
-  ${tw``}
-`;
-
-const SocialMediaLink = styled.a`
-  ${tw``}
-`;
-
 const FooterLogo = styled(Logo)`
   ${tw`h-8 mb-10 fill-current text-gray-600 md:hidden`};
 `;
@@ -38,7 +30,7 @@ const FooterContent = styled.div`
 `;
 
 const ContactLink = styled.a`
-  ${tw`self-start text-gray-700 md:text-gray-300 hover:text-purple-700 hover:md:text-teal-400 `};
+  ${tw`self-start text-gray-700 md:text-gray-300 hover:text-purple-700 hover:md:text-teal-400`};
 `;
 
 const ContactInfo = styled.h3`
@@ -50,8 +42,7 @@ const ContactContainer = styled.div`
 `;
 
 const Divider = styled.div`
-  ${tw`bg-gray-350 w-full mt-6 mb-4 md:(bg-gray-500 mt-10 mb-8)`}
-  height: 1px;
+  ${tw`bg-gray-350 w-full h-px mt-6 mb-4 md:(bg-gray-500 mt-10 mb-8)`};
 `;
 
 const Wrapper = styled.div`
@@ -60,18 +51,6 @@ const Wrapper = styled.div`
 
 const Address = styled.div`
   ${tw`text-xs-footer text-gray-600 hover:text-purple-700 md:(text-gray-350 hover:text-teal-400)`};
-`;
-
-const FacebookLogo = styled(Facebook)`
-  ${tw`fill-current text-gray-500 md:text-gray-250 hover:text-purple-700 hover:md:text-teal-400`};
-`;
-
-const LinkedInLogo = styled(LinkedIn)`
-  ${tw`fill-current text-gray-500 mx-4 md:text-gray-250 hover:text-purple-700 hover:md:text-teal-400`};
-`;
-
-const InstagramLogo = styled(Instagram)`
-  ${tw`fill-current text-gray-500 md:text-gray-250 hover:text-purple-700 hover:md:text-teal-400`};
 `;
 
 export const Footer = () => (
@@ -95,24 +74,14 @@ export const Footer = () => (
           </ContactLink>
         </ContactContainer>
       </RowWrapper>
-      <Divider></Divider>
+      <Divider />
       <Wrapper>
         <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
           <Address>
             Kungstorget 11–12 <br /> 411 41 Göteborg
           </Address>
         </ContactLink>
-        <SocialMediaContainer>
-          <SocialMediaLink href="https://www.facebook.com/itiden">
-            <FacebookLogo />
-          </SocialMediaLink>
-          <SocialMediaLink href="https://www.linkedin.com/company/itiden">
-            <LinkedInLogo />
-          </SocialMediaLink>
-          <SocialMediaLink href="https://www.instagram.com/itidenab/">
-            <InstagramLogo />
-          </SocialMediaLink>
-        </SocialMediaContainer>
+        <SocialmediaGroupFooter />
       </Wrapper>
     </Container>
   </FooterContainer>
