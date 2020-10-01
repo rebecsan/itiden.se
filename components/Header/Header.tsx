@@ -9,7 +9,7 @@ import { NavLink } from '../Navigation/NavLink';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
 const Content = styled.div`
-  ${tw`flex bg-gray-800 mx-6 md:mx-5 md:mb-16 lg:mx-auto items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6`};
+  ${tw`flex bg-gray-800 mx-6 md:mx-5 lg:mx-auto items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6`};
   max-width: 1080px;
   @media (max-width: 767px) {
     height: 80px;

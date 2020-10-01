@@ -15,15 +15,31 @@ interface IndexPageProps {
   page: PageModel | undefined;
 }
 
-const ContentWrapper = styled.div`
-  ${tw`bg-gray-600`}
+const H1 = styled.h1`
+  ${tw`text-2xl md:text-5xl`}
+`;
+
+const H3 = styled.h3`
+  ${tw`text-h3`}
+`;
+
+const Paragraph = styled.p`
+  ${tw`text-lg text-gray-300 mt-6 sm:text-2xl`}
+`;
+
+const ContentWrapperGray = styled.div`
+  ${tw`bg-gray-600 pt-24 pb-16 md:py-24`}
+`;
+
+const ContentWrapperPurple = styled.div`
+  ${tw`bg-purple-700 py-10`}
 `;
 
 const ContentCentered = styled.div`
   text-align: center;
-  ${tw`pt-24 pb-16 md:py-24 lg:mx-48`}
-  & p {
-    ${tw`text-lg text-gray-300 mt-6 sm:text-2xl`}
+  ${tw`lg:mx-48`}
+  & a {
+    ${tw`text-gray-100 text-lg sm:text-xl sm:font-semibold`}
   }
 `;
 
@@ -45,10 +61,10 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader />
       <HeaderWide role="main">
         <Content>
-          <h1>
+          <H1>
             Vi kan kod. Vi kan också så mycket annat. Med över 20 års erfarenhet
             av strategi, ux och teknik hjälper vi på Itiden dig nå rätt lösning.
-          </h1>
+          </H1>
           <TagsWrapper>
             <Tags
               tags={[
@@ -69,21 +85,30 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           </Arrow>
         </Content>
       </HeaderWide>
-      <ContentWrapper>
+      <ContentWrapperGray>
         <Content>
           <ContentCentered>
-            <h3>Teknisk kreativitet</h3>
-            <p>
+            <H3>Teknisk kreativitet</H3>
+            <Paragraph>
               Kärnan i vår verksamhet kommer från vårt stora intresse för teknik
               och innovation. Vi jobbar med många olika språk och ramverk och
               håller oss ständigt uppdaterade i detta snabbt utvecklande
               landskap. För dig som kund innebär det att vi har insikten och
               kunskapen som krävs för att kunna välja rätt väg framåt för varje
               enskilt projekt.
-            </p>
+            </Paragraph>
           </ContentCentered>
         </Content>
-      </ContentWrapper>
+      </ContentWrapperGray>
+      <ContentWrapperPurple>
+        <Content>
+          <ContentCentered>
+            <Link href="/case" passHref>
+              Läs mer om hur vi jobbar
+            </Link>
+          </ContentCentered>
+        </Content>
+      </ContentWrapperPurple>
       <Content>
         <h2>Se vad vi gör</h2>
       </Content>
