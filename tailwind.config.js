@@ -55,6 +55,9 @@ module.exports = {
       fill: {
         logo: '#242424',
       },
+      opacity: {
+        90: '.9',
+      }
     },
   },
   variants: {},
