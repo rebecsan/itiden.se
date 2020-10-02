@@ -14,13 +14,6 @@ interface CasePreviewProps extends Case {
 
 const ImageContainer = styled(animated.div)`
   ${tw`rounded-sm overflow-hidden relative`}
-  transform: scale(1);
-  transition: all 0.2s;
-
-  @media (min-width: 768px) {
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 `;
 
@@ -28,6 +21,14 @@ const Image = styled.img`
   display: block;
   width: 100%;
   will-change: transform;
+
+  transform: scale(1);
+  transition: all 0.2s;
+
+  @media (min-width: 768px) {
+    &:hover {
+      transform: scale(1.04);
+    }
 `;
 
 const CaseWrapper = styled.div`
