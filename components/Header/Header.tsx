@@ -20,6 +20,7 @@ const Menu = styled.nav`
   width: 33%;
   display: flex;
   justify-content: space-between;
+  z-index: 1;
 
   @media (max-width: 767px) {
     ${tw`bg-gray-900 px-6 border-solid border-0 border-t border-purple-700`};
