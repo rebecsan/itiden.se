@@ -16,22 +16,37 @@ interface IndexPageProps {
 const ProfileWrapper = styled.div`
   ${tw`flex flex-col`};
 `;
-
-export const TopContentWrapper = styled.div`
-  ${tw`flex -mt-20 md:(min-h-screen mt-0 ) items-center max-w-screen-lg mx-auto`}
+const TopContentWrapper = styled.div`
+  ${tw`flex -mt-20 md:(min-h-screen -mt-12 -mb-32) items-center max-w-screen-lg mx-auto`}
 `;
-export const ContentWrapper = styled.div`
+const ContentWrapper = styled.div`
   ${tw`flex max-w-screen-lg mx-auto`}
 `;
-export const QuarteredContent = styled.div`
+const QuarteredContent = styled.div`
   ${tw`flex flex-col mx-6 md:(mx-5 w-3/4) lg:(mx-0)`}
 `;
-export const GrayBanner = styled.div`
-  ${tw`flex justify-center mt-16 w-full py-10 bg-gray-600`}
+const HeroBanner = styled.div`
+  ${tw`flex justify-center w-full`}
 `;
-export const Filler = styled.div`
+const GrayBanner = styled(HeroBanner)`
+  ${tw`mt-16 py-10 bg-gray-600`}
+`;
+const MapContainer = styled(HeroBanner)`
+  ${tw`h-40 bg-teal-400`}
+`;
+const GreenBanner = styled(HeroBanner)`
+  ${tw`py-10 bg-green text-center mb-24`};
+  span ${tw`text-xl font-semibold underline text-gray-600`}
+`;
+const AdressNarrow = styled.div`
   ${tw`md:hidden`}
-  height: 35vh;
+`;
+const Adresswide = styled.div`
+  ${tw`hidden md:inline`}
+`;
+const Filler = styled.div`
+  ${tw`md:hidden`}
+  height: 30vh;
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
@@ -50,6 +65,13 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
       <GrayBanner>
         <SocialmediaGroupLarge />
       </GrayBanner>
+      <MapContainer />
+      <GreenBanner>
+        <AdressNarrow>
+          Kungstorget 11–12, <br /> 411 41 Göteborg
+        </AdressNarrow>
+        <Adresswide>Kungstorget 11–12, 411 41 Göteborg</Adresswide>
+      </GreenBanner>
       <ContentWrapper>
         {/* <EmployeeWrapper> */}
         <ProfileWrapper>
