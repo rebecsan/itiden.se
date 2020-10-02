@@ -8,7 +8,7 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GlobalStyles } from '../components/Styles';
-import fontChars from '../data/data/chars';
+// import fontChars from '../data/data/chars';
 
 export default class MyDocument extends Document {
   public static async getInitialProps(ctx: DocumentContext) {
