@@ -8,9 +8,18 @@ import { NavLink } from '../Navigation/NavLink';
 // import { Search } from '../Search';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
+const HeaderWrapper = styled.div`
+  z-index: 1;
+  ${tw`w-full bg-gray-800 bg-opacity-90 md:fixed`}
+`;
+
 const Content = styled.div`
-  ${tw`flex bg-gray-800 mx-6 md:mx-5 lg:mx-auto items-center justify-center flex-col md:flex-row md:justify-between flex-wrap pt-6`};
-  max-width: 1080px;
+  ${tw`flex px-6 md:px-5 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6`};
+
+  @media (min-width: 1080px) {
+    width: 1080px;
+  }
+
   @media (max-width: 767px) {
     height: 80px;
   }
@@ -54,7 +63,7 @@ export const Header: React.FC<{}> = () => {
   // }
 
   return (
-    <>
+    <HeaderWrapper>
       <Content role="complementary">
         <Link href="/">
           <a aria-label="itiden.se">
@@ -70,7 +79,7 @@ export const Header: React.FC<{}> = () => {
         </Menu>
       </Content>
       {/* <Search show={showSearch} onRequestClose={handleSearchCloseRequest} /> */}
-    </>
+    </HeaderWrapper>
   );
 };
 
