@@ -59,7 +59,7 @@ export default class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href={`https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap&text=${fontChars}`}
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
             rel="stylesheet"
           />
           <link rel="preconnect" href="https://img3.usefathom.com" />
