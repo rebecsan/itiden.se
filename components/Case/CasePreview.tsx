@@ -23,11 +23,11 @@ const Image = styled.img`
   will-change: transform;
 
   transform: scale(1);
-  transition: all 0.2s;
+  transition: all 0.5s;
 
   @media (min-width: 768px) {
     &:hover {
-      transform: scale(1.04);
+      transform: scale(1.02);
     }
 `;
 
