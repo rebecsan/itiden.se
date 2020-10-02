@@ -46,9 +46,4 @@ const IndexPage: NextComponentType<{}, {}> = () => {
   );
 };
 
-IndexPage.getInitialProps = async () => {
-  const cases = await import('../data/data/case.json').then(m => m.default);
-  return { cases: cases.filter(c => c.labs) };
-};
-
 export default IndexPage;
