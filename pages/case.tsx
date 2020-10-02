@@ -2,7 +2,7 @@ import { NextComponentType } from 'next';
 import React from 'react';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
-import { Header, Page, Content } from '../components/Layout';
+import { Header, Page, Content, H2 } from '../components/Layout';
 import { Case } from '../models';
 
 interface IndexPageProps {
@@ -15,11 +15,9 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
       <IndexHeader title="Case" />
       <Header role="banner">
         <Content>
-          <h3>Case, Itiden</h3>
-          <h1>Vad vi gör</h1>
+          <H2>Fin rubrik till case</H2>
           <p>
-            Tillsammans med IT-bolag, reklambyråer, start-ups och produktbolag
-            hjälper vi att utveckla hemsidor, webbapplikationer och mobilappar.
+            Vi kan Ux, Html, Css, Javascript, React, React Native, Php, Laravel, Android, iOS, Mobil, Desktop, App, Webb, Next.js, CMS, TypeScript, Frontend, Backend, AR, VR, Drupal, Wordpress och mer därtill. Utmana oss gärna.
           </p>
         </Content>
       </Header>

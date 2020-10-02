@@ -6,7 +6,7 @@ import tw from 'twin.macro';
 import { Button } from '../components/Button';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
-import { Content, HeaderWide, Page } from '../components/Layout';
+import { Content, HeaderWide, Page, H1, H3, Paragraph } from '../components/Layout';
 import { Tags } from '../components/Tag';
 import { Case, Page as PageModel } from '../models';
 
@@ -14,18 +14,6 @@ interface IndexPageProps {
   cases: Case[];
   page: PageModel | undefined;
 }
-
-const H1 = styled.h1`
-  ${tw`text-2xl md:text-5xl`}
-`;
-
-const H3 = styled.h3`
-  ${tw`text-h3`}
-`;
-
-const Paragraph = styled.p`
-  ${tw`text-lg text-gray-300 mt-6 sm:text-2xl`}
-`;
 
 const ContentWrapperGray = styled.div`
   ${tw`bg-gray-600 pt-24 pb-16 md:py-24`}
