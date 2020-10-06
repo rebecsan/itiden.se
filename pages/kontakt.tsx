@@ -8,6 +8,7 @@ import { ProfileCard } from '../components/ProfileCard';
 import { Employee } from '../models/Employee';
 import { SocialmediaGroupLarge } from '../components/SocialMediaIcons/SocialmediaGroupLarge';
 import { ContactsGroup } from '../components/ContactIcons/ContactsGroup';
+import { Map } from '../components/Map/Map';
 
 interface IndexPageProps {
   employees: Employee[];
@@ -31,9 +32,6 @@ const HeroBanner = styled.div`
 const GrayBanner = styled(HeroBanner)`
   ${tw`mt-16 py-10 bg-gray-600`}
 `;
-const MapContainer = styled(HeroBanner)`
-  ${tw`h-40 bg-teal-400`}
-`;
 const GreenBanner = styled(HeroBanner)`
   ${tw`py-10 bg-green text-center mb-24`};
   span ${tw`text-xl font-semibold underline text-gray-600`}
@@ -46,8 +44,16 @@ const Adresswide = styled.div`
 `;
 const Filler = styled.div`
   ${tw`md:hidden`}
-  height: 30vh;
+  height: 35vh;
 `;
+
+const location = {
+  address: 'Kungstorget 11, 411 10 Göteborg',
+  lat: 57.703771,
+  lng: 11.9687671,
+};
+
+const zoomLevel = 17;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
   employees,
@@ -65,7 +71,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
       <GrayBanner>
         <SocialmediaGroupLarge />
       </GrayBanner>
-      <MapContainer />
+      <Map {...{ location, zoomLevel }} />
       <GreenBanner>
         <AdressNarrow>
           Kungstorget 11–12, <br /> 411 41 Göteborg

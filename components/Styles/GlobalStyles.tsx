@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
   ${reboot({ black: '0, 0, 0' })}
 
   body {
-    ${tw`bg-gray-800 text-gray-300 font-body relative`}
+    ${tw`bg-gray-800 text-gray-300 font-body relative oldstyle-nums`}
   }
   h1 {
     ${tw`mb-3 text-2xl md:text-5xl text-gray-300 font-normal`}

@@ -30,6 +30,7 @@ declare global {
     interface ProcessEnv {
       CONTENTFUL_SPACE: string | undefined;
       CONTENTFUL_TOKEN: string | undefined;
+      GOOGLE_MAPS_API_KEY: string | undefined;
       GA: string | undefined;
       NODE_ENV: 'development' | 'production';
       ALGOLIA_APP_ID: string | undefined;
