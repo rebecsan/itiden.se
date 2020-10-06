@@ -18,7 +18,7 @@ const ContactBoxWrapper = styled.div`
 `;
 
 const ContactBox = styled.div`
-  ${tw`items-center flex flex-row md:flex-col py-8`}
+  ${tw`items-center flex flex-row md:flex-col pt-8`}
 `;
 
 const ContactLink = styled.a`
