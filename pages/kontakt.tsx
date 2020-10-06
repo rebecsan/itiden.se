@@ -14,14 +14,14 @@ interface IndexPageProps {
   employees: Employee[];
 }
 
-const ProfileWrapper = styled.div`
-  ${tw`flex flex-col`};
+const EmployeesWrapper = styled.div`
+  ${tw`flex flex flex-wrap`};
 `;
 const TopContentWrapper = styled.div`
   ${tw`flex -mt-20 md:(min-h-screen -mt-12 -mb-32) items-center max-w-screen-lg mx-auto`}
 `;
 const ContentWrapper = styled.div`
-  ${tw`flex max-w-screen-lg mx-auto`}
+  ${tw`mx-6 md:mx-5 lg:mx-auto max-w-screen-lg`}
 `;
 const QuarteredContent = styled.div`
   ${tw`flex flex-col mx-6 md:(mx-5 w-3/4) lg:(mx-0)`}
@@ -36,6 +36,10 @@ const GreenBanner = styled(HeroBanner)`
   ${tw`py-10 bg-green text-center mb-24`};
   span ${tw`text-xl font-semibold underline text-gray-600`}
 `;
+const WhiteBanner = styled(HeroBanner)`
+  ${tw`hidden py-10 bg-white text-center mt-32 lg:block`};
+  span ${tw`text-xl font-semibold underline text-gray-700`}
+`;
 const AdressNarrow = styled.div`
   ${tw`md:hidden`}
 `;
@@ -45,6 +49,9 @@ const Adresswide = styled.div`
 const Filler = styled.div`
   ${tw`md:hidden`}
   height: 35vh;
+`;
+const Divider = styled.div`
+  ${tw`w-full h-px bg-gray-500 mt-8 last:hidden md:hidden`};
 `;
 
 const location = {
@@ -79,22 +86,29 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
         <Adresswide>Kungstorget 11–12, 411 41 Göteborg</Adresswide>
       </GreenBanner>
       <ContentWrapper>
-        {/* <EmployeeWrapper> */}
-        <ProfileWrapper>
-          <h2>Medarbetare</h2>
+        <h2>Medarbetare</h2>
+        <EmployeesWrapper>
           {employees.map(employee => (
-            <ProfileCard
-              key={employee.id}
-              name={employee.name}
-              title={employee.title}
-              email={employee.email}
-              phone={employee.phone}
-              avatarFileUrl={employee.avatar?.file.url}
-            />
+            <>
+              <ProfileCard
+                key={employee.id}
+                name={employee.name}
+                title={employee.title}
+                email={employee.email}
+                phone={employee.phone}
+                avatarFileUrl={employee.avatar?.file.url}
+              />
+              <Divider />
+            </>
           ))}
-        </ProfileWrapper>
-        {/* </EmployeeWrapper> */}
+        </EmployeesWrapper>
       </ContentWrapper>
+      <WhiteBanner>
+        <span>
+          Hör av dig, vi är alltid intresserade av duktiga och drivna
+          medarbetare!
+        </span>
+      </WhiteBanner>
     </Page>
   );
 };

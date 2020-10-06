@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const Wrapper = styled.div`
-  ${tw`w-full sm:w-1/2 md:w-1/3 mb-6 flex`}
+  ${tw`w-full md:w-1/2 lg:w-1/3 mt-8 flex`}
 `;
 
 const Avatar = styled.img`
-  ${tw`w-1/3 mr-4`}
+  ${tw`mr-5`}
+  height: 108px;
+  width: 112px;
 `;
 
 const Info = styled.div`

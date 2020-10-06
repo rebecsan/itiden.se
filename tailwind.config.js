@@ -57,10 +57,12 @@ module.exports = {
       },
       opacity: {
         90: '.9',
-      }
+      },
     },
   },
-  variants: {},
+  variants: {
+    hidden: ['responsive', 'last'],
+  },
   plugins: [],
   future: {
     removeDeprecatedGapUtilities: true,

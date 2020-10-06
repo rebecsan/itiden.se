@@ -5,7 +5,7 @@ import { Logo } from '../Logo';
 import { SocialmediaGroupFooter } from '../SocialMediaIcons';
 
 const FooterContainer = styled.footer`
-  ${tw`w-full bottom-0 mb-16 md:mb-0 bg-gray-200 md:bg-gray-900 md:border-solid md:border-0 md:border-t md:border-purple-700`}
+  ${tw`w-full bottom-0 mb-16 mt-24 bg-gray-200 md:(bg-gray-900 mb-0 mt-32 border-solid border-0 border-t border-purple-700)`}
 `;
 
 const Container = styled.div`
