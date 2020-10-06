@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import tw from 'twin.macro';
+import { H4 } from '../Layout';
 import styled from 'styled-components';
 import { animated } from 'react-spring';
 import { Case } from '../../models/Case';
@@ -40,10 +41,6 @@ const CaseWrapper = styled.div`
 
 const TagsWrapper = styled.div`
   ${tw`py-4 md:flex flex-wrap items-end`}
-`;
-
-const H4 = styled.h4`
-  ${tw`text-teal-400 mt-4 mb-0 hover:text-gray-100`}
 `;
 
 const A = styled.a`

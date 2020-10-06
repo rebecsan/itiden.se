@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const Content = styled.div`
-  ${tw`flex px-6 md:px-5 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6`};
+  ${tw`flex px-6 md:px-5 lg:px-0 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6`};
 
   @media (min-width: 1080px) {
     width: 1080px;
