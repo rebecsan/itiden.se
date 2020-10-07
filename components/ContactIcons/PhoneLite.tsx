@@ -23,7 +23,6 @@ export const PhoneLite: React.FC<LogoProps> = props => {
           height="25"
           rx="3"
           transform="rotate(-60 1.36603 36.0705)"
-          stroke="#EBEBEB"
           strokeWidth="2"
         />
         <rect
@@ -41,7 +40,6 @@ export const PhoneLite: React.FC<LogoProps> = props => {
           height="1"
           transform="rotate(30 22.4154 2.61252)"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
         <rect
           x="13.7592"
@@ -51,12 +49,10 @@ export const PhoneLite: React.FC<LogoProps> = props => {
           rx="0.5"
           transform="rotate(30 13.7592 36.4897)"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
         <path
           d="M28.477 6.11252L35.4052 10.1125L34.6552 11.4116C34.2409 12.129 33.3236 12.3748 32.6061 11.9606L28.276 9.46059C27.5586 9.04638 27.3127 8.12899 27.727 7.41156L28.477 6.11252Z"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
       </svg>
     </>

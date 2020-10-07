@@ -23,7 +23,6 @@ export const Phone: React.FC<LogoProps> = props => {
           height="26"
           rx="2.5"
           transform="rotate(-60 2.04904 38.2536)"
-          stroke="#EBEBEB"
           strokeWidth="3"
         />
         <rect
@@ -41,7 +40,6 @@ export const Phone: React.FC<LogoProps> = props => {
           height="1"
           transform="rotate(30 24.281 3.74649)"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
         <rect
           x="15.0257"
@@ -51,12 +49,10 @@ export const Phone: React.FC<LogoProps> = props => {
           rx="1"
           transform="rotate(30 15.0257 37.6627)"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
         <path
           d="M28.9276 7.58377L37.5879 12.5838L36.8379 13.8828C36.4237 14.6002 35.5063 14.8461 34.7889 14.4318L28.7267 10.9318C28.0092 10.5176 27.7634 9.60025 28.1776 8.88281L28.9276 7.58377Z"
           fill="#EBEBEB"
-          stroke="#EBEBEB"
         />
       </svg>
     </>

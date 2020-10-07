@@ -11,22 +11,22 @@ import {
 } from '../ContactIcons';
 
 const MailIcon = styled(Mail)`
-  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block stroke-current text-gray-200 hover:text-teal-400`};
 `;
 const PhoneIcon = styled(Phone)`
-  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block stroke-current text-gray-200 hover:text-teal-400`};
 `;
 const FindIcon = styled(Find)`
-  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block stroke-current text-gray-200 hover:text-teal-400`};
 `;
 const MailLiteIcon = styled(MailLite)`
-  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
+  ${tw`stroke-current md:hidden text-gray-200 hover:text-teal-400`};
 `;
 const PhoneLiteIcon = styled(PhoneLite)`
-  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
+  ${tw`stroke-current md:hidden text-gray-200 hover:text-teal-400`};
 `;
 const FindLiteIcon = styled(FindLite)`
-  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
+  ${tw`stroke-current md:hidden text-gray-200 hover:text-teal-400`};
 `;
 
 const ContactBoxWrapper = styled.div`

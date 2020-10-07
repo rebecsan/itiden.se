@@ -19,7 +19,9 @@ const EmployeesWrapper = styled.div`
 `;
 const TopContentWrapper = styled.div`
   ${tw`flex -mt-20 md:(min-h-screen mt-0) items-center max-w-screen-lg mx-auto`}
-  margin-bottom: -104px;
+  @media (min-width: 768px) {
+    margin-bottom: -104px;
+  }
 `;
 const ContentWrapper = styled.div`
   ${tw`mx-6 md:mx-5 lg:mx-auto max-w-screen-lg`}
@@ -59,7 +61,7 @@ const location = {
   lng: 11.9687671,
 };
 
-const zoomLevel = 17;
+const zoomLevel = 15;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
   employees,
