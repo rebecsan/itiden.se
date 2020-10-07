@@ -4,9 +4,9 @@ import { NextPageContext } from 'next';
 import Head from 'next/head';
 import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
+import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Header, Content, Page } from '../../components/Layout';
-import { Media } from '../../components/Media/Media';
+import { Content, Page, H2 } from '../../components/Layout';
 import { Tags } from '../../components/Tag';
 import { Case } from '../../models/Case';
 
@@ -14,6 +14,41 @@ interface CasePageProps {
   data?: Case;
   router: NextRouter;
 }
+
+export const Header = styled.div`
+  ${tw`md:pt-48`}
+  & p {
+    ${tw`w-full md:w-3/4 lg:w-3/5 lg:mx-0`}
+  }
+`;
+
+const ContentMedia = styled.div`
+  ${tw`pb-16`}
+`;
+
+const MediaWrapper = styled.div`
+  ${tw`max-w-screen-lg md:mx-5 lg:m-auto bg-center bg-contain bg-no-repeat`}
+
+  @media all and (max-width: 479px) {
+    padding-top: 133%;
+    ${tw`mx-0`}
+    background-image:url(${(props: { mobileImage: string; }) => props.mobileImage});
+  }
+
+  @media all and (min-width: 480px) {
+    padding-top: 54%;
+    background-image:url(${(props: { desktopImage: string; }) => props.desktopImage});
+  }
+
+  @media (min-width: 1080px) {
+    height: 603px;
+    padding-top: 0;
+  }
+`;
+
+const Information = styled.div`
+  ${tw`pt-16 pb-20 md:pt-12`}
+`;
 
 const CasePage = ({ data }: CasePageProps) => {
   if (!data) {
@@ -27,6 +62,8 @@ const CasePage = ({ data }: CasePageProps) => {
     description,
     url,
     media,
+    desktopMedia,
+    mobileMedia,
     partners,
     labs,
   } = data;
@@ -35,40 +72,48 @@ const CasePage = ({ data }: CasePageProps) => {
     <Page>
       <CaseHeader {...data} />
       <Header>
+        {desktopMedia[0].file && mobileMedia[0].file ? (
+          <MediaWrapper desktopImage={desktopMedia[0].file.url} mobileImage={mobileMedia[0].file.url}/>
+        ) : ''}
         <Content role="main">
-          <Media media={media[0]} />
-          <h3>{labs ? 'Labs' : 'Case'}, Itiden</h3>
-          <h1>{title}</h1>
-          {documentToReactComponents(description)}
-          {url && (
-            <p>
-              Länk: <a href={url}>{url}</a>
-            </p>
-          )}
-          {partners.length > 0 && (
-            <p>Partners: {partners.map(partner => partner.name).join(', ')}</p>
-          )}
-          <div
-            css={`
-              ${tw`mt-8`}
-            `}
-          >
-            <Tags tags={technologies} />
-          </div>
-          <div
-            css={`
-              ${tw`mt-2`}
-            `}
-          >
-            <Tags tags={categories} />
-          </div>
+          <Information>
+            <H2>{title}</H2>
+            {documentToReactComponents(description)}
+            {url && (
+              <p>
+                Länk: <a href={url}>{url}</a>
+              </p>
+            )}
+            {partners.length > 0 && (
+              <p>Partners: {partners.map(partner => partner.name).join(', ')}</p>
+            )}
+            <div
+              css={`
+                ${tw`mt-8`}
+              `}
+            >
+              <Tags tags={technologies} />
+            </div>
+            <div
+              css={`
+                ${tw`mt-2`}
+              `}
+            >
+              <Tags tags={categories} />
+            </div>
+          </Information>
         </Content>
       </Header>
-      <Content>
-        {media.slice(1).map(m => (
-          <Media key={m.id} media={m} />
-        ))}
-      </Content>
+      <ContentMedia>
+        {desktopMedia[1].file && mobileMedia[1].file ? (
+          <MediaWrapper desktopImage={desktopMedia[1].file.url} mobileImage={mobileMedia[1].file.url}/>
+        ) : ''}
+      </ContentMedia>
+      <ContentMedia>
+        {desktopMedia[2].file && mobileMedia[2].file ? (
+          <MediaWrapper desktopImage={desktopMedia[2].file.url} mobileImage={mobileMedia[2].file.url}/>
+        ) : ''}
+      </ContentMedia>
     </Page>
   );
 };

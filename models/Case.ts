@@ -9,6 +9,8 @@ export interface Case {
   description: Document;
   url: string;
   media: Media[];
+  desktopMedia: Media[];
+  mobileMedia: Media[];
   partners: Partner[];
   technologies: string[];
   categories: string[];
