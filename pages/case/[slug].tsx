@@ -64,7 +64,6 @@ const CasePage = ({ data }: CasePageProps) => {
     desktopMedia,
     mobileMedia,
     partners,
-    labs,
   } = data;
 
   return (
