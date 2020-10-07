@@ -32,6 +32,7 @@ const ContentCentered = styled.div`
 `;
 
 const ParagraphCentered = styled.p`
+  ${tw`mb-0`}
   text-align: center;
 `;
 
