@@ -11,7 +11,7 @@ interface TagsProps {
 }
 
 const Box = styled.div<TagProps>`
-  ${tw`py-1 px-3 inline-block text-xs text-gray-300 leading-snug bg-gray-600`};
+  ${tw`mt-4 py-1 px-3 inline-block text-xs text-gray-300 leading-snug bg-gray-600`};
 `;
 
 export const Tag: React.FC<TagProps> = ({ children, ...rest }) => {

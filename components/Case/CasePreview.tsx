@@ -40,7 +40,7 @@ const CaseWrapper = styled.div`
 `;
 
 const TagsWrapper = styled.div`
-  ${tw`py-4 md:flex flex-wrap items-end`}
+  ${tw`md:flex flex-wrap items-end`}
 `;
 
 const A = styled.a`
