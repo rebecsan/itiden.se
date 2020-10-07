@@ -60,6 +60,8 @@ async function getCases() {
     .map(({ sys, fields }) => {
       const {
         media = [],
+        mobileMedia = [],
+        desktopMedia = [],
         partners = [],
         technologies = [],
         categories = [],
@@ -71,6 +73,8 @@ async function getCases() {
         id: sys.id,
         publishedAt: publishedAt ? publishedAt : sys.createdAt,
         media: media.map(getFields),
+        mobileMedia: mobileMedia.map(getFields),
+        desktopMedia: desktopMedia.map(getFields),
         partners: partners.map(getFields),
         technologies: technologies.map(getFields).map(entry => entry.name),
         categories: categories.map(getFields).map(entry => entry.name),
