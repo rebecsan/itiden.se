@@ -50,10 +50,6 @@ const Arrow = styled.div`
 
 const CaseWrapper = styled.div`
   ${tw`mt-24 md:mt-20`}
-
-  & p {
-    ${tw`mb-32`}
-  }
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
