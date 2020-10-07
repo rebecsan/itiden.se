@@ -6,7 +6,7 @@ import tw from 'twin.macro';
 import { Button } from '../components/Button';
 import { CaseGrid } from '../components/Case';
 import { IndexHeader } from '../components/IndexHeader';
-import { Content, HeaderWide, Page, H1, H3, Paragraph } from '../components/Layout';
+import { Content, HeaderWide, Page, H1, H3 } from '../components/Layout';
 import { Tags } from '../components/Tag';
 import { Case, Page as PageModel } from '../models';
 
@@ -31,7 +31,12 @@ const ContentCentered = styled.div`
   }
 `;
 
+const Paragraph = styled.p`
+  ${tw`text-lg text-gray-300 mt-6 sm:text-2xl`}
+`;
+
 const ParagraphCentered = styled.p`
+  ${tw`mb-0`}
   text-align: center;
 `;
 

@@ -9,7 +9,7 @@ interface CaseGridProps {
 }
 
 const Box = styled.div`
-  ${tw`w-full flex flex-wrap m-auto mt-10 justify-between`}
+  ${tw`w-full flex flex-wrap m-auto mt-10 justify-between sm:mb-4`}
   max-width: 1080px;
 `;
 

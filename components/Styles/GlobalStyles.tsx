@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`mb-3 text-2xl md:text-5xl text-gray-300 font-normal`}
   }
   h2 {
-    ${tw`text-h2 text-gray-200 font-bold`}
+    ${tw`text-h2 text-gray-200 font-semibold`}
   }
   h3 {
     ${tw`text-h3 text-gray-200 font-semibold`}
