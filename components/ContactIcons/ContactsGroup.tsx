@@ -1,16 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Mail, Find, Phone } from '../ContactIcons';
+import {
+  Mail,
+  MailLite,
+  Find,
+  FindLite,
+  Phone,
+  PhoneLite,
+} from '../ContactIcons';
 
 const MailIcon = styled(Mail)`
-  ${tw`fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
 `;
 const PhoneIcon = styled(Phone)`
-  ${tw`fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
 `;
 const FindIcon = styled(Find)`
-  ${tw`fill-current text-gray-800 hover:text-teal-400`};
+  ${tw`hidden md:block fill-current text-gray-800 hover:text-teal-400`};
+`;
+const MailLiteIcon = styled(MailLite)`
+  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
+`;
+const PhoneLiteIcon = styled(PhoneLite)`
+  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
+`;
+const FindLiteIcon = styled(FindLite)`
+  ${tw`fill-current md:hidden text-gray-800 hover:text-teal-400`};
 `;
 
 const ContactBoxWrapper = styled.div`
@@ -34,12 +50,14 @@ export const ContactsGroup = () => (
     <ContactBox>
       <ContactLink href="mailto:hej@itiden.se">
         <MailIcon />
+        <MailLiteIcon />
         <ContactInfo>hej@itiden.se</ContactInfo>
       </ContactLink>
     </ContactBox>
     <ContactBox>
       <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
         <FindIcon />
+        <FindLiteIcon />
         <ContactInfo>
           Kungstorget 11-12
           <br />
@@ -50,6 +68,7 @@ export const ContactsGroup = () => (
     <ContactBox>
       <ContactLink href="tel:0709-597008">
         <PhoneIcon />
+        <PhoneLiteIcon />
         <ContactInfo>0709-597008</ContactInfo>
       </ContactLink>
     </ContactBox>
