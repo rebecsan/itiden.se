@@ -25,7 +25,7 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
         <Tag
           key={tag}
           css={`
-            ${tw`mr-4 mb-4 whitespace-no-wrap`}
+            ${tw`mr-4 whitespace-no-wrap`}
           `}
         >
           {tag}
