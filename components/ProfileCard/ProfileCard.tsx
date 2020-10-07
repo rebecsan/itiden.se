@@ -13,11 +13,11 @@ const Avatar = styled.img`
 `;
 
 const Info = styled.div`
-  ${tw`flex flex-col justify-center`}
+  ${tw`flex flex-col justify-center text-base-links`}
 `;
 
 const Link = styled.a`
-  ${tw`outline-none`}
+  ${tw`text-teal-400 hover:text-gray-300`}
 `;
 
 interface ProfileCardProps {

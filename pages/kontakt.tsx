@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { IndexHeader } from '../components/IndexHeader';
-import { Page } from '../components/Layout';
+import { Page, Hero } from '../components/Layout';
 import { ProfileCard } from '../components/ProfileCard';
 import { Employee } from '../models/Employee';
 import { SocialmediaGroupLarge } from '../components/SocialMediaIcons/SocialmediaGroupLarge';
@@ -27,25 +27,23 @@ const ContentWrapper = styled.div`
 const QuarteredContent = styled.div`
   ${tw`flex flex-col mx-6 md:(mx-5 w-3/4) lg:(mx-0)`}
 `;
-const HeroBanner = styled.div`
-  ${tw`flex justify-center w-full`}
-`;
-const GrayBanner = styled(HeroBanner)`
+const GrayBanner = styled(Hero)`
   ${tw`mt-16 py-10 bg-gray-600`}
 `;
-const GreenBanner = styled(HeroBanner)`
+const GreenBanner = styled(Hero)`
   ${tw`py-10 bg-green text-center mb-24`};
-  span ${tw`text-xl font-semibold underline text-gray-600`}
 `;
-const WhiteBanner = styled(HeroBanner)`
-  ${tw`hidden py-10 bg-white text-center mt-32 lg:block`};
-  span ${tw`text-xl font-semibold underline text-gray-700`}
+const WhiteBanner = styled(Hero)`
+  ${tw`hidden py-10 bg-white text-center mt-32 md:block`};
 `;
-const AdressNarrow = styled.div`
-  ${tw`md:hidden`}
+const ContactLink = styled.a`
+  ${tw`text-gray-700 text-xl font-semibold cursor-pointer hover:text-purple-700`}
 `;
-const Adresswide = styled.div`
-  ${tw`hidden md:inline`}
+const AdressNarrow = styled.a`
+  ${tw`md:hidden text-gray-600 text-xl font-semibold cursor-pointer hover:text-purple-700`}
+`;
+const Adresswide = styled.a`
+  ${tw`hidden md:inline text-gray-600 text-xl font-semibold cursor-pointer hover:text-purple-700`}
 `;
 const Filler = styled.div`
   ${tw`md:hidden`}
@@ -81,10 +79,12 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
       </GrayBanner>
       <Map {...{ location, zoomLevel }} />
       <GreenBanner>
-        <AdressNarrow>
+        <AdressNarrow href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
           Kungstorget 11–12, <br /> 411 41 Göteborg
         </AdressNarrow>
-        <Adresswide>Kungstorget 11–12, 411 41 Göteborg</Adresswide>
+        <Adresswide href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
+          Kungstorget 11–12, 411 41 Göteborg
+        </Adresswide>
       </GreenBanner>
       <ContentWrapper>
         <h2>Medarbetare</h2>
@@ -105,10 +105,10 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
         </EmployeesWrapper>
       </ContentWrapper>
       <WhiteBanner>
-        <span>
+        <ContactLink href="mailto:hej@itiden.se?subject=Ny medarbetare?">
           Hör av dig, vi är alltid intresserade av duktiga och drivna
           medarbetare!
-        </span>
+        </ContactLink>
       </WhiteBanner>
     </Page>
   );
