@@ -24,7 +24,7 @@ export const PhoneLite: React.FC<LogoProps> = props => {
           rx="3"
           transform="rotate(-60 1.36603 36.0705)"
           stroke="#EBEBEB"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <rect
           x="2.99121"
