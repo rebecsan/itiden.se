@@ -18,7 +18,8 @@ const EmployeesWrapper = styled.div`
   ${tw`flex flex flex-wrap`};
 `;
 const TopContentWrapper = styled.div`
-  ${tw`flex -mt-20 md:(min-h-screen -mt-12 -mb-32) items-center max-w-screen-lg mx-auto`}
+  ${tw`flex -mt-20 md:(min-h-screen mt-0) items-center max-w-screen-lg mx-auto`}
+  margin-bottom: -104px;
 `;
 const ContentWrapper = styled.div`
   ${tw`mx-6 md:mx-5 lg:mx-auto max-w-screen-lg`}
@@ -98,7 +99,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
                 phone={employee.phone}
                 avatarFileUrl={employee.avatar?.file.url}
               />
-              <Divider />
+              <Divider key={employee.id} />
             </>
           ))}
         </EmployeesWrapper>
