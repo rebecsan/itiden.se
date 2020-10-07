@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const SPACE = process.env.CONTENTFUL_SPACE;
 const TOKEN = process.env.CONTENTFUL_TOKEN;
+const PREVIEW_TOKEN = process.env.CONTENTFUL_PREVIEW_TOKEN;
 
 const client = createClient({
   space: SPACE,
