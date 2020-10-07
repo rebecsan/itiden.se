@@ -11,7 +11,8 @@ const PREVIEW_TOKEN = process.env.CONTENTFUL_PREVIEW_TOKEN;
 
 const client = createClient({
   space: SPACE,
-  accessToken: TOKEN,
+  accessToken: PREVIEW_TOKEN,
+  host: "preview.contentful.com"
 });
 
 const dataDir = path.join(__dirname, '..', 'data', 'data');
