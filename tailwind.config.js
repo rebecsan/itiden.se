@@ -17,7 +17,7 @@ module.exports = {
       '5xl': ['48px', { letterSpacing: '0.01em', lineHeight: '162.5%' }],
       h2: ['32px', { letterSpacing: '0.02em', lineHeight: '137.5%' }],
       h3: ['24px', { letterSpacing: '0.02em', lineHeight: '137.5%' }],
-      // h3-links: Samma som h3 + underline
+      // h3-links: Samma som h3 + underline + font-bold
       'h3-links-light-bg': ['24px', { lineHeight: '137.5%' }], // + underline + font-bold
       h4: ['16px', { letterSpacing: '0.01em', lineHeight: '137.5%' }],
     },

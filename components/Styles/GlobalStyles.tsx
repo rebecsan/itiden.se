@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     ${tw`text-h2 text-gray-200 font-bold`}
   }
   h3 {
-    ${tw`text-h3 text-gray-200 font-bold`}
+    ${tw`text-h3 text-gray-200 font-semibold`}
   }
   h4 {
     ${tw`text-h4 text-gray-200 font-semibold underline`}

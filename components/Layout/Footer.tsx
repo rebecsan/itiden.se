@@ -34,7 +34,7 @@ const ContactLink = styled.a`
 `;
 
 const ContactInfo = styled.h3`
-  ${tw`font-bold text-gray-700 md:text-gray-300 hover:text-purple-700 hover:md:text-teal-400`};
+  ${tw`text-h3-links-light-bg font-bold md:(text-h3) text-gray-700 md:text-gray-300 hover:text-purple-700 hover:md:text-teal-400`};
 `;
 
 const ContactContainer = styled.div`
