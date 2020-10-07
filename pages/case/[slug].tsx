@@ -61,7 +61,6 @@ const CasePage = ({ data }: CasePageProps) => {
     categories,
     description,
     url,
-    media,
     desktopMedia,
     mobileMedia,
     partners,
@@ -126,8 +125,8 @@ CasePage.getInitialProps = async ({ query }: NextPageContext) => {
 
 export default withRouter(CasePage);
 
-const CaseHeader: React.FC<Case> = ({ title, description, media, slug }) => {
-  const imageUrl = media[0].file.url;
+const CaseHeader: React.FC<Case> = ({ title, description, desktopMedia, slug }) => {
+  const imageUrl = desktopMedia[0].file.url;
   const descriptionString: string = documentToPlainTextString(description);
 
   return (
