@@ -11,3 +11,4 @@ export * from './H3';
 export * from './H4';
 export * from './Paragraph';
 export * from './Hero';
+export * from './Contact';
