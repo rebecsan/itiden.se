@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import GoogleMapReact from 'google-map-react';
 import { Pin } from './Pin';
+import mapStyle from '../../public/static/mapStyle.json';
 
 type LocationProps = {
   location: {
@@ -20,8 +21,6 @@ const MapContainer = styled.div`
 const Marker = styled(Pin)`
   ${tw`-translate-x-1/2 -translate-y-full`}
 `;
-
-const mapStyle = require('../../public/static/mapStyle.json');
 
 export const Map = ({ location, zoomLevel }: LocationProps) => {
   const center = { lat: 57.7025937, lng: 11.965612 };
