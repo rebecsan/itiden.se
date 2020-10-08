@@ -27,7 +27,8 @@ const ContentMedia = styled.div`
 `;
 
 const MediaWrapper = styled.div`
-  ${tw`max-w-screen-lg md:mx-5 lg:m-auto bg-center bg-contain bg-no-repeat`}
+  ${tw`max-w-screen-lg bg-center bg-contain bg-no-repeat mx-6 sm:mx-5`}
+  background-size: 100%;
 
   @media all and (max-width: 479px) {
     padding-top: 133%;
@@ -36,13 +37,13 @@ const MediaWrapper = styled.div`
   }
 
   @media all and (min-width: 480px) {
-    padding-top: 54%;
+    padding-top: 52%;
     background-image:url(${(props: { desktopImage: string; }) => props.desktopImage});
   }
 
   @media (min-width: 1080px) {
+    ${tw`pt-0 m-auto`}
     height: 603px;
-    padding-top: 0;
   }
 `;
 
@@ -67,7 +68,7 @@ const CasePage = ({ data }: CasePageProps) => {
   } = data;
 
   return (
-    <Page>
+    <Page noLogoFnutt>
       <CaseHeader {...data} />
       <Header>
         {desktopMedia[0] && mobileMedia[0] ? (

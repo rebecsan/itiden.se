@@ -8,20 +8,29 @@ import { NavLink } from '../Navigation/NavLink';
 // import { Search } from '../Search';
 // import { VisuallyHidden } from '../Helpers/VisuallyHidden';
 
+interface HeaderProps {
+  noLogoFnutt?: boolean;
+}
+
 const HeaderWrapper = styled.div`
   z-index: 1;
   ${tw`w-full bg-gray-800 bg-opacity-90 md:fixed`}
 `;
 
 const Content = styled.div`
-  ${tw`flex px-6 md:px-5 lg:px-0 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6`};
+  ${tw`flex px-6 md:px-5 lg:px-0 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6 sm:pt-5`};
+  max-width: 1080px;
 
-  @media (min-width: 1080px) {
-    width: 1080px;
+  @media (max-width: 479px) {
+    ${tw`pt-0`}
   }
 
   @media (max-width: 767px) {
-    height: 80px;
+    height: ${(props: { noLogoFnutt: boolean; }) => props.noLogoFnutt ? '0px' : '80px'};
+  }
+
+  @media (min-width: 1080px) {
+    max-width: 1040px;
   }
 `;
 
@@ -50,7 +59,7 @@ const HeaderLogoFnutt = styled(LogoFnutt)`
   left: 24px;
 `;
 
-export const Header: React.FC<{}> = () => {
+export const Header: React.FC<HeaderProps> = props => {
   // const [showSearch, setShowSearch] = React.useState(false);
 
   // function handleSearchClick() {
@@ -63,11 +72,13 @@ export const Header: React.FC<{}> = () => {
 
   return (
     <HeaderWrapper>
-      <Content role="complementary">
+      <Content noLogoFnutt={props.noLogoFnutt} role="complementary">
         <Link href="/">
           <a aria-label="itiden.se">
             <HeaderLogo />
-            <HeaderLogoFnutt />
+            { !props.noLogoFnutt && 
+              <HeaderLogoFnutt />
+            }
           </a>
         </Link>
         <Menu>
