@@ -32,8 +32,7 @@ const Menu = styled.nav`
   z-index: 1;
 
   @media (max-width: 767px) {
-    ${tw`bg-gray-900 px-6 border-solid border-0 border-t border-purple-700`};
-    justify-content: space-evenly;
+    ${tw`bg-gray-900 px-12 md:px-4 border-solid border-0 border-t border-purple-700`};
     position: fixed;
     width: 100%;
     bottom: 0;

@@ -70,7 +70,7 @@ const CasePage = ({ data }: CasePageProps) => {
     <Page>
       <CaseHeader {...data} />
       <Header>
-        {desktopMedia[0].file && mobileMedia[0].file ? (
+        {desktopMedia[0] && mobileMedia[0] ? (
           <MediaWrapper desktopImage={desktopMedia[0].file.url} mobileImage={mobileMedia[0].file.url}/>
         ) : ''}
         <Content role="main">
@@ -103,12 +103,12 @@ const CasePage = ({ data }: CasePageProps) => {
         </Content>
       </Header>
       <ContentMedia>
-        {desktopMedia[1].file && mobileMedia[1].file ? (
+        {desktopMedia[1] && mobileMedia[1] ? (
           <MediaWrapper desktopImage={desktopMedia[1].file.url} mobileImage={mobileMedia[1].file.url}/>
         ) : ''}
       </ContentMedia>
       <ContentMedia>
-        {desktopMedia[2].file && mobileMedia[2].file ? (
+        {desktopMedia[2] && mobileMedia[2] ? (
           <MediaWrapper desktopImage={desktopMedia[2].file.url} mobileImage={mobileMedia[2].file.url}/>
         ) : ''}
       </ContentMedia>
@@ -125,7 +125,7 @@ CasePage.getInitialProps = async ({ query }: NextPageContext) => {
 export default withRouter(CasePage);
 
 const CaseHeader: React.FC<Case> = ({ title, description, desktopMedia, slug }) => {
-  const imageUrl = desktopMedia[0].file.url;
+  const imageUrl = desktopMedia[0] ? desktopMedia[0].file.url : '';
   const descriptionString: string = documentToPlainTextString(description);
 
   return (
