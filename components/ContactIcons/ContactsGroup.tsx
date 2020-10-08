@@ -41,6 +41,7 @@ const ContactBoxWrapper = styled.div`
 
 const ContactBox = styled.div`
   ${tw`items-center flex flex-row md:flex-col pt-8`}
+  min-width: 168px;
 `;
 
 const ContactLink = styled.a`
