@@ -56,7 +56,6 @@ const Divider = styled.div`
 `;
 
 const location = {
-  address: 'Kungstorget 11, 411 10 Göteborg',
   lat: 57.703771,
   lng: 11.9687671,
 };
@@ -101,7 +100,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
                 phone={employee.phone}
                 avatarFileUrl={employee.avatar?.file.url}
               />
-              <Divider key={employee.id} />
+              <Divider key={employee.name} />
             </>
           ))}
         </EmployeesWrapper>
