@@ -6,7 +6,7 @@ import { withRouter, NextRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { Content, Page, H2 } from '../../components/Layout';
+import { Content, Contact, Page, H2 } from '../../components/Layout';
 import { Tags } from '../../components/Tag';
 import { Case } from '../../models/Case';
 
@@ -128,6 +128,7 @@ const CasePage = ({ data }: CasePageProps) => {
           <MediaWrapper desktopImage={desktopMedia[2].file.url} mobileImage={mobileMedia[2].file.url}/>
         ) : ''}
       </ContentMedia>
+      <Contact />
     </Page>
   );
 };
