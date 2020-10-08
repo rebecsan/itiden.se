@@ -5,7 +5,7 @@ import { Content, Hero } from '../Layout';
 import { ContactsGroup } from '../../components/ContactIcons/ContactsGroup';
 
 const ContactWrapper = styled.div`
-  ${tw`mb-24`}
+  ${tw`mb-24 hidden sm:block`}
 `;
 
 const GreenBanner = styled(Hero)`
