@@ -9,8 +9,13 @@ const FooterContainer = styled.footer`
 `;
 
 const Container = styled.div`
-  ${tw`mx-auto flex flex-col justify-between text-gray-600 md:text-gray-350 px-6 pt-6 pb-5 md:(px-5 pt-16 pb-10) lg:px-0`};
-  max-width: 1080px;
+  ${tw`mx-auto flex flex-col justify-between text-gray-600 md:text-gray-350 px-6 md:px-5 pt-6 pb-5 md:(pt-16 pb-10)`};
+  max-width: 1120px;
+
+  @media (min-width: 1120px) {
+    ${tw`px-0 m-auto`}
+    max-width: 1080px;
+  }
 `;
 
 const RowWrapper = styled.div`

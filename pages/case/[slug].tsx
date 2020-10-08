@@ -29,6 +29,7 @@ const ContentMedia = styled.div`
 const MediaWrapper = styled.div`
   ${tw`max-w-screen-lg bg-center bg-contain bg-no-repeat mx-6 sm:mx-5`}
   background-size: 100%;
+  max-width: 1120px;
 
   @media all and (max-width: 479px) {
     padding-top: 133%;
@@ -42,13 +43,27 @@ const MediaWrapper = styled.div`
   }
 
   @media (min-width: 1080px) {
-    ${tw`pt-0 m-auto`}
+    ${tw`pt-0`}
     height: 603px;
   }
+
+  @media (min-width: 1120px) {
+    ${tw`px-0 m-auto`}
+    max-width: 1080px;
+  }
+
 `;
 
 const Information = styled.div`
   ${tw`pt-16 pb-20 md:pt-12`}
+
+  & p {
+    ${tw`text-lg`}
+  }
+
+  & a {
+    ${tw`text-teal-400 hover:text-gray-100`}
+  }
 `;
 
 const CasePage = ({ data }: CasePageProps) => {

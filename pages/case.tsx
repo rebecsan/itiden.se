@@ -44,7 +44,9 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           </Content>
         </ContentWrapper>
       </Header>
-      <CaseGrid cases={cases.filter(c => !c.labs)} />
+      <Content>
+        <CaseGrid cases={cases.filter(c => !c.labs)} />
+      </Content>
       <ContentWrapper paddingTop={'4rem'} paddingBottom={'0.5rem'}>
         <Content>
           <H3>Itiden Lab</H3>
@@ -53,9 +55,11 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
           </Paragraph>
         </Content>
       </ContentWrapper>
-      <CaseGridWrapper>
-        <CaseGrid cases={cases.filter(c => c.labs)} />
-      </CaseGridWrapper>
+      <Content>
+        <CaseGridWrapper>
+          <CaseGrid cases={cases.filter(c => c.labs)} />
+        </CaseGridWrapper>
+      </Content>
     </Page>
   );
 };

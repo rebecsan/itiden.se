@@ -2,5 +2,11 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 export const Content = styled.div`
-  ${tw`max-w-screen-lg mx-6 md:mx-5 lg:m-auto`}
+  ${tw`px-6 md:px-5`}
+  max-width: 1120px;
+
+  @media (min-width: 1120px) {
+    ${tw`px-0 m-auto`}
+    max-width: 1080px;
+  }
 `;

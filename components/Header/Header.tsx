@@ -18,8 +18,8 @@ const HeaderWrapper = styled.div`
 `;
 
 const Content = styled.div`
-  ${tw`flex px-6 md:px-5 lg:px-0 lg:m-auto items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6 sm:pt-5`};
-  max-width: 1080px;
+  ${tw`flex px-6 md:px-5 items-center justify-center flex-col md:flex-row md:justify-between md:items-baseline flex-wrap pt-6 sm:pt-5`};
+  max-width: 1120px;
 
   @media (max-width: 479px) {
     ${tw`pt-0`}
@@ -29,8 +29,9 @@ const Content = styled.div`
     height: ${(props: { noLogoFnutt: boolean; }) => props.noLogoFnutt ? '0px' : '80px'};
   }
 
-  @media (min-width: 1080px) {
-    max-width: 1040px;
+  @media (min-width: 1120px) {
+    ${tw`px-0 m-auto`}
+    max-width: 1080px;
   }
 `;
 
