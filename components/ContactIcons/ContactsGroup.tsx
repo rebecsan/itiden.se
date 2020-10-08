@@ -10,6 +10,12 @@ import {
   PhoneLite,
 } from '../ContactIcons';
 
+interface ContactsGroupProps {
+  mail?: boolean;
+  location?: boolean;
+  phone?: boolean;
+}
+
 const MailIcon = styled(Mail)`
   ${tw`hidden md:block stroke-current text-gray-200 hover:text-teal-400`};
 `;
@@ -45,32 +51,46 @@ const ContactInfo = styled.span`
   ${tw`pl-6 md:(block pl-0 pt-3 text-center)`}
 `;
 
-export const ContactsGroup = () => (
-  <ContactBoxWrapper>
-    <ContactBox>
-      <ContactLink href="mailto:hej@itiden.se">
-        <MailIcon />
-        <MailLiteIcon />
-        <ContactInfo>hej@itiden.se</ContactInfo>
-      </ContactLink>
-    </ContactBox>
-    <ContactBox>
-      <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
-        <FindIcon />
-        <FindLiteIcon />
-        <ContactInfo>
-          Kungstorget 11-12
-          <br />
-          411 41 Göteborg
-        </ContactInfo>
-      </ContactLink>
-    </ContactBox>
-    <ContactBox>
-      <ContactLink href="tel:0709-597008">
-        <PhoneIcon />
-        <PhoneLiteIcon />
-        <ContactInfo>0709-597008</ContactInfo>
-      </ContactLink>
-    </ContactBox>
-  </ContactBoxWrapper>
-);
+export const ContactsGroup: React.FC<ContactsGroupProps> = props => {
+  return (
+    <ContactBoxWrapper>
+      { props.mail &&
+        <>
+          <ContactBox>
+            <ContactLink href="mailto:hej@itiden.se">
+                  <MailIcon />
+                  <MailLiteIcon />
+                  <ContactInfo>hej@itiden.se</ContactInfo>
+            </ContactLink>
+          </ContactBox>
+        </>
+      }
+      { props.location &&
+        <>
+          <ContactBox>
+              <ContactLink href="https://goo.gl/maps/Dqa7A3jFhuyatxjC8">
+                <FindIcon />
+                <FindLiteIcon />
+                <ContactInfo>
+                  Kungstorget 11-12
+                  <br />
+                  411 41 Göteborg
+                </ContactInfo>
+              </ContactLink>
+          </ContactBox>
+        </>
+      }
+      { props.phone &&
+        <>
+          <ContactBox>
+            <ContactLink href="tel:0709-597008">
+              <PhoneIcon />
+              <PhoneLiteIcon />
+              <ContactInfo>0709-597008</ContactInfo>
+            </ContactLink>
+          </ContactBox>
+        </>
+      }
+    </ContactBoxWrapper>
+  );
+};

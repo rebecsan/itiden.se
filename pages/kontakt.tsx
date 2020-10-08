@@ -72,7 +72,7 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({
       <TopContentWrapper>
         <QuarteredContent>
           <h1>Vi ser fram emot att höra från dig.</h1>
-          <ContactsGroup />
+          <ContactsGroup mail location phone />
         </QuarteredContent>
       </TopContentWrapper>
       <GrayBanner>
