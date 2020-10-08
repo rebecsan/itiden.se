@@ -17,11 +17,17 @@ const ContentWrapper = styled.div`
 `;
 
 const CaseGridWrapper = styled.div`
-  ${tw`mt-12`}
+  ${tw`mt-16 md:mt-6`}
 `;
 
 const Paragraph = styled.p`
-  ${tw`text-lg text-gray-300 mt-1 sm:text-xl`}
+  ${tw`text-lg text-gray-300 mt-1 sm:text-xl w-full md:w-3/4 lg:w-3/5`}
+  padding-bottom: ${(props: { paddingBottom: string; }) => props.paddingBottom};
+
+  @media (max-width: 767px) {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 `;
 
 const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
@@ -32,14 +38,14 @@ const IndexPage: NextComponentType<{}, {}, IndexPageProps> = ({ cases }) => {
         <ContentWrapper paddingTop={'16rem'} paddingBottom={'0.5rem'}>
           <Content>
             <H2>Fin rubrik till case</H2>
-            <Paragraph>
+            <Paragraph paddingBottom={'1.5rem'}>
               Vi kan Ux, Html, Css, Javascript, React, React Native, Php, Laravel, Android, iOS, Mobil, Desktop, App, Webb, Next.js, CMS, TypeScript, Frontend, Backend, AR, VR, Drupal, Wordpress och mer därtill. Utmana oss gärna.
             </Paragraph>
           </Content>
         </ContentWrapper>
       </Header>
       <CaseGrid cases={cases.filter(c => !c.labs)} />
-      <ContentWrapper paddingTop={'8rem'} paddingBottom={'0.5rem'}>
+      <ContentWrapper paddingTop={'4rem'} paddingBottom={'0.5rem'}>
         <Content>
           <H3>Itiden Lab</H3>
           <Paragraph>
